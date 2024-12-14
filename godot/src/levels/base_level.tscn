@@ -16,6 +16,7 @@ autostart = true
 position = Vector2(160, 160)
 
 [node name="Camera2D" type="Camera2D" parent="Sled"]
+offset = Vector2(0, 200)
 position_smoothing_enabled = true
 position_smoothing_speed = 2.0
 
