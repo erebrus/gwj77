@@ -1,6 +1,6 @@
 import git
 
-repo_path = '../../'
+repo_path = '../../../'
 
 def get_latest_tag()->git.TagReference:
     repo = git.Repo(repo_path)

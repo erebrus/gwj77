@@ -2,7 +2,7 @@ import os
 import re
 import fileinput
 
-project_path:str = '../../godot/'
+project_path:str = '../../../godot/'
 
 class GameVersion:
     major:int
