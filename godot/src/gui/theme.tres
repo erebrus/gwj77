@@ -1,0 +1,7 @@
+[gd_resource type="Theme" load_steps=2 format=3 uid="uid://bwsudxwusgxog"]
+
+[ext_resource type="FontFile" uid="uid://dhke1esa3nyn2" path="res://assets/fonts/kenney/Kenney Mini Square.ttf" id="1_at25y"]
+
+[resource]
+default_font = ExtResource("1_at25y")
+Label/colors/font_color = Color(0, 0, 0, 1)

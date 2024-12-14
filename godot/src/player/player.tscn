@@ -1,0 +1,28 @@
+[gd_scene load_steps=5 format=3 uid="uid://clb8hsk8dib5x"]
+
+[ext_resource type="Script" path="res://src/player/player.gd" id="1_ks2bi"]
+[ext_resource type="PackedScene" uid="uid://e1fa5dcqp2bl" path="res://src/player/dog/dog_pair.tscn" id="2_eqnvy"]
+[ext_resource type="Texture2D" uid="uid://cufp0bnjgk2sn" path="res://assets/gfx/placeholder_sled.png" id="3_3p5tm"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ov54e"]
+size = Vector2(20, 19)
+
+[node name="Player" type="Node2D"]
+script = ExtResource("1_ks2bi")
+DogPairScene = ExtResource("2_eqnvy")
+
+[node name="Sled" type="Area2D" parent="."]
+collision_layer = 0
+collision_mask = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Sled"]
+position = Vector2(0, -8.5)
+shape = SubResource("RectangleShape2D_ov54e")
+
+[node name="Sprite2D" type="Sprite2D" parent="Sled"]
+position = Vector2(0, -13)
+texture = ExtResource("3_3p5tm")
+
+[node name="Lead" type="Line2D" parent="."]
+width = 2.0
+default_color = Color(0, 0.486275, 0.486275, 1)

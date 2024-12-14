@@ -1,0 +1,31 @@
+[gd_scene load_steps=4 format=3 uid="uid://e1fa5dcqp2bl"]
+
+[ext_resource type="PackedScene" uid="uid://bxu77ytpqo6r0" path="res://src/player/dog/dog.tscn" id="1_1l8dk"]
+[ext_resource type="Script" path="res://src/player/dog/dog_pair.gd" id="1_mskdk"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_aw0t7"]
+radius = 8.0
+
+[node name="DogPair" type="CharacterBody2D"]
+script = ExtResource("1_mskdk")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0, 16)
+rotation = 1.5708
+shape = SubResource("CapsuleShape2D_aw0t7")
+
+[node name="LeftLead" type="Line2D" parent="."]
+points = PackedVector2Array(0, 0, 0, 0)
+width = 2.0
+default_color = Color(0, 0.486275, 0.486275, 1)
+
+[node name="RightLead" type="Line2D" parent="."]
+points = PackedVector2Array(0, 0, 0, 0)
+width = 2.0
+default_color = Color(0, 0.486962, 0.486961, 1)
+
+[node name="LeftDog" parent="." instance=ExtResource("1_1l8dk")]
+position = Vector2(-9, 5)
+
+[node name="RightDog" parent="." instance=ExtResource("1_1l8dk")]
+position = Vector2(9, 5)

@@ -46,15 +46,12 @@ func start_game():
 	
 	music_manager.fade_menu_music()
 	await get_tree().create_timer(1).timeout
-	music_manager.reset_synchronized_stream()
+	#music_manager.reset_synchronized_stream()
 
 	get_tree().change_scene_to_file(GAME_SCENE_PATH)
 	music_manager.fade_in_game_music()
 	
-	
 
-
-	
 func _init_logger():
 	Logger.set_logger_level(Logger.LOG_LEVEL_INFO)
 	Logger.set_logger_format(Logger.LOG_FORMAT_MORE)
@@ -68,7 +65,7 @@ func _init_logger():
 
 
 func do_lose():
-	get_tree().quit()
+	start_game()
 
 func do_win():
 	get_tree().quit()
