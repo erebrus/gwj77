@@ -6,7 +6,7 @@ on:
 
 env:
   GODOT_VERSION: 4.3.stable
-  EXPORT_NAME: gwj77
+  EXPORT_NAME: gwj-77
   ITCH_GAME: gwj-77
   ITCH_USER: erebrus
 
