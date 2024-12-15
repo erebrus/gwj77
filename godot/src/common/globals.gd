@@ -67,6 +67,9 @@ func _init_logger():
 	
 
 func toggle_landscape(toggled_on: bool) -> void:
+	if toggled_on == landscape:
+		return
+	
 	landscape = toggled_on
 	start_game()
 	
