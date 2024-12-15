@@ -1,0 +1,67 @@
+[gd_scene load_steps=8 format=3 uid="uid://berp0bpd3fukm"]
+
+[ext_resource type="Script" path="res://src/player/dog/dog_pair_side.gd" id="1_35xlw"]
+[ext_resource type="Texture2D" uid="uid://bbanwgi8i2om1" path="res://assets/gfx/dogs/placeholder_dog_side.png" id="1_axr1d"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_c31sc"]
+radius = 8.0
+height = 26.0
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_warsp"]
+atlas = ExtResource("1_axr1d")
+region = Rect2(0, 0, 21, 15)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_18qnw"]
+atlas = ExtResource("1_axr1d")
+region = Rect2(21, 0, 21, 15)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_53ab7"]
+atlas = ExtResource("1_axr1d")
+region = Rect2(42, 0, 21, 15)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_36ath"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_warsp")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_18qnw")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_53ab7")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[node name="DogPairSide" type="CharacterBody2D"]
+script = ExtResource("1_35xlw")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(8.5, 1.5)
+rotation = 1.5708
+shape = SubResource("CapsuleShape2D_c31sc")
+
+[node name="LeftDog" type="AnimatedSprite2D" parent="."]
+position = Vector2(7.5, -5.5)
+sprite_frames = SubResource("SpriteFrames_36ath")
+autoplay = "default"
+frame_progress = 0.515832
+
+[node name="LeftLead" type="Line2D" parent="."]
+points = PackedVector2Array(5.5, -7.5, 0, 0)
+width = 2.0
+default_color = Color(0, 0.486275, 0.486275, 1)
+
+[node name="RightLead" type="Line2D" parent="."]
+points = PackedVector2Array(5.5, 3.5, 0, 0)
+width = 2.0
+default_color = Color(0, 0.486962, 0.486961, 1)
+
+[node name="RightDog" type="AnimatedSprite2D" parent="."]
+position = Vector2(7.5, 5.5)
+sprite_frames = SubResource("SpriteFrames_36ath")
+autoplay = "default"
+frame_progress = 0.264525

@@ -29,6 +29,7 @@ var sound_on:=true:
 		AudioServer.set_bus_volume_db(sfx_index, 0 if sound_on else -60)
 	
 
+var landscape: bool = true
 @onready var music_manager: MusicManager = $MusicManager
 
 
@@ -40,6 +41,7 @@ func _ready():
 
 	#start_game()
 	
+
 func start_game():
 	in_game=true
 
@@ -62,7 +64,12 @@ func _init_logger():
 	file_appender.logger_format=Logger.LOG_FORMAT_FULL
 	file_appender.logger_level = Logger.LOG_LEVEL_DEBUG
 	Logger.info("Logger initialized.")
+	
 
+func toggle_landscape(toggled_on: bool) -> void:
+	landscape = toggled_on
+	start_game()
+	
 
 func do_lose():
 	start_game()
