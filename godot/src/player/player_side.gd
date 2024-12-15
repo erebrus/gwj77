@@ -42,7 +42,7 @@ func _physics_process(delta: float) -> void:
 		var current_position = dog_pairs[i + 1].global_position
 		target_positions.append(_target_position(current_position, target_positions.back(), distance))
 	
-	target_positions.append(_target_position(sled.global_position, target_positions.back(), sled_distance))
+	target_positions.append(_target_position(sled.global_position, target_positions.back(), sled_distance) + Vector2(0, 1))
 	
 	lead.clear_points()
 	
