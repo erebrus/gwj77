@@ -7,7 +7,7 @@
 [ext_resource type="Script" path="res://src/player/jump/jump_component.gd" id="4_xlo5g"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_p8kj0"]
-size = Vector2(28.5, 6)
+size = Vector2(16, 6)
 
 [node name="Sled" type="Area2D" node_paths=PackedStringArray("follow_component", "jump_component")]
 collision_mask = 0
