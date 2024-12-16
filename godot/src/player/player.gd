@@ -29,21 +29,21 @@ func _ready() -> void:
 	
 
 func _physics_process(delta: float) -> void:
-	if not is_alive:
-		return
 	
 	sled.follow_component.at_distance(sled_distance)
 	for i in dog_pair_number - 1:
 		dog_pairs[i].follow_component.at_distance(distance)
 		
-	var input = Input.get_axis("move_left", "move_right")
-	var velocity = Vector2(speed, input * turn_speed)
-	dog_pairs.back().position += delta * velocity
+	if is_alive:
+		var input = Input.get_axis("move_left", "move_right")
+		var velocity = Vector2(speed, input * turn_speed)
+		dog_pairs.back().position += delta * velocity
+		
+		if Input.is_action_just_pressed("jump"):
+			dog_pairs.back().jump_component.jump()
 	
 	_recalibrate_positions()
 	
-	if Input.is_action_just_pressed("jump"):
-		dog_pairs.back().jump_component.jump()
 	
 
 func crash() -> void:
