@@ -1,17 +1,17 @@
-[gd_scene load_steps=3 format=3 uid="uid://cyguq2u5akmjd"]
+[gd_scene load_steps=3 format=3 uid="uid://cojv1dhgejmm"]
 
-[ext_resource type="Texture2D" uid="uid://cgrt0obptdy0i" path="res://assets/gfx/placeholder_tree.png" id="1_ibxip"]
+[ext_resource type="Texture2D" uid="uid://cgrt0obptdy0i" path="res://assets/gfx/placeholder_tree.png" id="1_y5cw8"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_5pkmm"]
-size = Vector2(14, 14)
+size = Vector2(18, 8)
 
 [node name="Tree" type="Area2D"]
 collision_layer = 2
 collision_mask = 0
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(0, 9)
+position = Vector2(0, 12)
 shape = SubResource("RectangleShape2D_5pkmm")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
-texture = ExtResource("1_ibxip")
+texture = ExtResource("1_y5cw8")

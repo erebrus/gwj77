@@ -1,1 +1,0 @@
-class_name Dog extends CharacterBody2D

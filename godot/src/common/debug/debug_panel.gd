@@ -3,7 +3,6 @@ extends PanelContainer
 
 func _ready() -> void:
 	hide()
-	%LandscapeButton.button_pressed = Globals.landscape
 	
 
 func _input(event: InputEvent) -> void:
@@ -24,8 +23,4 @@ func _on_next_level_pressed():
 
 func _on_win_game_pressed():
 	Globals.do_win()
-	
-
-func _on_landscape_button_toggled(toggled_on):
-	Globals.toggle_landscape(toggled_on)
 	

@@ -1,25 +1,16 @@
-[gd_scene load_steps=7 format=3 uid="uid://ke438w5ne7cw"]
+[gd_scene load_steps=6 format=3 uid="uid://ke438w5ne7cw"]
 
 [ext_resource type="Script" path="res://src/main.gd" id="1_qalx3"]
-[ext_resource type="PackedScene" uid="uid://c0alktm18hp6c" path="res://src/levels/base_level.tscn" id="1_yyl4k"]
 [ext_resource type="Theme" uid="uid://bwsudxwusgxog" path="res://src/gui/theme.tres" id="2_m0pdl"]
 [ext_resource type="PackedScene" uid="uid://dfwjdasqow7ux" path="res://src/gui/timer/timer_ui.tscn" id="3_4j3po"]
-[ext_resource type="PackedScene" uid="uid://cxt63d3uyyala" path="res://src/levels/landscape_base_level.tscn" id="3_xm470"]
+[ext_resource type="PackedScene" uid="uid://cxt63d3uyyala" path="res://src/levels/base_level.tscn" id="3_xm470"]
 
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_cjqgf"]
-bg_color = Color(0.6, 0.6, 0.6, 0)
-border_width_left = 1
-border_width_top = 1
-border_width_right = 1
-border_width_bottom = 1
-border_color = Color(0, 0, 0, 1)
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_6vxwb"]
 
 [node name="Main" type="Node"]
 script = ExtResource("1_qalx3")
 
-[node name="PortraitLevel" parent="." instance=ExtResource("1_yyl4k")]
-
-[node name="LandscapeBaseLevel" parent="." instance=ExtResource("3_xm470")]
+[node name="BaseLevel" parent="." instance=ExtResource("3_xm470")]
 
 [node name="GUI" type="CanvasLayer" parent="."]
 
@@ -31,7 +22,7 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 theme = ExtResource("2_m0pdl")
-theme_override_styles/panel = SubResource("StyleBoxFlat_cjqgf")
+theme_override_styles/panel = SubResource("StyleBoxEmpty_6vxwb")
 
 [node name="TimerUi" parent="GUI/ViewportBorder" instance=ExtResource("3_4j3po")]
 unique_name_in_owner = true
