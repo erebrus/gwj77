@@ -8,19 +8,17 @@ extends Node2D
 @export var distance:= 20.0
 
 @export var turn_speed:= 40
-@export var speed:= 200
+@export var speed:= 100
 
 var dog_pairs: Array[DogPair]
 var is_alive:= false
 
-@onready var lead: Line2D = $Lead
 @onready var sled: Area2D = $Sled
 
 
 func _ready() -> void:
 	sled.area_entered.connect(_on_sled_area_entered)
 	
-	lead.add_point(Vector2.ZERO)
 	_add_dog_pair(Vector2(sled_distance, 0))
 	
 	for i in range(1, dog_pair_number):
@@ -59,7 +57,8 @@ func _recalibrate_positions() -> void:
 	
 	for i in dog_pair_number:
 		dog_pairs[i].position -= sled_offset
-		lead.points[i+1] = dog_pairs[i].lead_marker.global_position - global_position
+	
+	dog_pairs.front().set_trailing_lead(sled.global_position)
 	
 
 func _add_dog_pair(at_position: Vector2) -> void:
@@ -67,7 +66,6 @@ func _add_dog_pair(at_position: Vector2) -> void:
 	dogs.position = at_position
 	add_child(dogs)
 	dog_pairs.append(dogs)
-	lead.add_point(at_position)
 	
 
 func _on_sled_area_entered(_area: Area2D) -> void:

@@ -1,7 +1,8 @@
-[gd_scene load_steps=7 format=3 uid="uid://dgmyppls2ppbo"]
+[gd_scene load_steps=8 format=3 uid="uid://dgmyppls2ppbo"]
 
 [ext_resource type="Texture2D" uid="uid://bbanwgi8i2om1" path="res://assets/gfx/dogs/placeholder_dog_side.png" id="1_8ilm8"]
 [ext_resource type="Script" path="res://src/player/dog/dog.gd" id="2_131mw"]
+[ext_resource type="PackedScene" uid="uid://gdqr022umlpa" path="res://src/components/shadow/shadow.tscn" id="3_2wnjp"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_warsp"]
 atlas = ExtResource("1_8ilm8")
@@ -32,9 +33,20 @@ animations = [{
 "speed": 5.0
 }]
 
-[node name="Dog" type="AnimatedSprite2D"]
-position = Vector2(3, 2)
+[node name="Dog" type="Node2D"]
+script = ExtResource("2_131mw")
+
+[node name="Shadow" parent="." instance=ExtResource("3_2wnjp")]
+position = Vector2(1, 6)
+polygon = PackedVector2Array(0, 1.4, 1.41074, 1.37156, 2.72472, 1.28998, 3.91377, 1.1609, 4.94975, 0.989949, 6.44991, 0.544943, 7, 0, 6.44991, -0.544943, 4.94975, -0.98995, 3.91377, -1.1609, 2.72472, -1.28998, 1.41074, -1.37156, 0, -1.4, -1.41074, -1.37156, -2.72472, -1.28998, -3.91377, -1.1609, -4.94975, -0.989949, -6.44991, -0.544943, -7, 0, -6.44991, 0.544943, -4.94975, 0.98995, -3.91377, 1.1609, -2.72472, 1.28998, -1.41074, 1.37156, 0, 1.4)
+radius = 7
+depth = 0.2
+
+[node name="AnimatedSprite" type="AnimatedSprite2D" parent="."]
 sprite_frames = SubResource("SpriteFrames_36ath")
 autoplay = "default"
-frame_progress = 0.996633
-script = ExtResource("2_131mw")
+frame_progress = 0.166396
+
+[node name="LeadMarker" type="Marker2D" parent="AnimatedSprite"]
+unique_name_in_owner = true
+position = Vector2(-2, -2)

@@ -4,13 +4,20 @@
 [ext_resource type="PackedScene" uid="uid://dgmyppls2ppbo" path="res://src/player/dog/dog.tscn" id="2_b720v"]
 
 [node name="DogPair" type="Node2D"]
+y_sort_enabled = true
 script = ExtResource("1_35xlw")
 
 [node name="LeftDog" parent="." instance=ExtResource("2_b720v")]
-position = Vector2(8, -10)
+show_behind_parent = true
+position = Vector2(7, -9)
 
 [node name="Lead" type="Line2D" parent="."]
 points = PackedVector2Array(5.5, -11.5, 0, -4, 5.5, 0.5)
+width = 2.0
+default_color = Color(0, 0.486275, 0.486275, 1)
+
+[node name="LeadToBack" type="Line2D" parent="."]
+points = PackedVector2Array(0, -4, 0, -4)
 width = 2.0
 default_color = Color(0, 0.486275, 0.486275, 1)
 

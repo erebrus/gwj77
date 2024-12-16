@@ -4,7 +4,6 @@
 [ext_resource type="Script" path="res://src/levels/base_level.gd" id="1_3225r"]
 [ext_resource type="PackedScene" uid="uid://cojv1dhgejmm" path="res://src/obstacles/tree.tscn" id="2_ma2j3"]
 
-
 [node name="LandscapeBaseLevel" type="Node2D"]
 y_sort_enabled = true
 script = ExtResource("1_3225r")
@@ -21,5 +20,8 @@ position = Vector2(200, 160)
 offset = Vector2(200, 0)
 position_smoothing_enabled = true
 position_smoothing_speed = 2.0
+
+[node name="Tree" parent="." instance=ExtResource("2_ma2j3")]
+position = Vector2(359, 157)
 
 [connection signal="timeout" from="PlaceTreeTimer" to="." method="_on_place_tree_timer_timeout"]
