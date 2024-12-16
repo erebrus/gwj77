@@ -20,7 +20,7 @@ position = Vector2(-21.5, -3)
 shape = SubResource("RectangleShape2D_p8kj0")
 
 [node name="Sprite2D" type="Sprite2D" parent="Sled"]
-position = Vector2(-14, -13)
+position = Vector2(-14, -14)
 texture = ExtResource("1_wjpnl")
 
 [node name="Lead" type="Line2D" parent="."]

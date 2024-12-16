@@ -1,0 +1,40 @@
+[gd_scene load_steps=7 format=3 uid="uid://dgmyppls2ppbo"]
+
+[ext_resource type="Texture2D" uid="uid://bbanwgi8i2om1" path="res://assets/gfx/dogs/placeholder_dog_side.png" id="1_8ilm8"]
+[ext_resource type="Script" path="res://src/player/dog/dog.gd" id="2_131mw"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_warsp"]
+atlas = ExtResource("1_8ilm8")
+region = Rect2(0, 0, 21, 15)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_18qnw"]
+atlas = ExtResource("1_8ilm8")
+region = Rect2(21, 0, 21, 15)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_53ab7"]
+atlas = ExtResource("1_8ilm8")
+region = Rect2(42, 0, 21, 15)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_36ath"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_warsp")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_18qnw")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_53ab7")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[node name="Dog" type="AnimatedSprite2D"]
+position = Vector2(3, 2)
+sprite_frames = SubResource("SpriteFrames_36ath")
+autoplay = "default"
+frame_progress = 0.996633
+script = ExtResource("2_131mw")
