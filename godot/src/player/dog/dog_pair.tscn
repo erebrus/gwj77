@@ -1,7 +1,9 @@
-[gd_scene load_steps=3 format=3 uid="uid://berp0bpd3fukm"]
+[gd_scene load_steps=5 format=3 uid="uid://berp0bpd3fukm"]
 
 [ext_resource type="Script" path="res://src/player/dog/dog_pair.gd" id="1_35xlw"]
 [ext_resource type="PackedScene" uid="uid://dgmyppls2ppbo" path="res://src/player/dog/dog.tscn" id="2_b720v"]
+[ext_resource type="Script" path="res://src/player/jump/jump_component.gd" id="3_sa4ur"]
+[ext_resource type="Script" path="res://src/player/follow/follow_component.gd" id="4_vwptv"]
 
 [node name="DogPair" type="Node2D"]
 y_sort_enabled = true
@@ -24,5 +26,12 @@ default_color = Color(0, 0.486275, 0.486275, 1)
 [node name="RightDog" parent="." instance=ExtResource("2_b720v")]
 position = Vector2(8, 1)
 
-[node name="LeadPosition" type="Marker2D" parent="."]
+[node name="JumpComponent" type="Node" parent="." node_paths=PackedStringArray("target")]
+script = ExtResource("3_sa4ur")
+target = NodePath("..")
+
+[node name="FollowComponent" type="Marker2D" parent="." node_paths=PackedStringArray("parent", "jump_component")]
 position = Vector2(0, -4)
+script = ExtResource("4_vwptv")
+parent = NodePath("..")
+jump_component = NodePath("../JumpComponent")

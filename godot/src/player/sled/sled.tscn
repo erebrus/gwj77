@@ -1,0 +1,41 @@
+[gd_scene load_steps=7 format=3 uid="uid://wg63g48yqauy"]
+
+[ext_resource type="Script" path="res://src/player/sled/sled.gd" id="1_0ihuf"]
+[ext_resource type="PackedScene" uid="uid://gdqr022umlpa" path="res://src/components/shadow/shadow.tscn" id="1_4d11q"]
+[ext_resource type="Texture2D" uid="uid://ps3wd188yqie" path="res://assets/gfx/placeholder_sled_sideview.png" id="2_ficlm"]
+[ext_resource type="Script" path="res://src/player/follow/follow_component.gd" id="3_md0so"]
+[ext_resource type="Script" path="res://src/player/jump/jump_component.gd" id="4_xlo5g"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_p8kj0"]
+size = Vector2(28.5, 6)
+
+[node name="Sled" type="Area2D"]
+collision_layer = 0
+collision_mask = 2
+script = ExtResource("1_0ihuf")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(-16.75, 2.5)
+shape = SubResource("RectangleShape2D_p8kj0")
+
+[node name="Shadow" parent="." instance=ExtResource("1_4d11q")]
+position = Vector2(-16.5, 2.5)
+polygon = PackedVector2Array(0, 3, 1.53366, 2.98451, 3.02302, 2.93905, 4.46054, 2.86513, 5.83868, 2.76425, 7.14989, 2.63792, 8.38664, 2.48765, 9.54139, 2.31495, 10.6066, 2.12132, 12.4382, 1.67733, 13.8212, 1.16774, 15, 0, 13.8212, -1.16774, 12.4382, -1.67733, 10.6066, -2.12132, 9.54139, -2.31495, 8.38664, -2.48765, 7.14989, -2.63792, 5.83868, -2.76425, 4.46054, -2.86513, 3.02302, -2.93905, 1.53366, -2.98451, 0, -3, -1.53366, -2.98451, -3.02302, -2.93905, -4.46054, -2.86513, -5.83868, -2.76425, -7.14989, -2.63792, -8.38664, -2.48765, -9.54139, -2.31495, -10.6066, -2.12132, -12.4382, -1.67733, -13.8212, -1.16774, -15, 0, -13.8212, 1.16774, -12.4382, 1.67733, -10.6066, 2.12132, -9.54139, 2.31495, -8.38664, 2.48765, -7.14989, 2.63792, -5.83868, 2.76425, -4.46054, 2.86513, -3.02302, 2.93905, -1.53366, 2.98451, 0, 3)
+radius = 15
+depth = 0.2
+
+[node name="JumpingBits" type="Node2D" parent="."]
+
+[node name="Sprite2D" type="Sprite2D" parent="JumpingBits"]
+position = Vector2(-16.5, -11.5)
+texture = ExtResource("2_ficlm")
+
+[node name="JumpComponent" type="Node" parent="." node_paths=PackedStringArray("target")]
+script = ExtResource("4_xlo5g")
+target = NodePath("..")
+
+[node name="FollowComponent" type="Marker2D" parent="." node_paths=PackedStringArray("parent", "jump_component")]
+position = Vector2(-2, 2)
+script = ExtResource("3_md0so")
+parent = NodePath("..")
+jump_component = NodePath("../JumpComponent")

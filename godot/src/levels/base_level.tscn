@@ -21,7 +21,4 @@ offset = Vector2(200, 0)
 position_smoothing_enabled = true
 position_smoothing_speed = 2.0
 
-[node name="Tree" parent="." instance=ExtResource("2_ma2j3")]
-position = Vector2(359, 157)
-
 [connection signal="timeout" from="PlaceTreeTimer" to="." method="_on_place_tree_timer_timeout"]

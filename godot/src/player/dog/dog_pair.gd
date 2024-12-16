@@ -1,17 +1,35 @@
 class_name DogPair extends Node2D
 
+
+var height: float:
+	set(value):
+		if value != height:
+			height = value
+			if is_node_ready():
+				lead.points[1].y = follow_component.position.y + height
+				lead_to_back.points[0].y = follow_component.position.y + height
+				left_dog.height = height
+				right_dog.height = height
+	
+
 @onready var lead: Line2D = $Lead
 @onready var lead_to_back: Line2D = $LeadToBack
 @onready var left_dog: Dog = $LeftDog
 @onready var right_dog: Dog = $RightDog
-@onready var lead_marker: Marker2D = $LeadPosition
 
+@onready var jump_component = $JumpComponent
+
+var follow_component: FollowComponent:
+	get(): 
+		if follow_component == null:
+			follow_component = $FollowComponent
+		return follow_component
+	
 
 func _ready() -> void:
-	lead.points[1] = lead_marker.position
-	lead_to_back.points[0] = lead_marker.position
-	lead_to_back.points[1] = lead_marker.position
-	
+	lead.points[1] = follow_component.position
+	lead_to_back.points[0] = follow_component.position
+	lead_to_back.points[1] = follow_component.position
 	
 
 func _physics_process(_delta: float) -> void:
@@ -22,8 +40,3 @@ func _physics_process(_delta: float) -> void:
 func set_trailing_lead(other: Vector2) -> void:
 	lead_to_back.points[1] = other - global_position
 	
-
-func follow_at_distance(lead: DogPair, distance: float) -> void:
-	if global_position.distance_squared_to(lead.global_position) > pow(distance, 2):
-		global_position = lead.global_position + distance * lead.global_position.direction_to(global_position)
-	lead.set_trailing_lead(lead_marker.global_position)

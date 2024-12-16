@@ -1,32 +1,13 @@
-[gd_scene load_steps=6 format=3 uid="uid://cbcfxexxa6mg4"]
+[gd_scene load_steps=4 format=3 uid="uid://cbcfxexxa6mg4"]
 
 [ext_resource type="Script" path="res://src/player/player.gd" id="1_1frfq"]
-[ext_resource type="Texture2D" uid="uid://ps3wd188yqie" path="res://assets/gfx/placeholder_sled_sideview.png" id="1_wjpnl"]
-[ext_resource type="PackedScene" uid="uid://gdqr022umlpa" path="res://src/components/shadow/shadow.tscn" id="3_bdo74"]
+[ext_resource type="PackedScene" uid="uid://wg63g48yqauy" path="res://src/player/sled/sled.tscn" id="3_ex6je"]
 [ext_resource type="PackedScene" uid="uid://berp0bpd3fukm" path="res://src/player/dog/dog_pair.tscn" id="3_fusw6"]
-
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_p8kj0"]
-size = Vector2(28.5, 6)
 
 [node name="Player" type="Node2D"]
 y_sort_enabled = true
 script = ExtResource("1_1frfq")
 DogPairScene = ExtResource("3_fusw6")
 
-[node name="Sled" type="Area2D" parent="."]
-collision_layer = 0
-collision_mask = 2
-
-[node name="Shadow" parent="Sled" instance=ExtResource("3_bdo74")]
-position = Vector2(-14, 0)
-polygon = PackedVector2Array(0, 3, 1.53366, 2.98451, 3.02302, 2.93905, 4.46054, 2.86513, 5.83868, 2.76425, 7.14989, 2.63792, 8.38664, 2.48765, 9.54139, 2.31495, 10.6066, 2.12132, 12.4382, 1.67733, 13.8212, 1.16774, 15, 0, 13.8212, -1.16774, 12.4382, -1.67733, 10.6066, -2.12132, 9.54139, -2.31495, 8.38664, -2.48765, 7.14989, -2.63792, 5.83868, -2.76425, 4.46054, -2.86513, 3.02302, -2.93905, 1.53366, -2.98451, 0, -3, -1.53366, -2.98451, -3.02302, -2.93905, -4.46054, -2.86513, -5.83868, -2.76425, -7.14989, -2.63792, -8.38664, -2.48765, -9.54139, -2.31495, -10.6066, -2.12132, -12.4382, -1.67733, -13.8212, -1.16774, -15, 0, -13.8212, 1.16774, -12.4382, 1.67733, -10.6066, 2.12132, -9.54139, 2.31495, -8.38664, 2.48765, -7.14989, 2.63792, -5.83868, 2.76425, -4.46054, 2.86513, -3.02302, 2.93905, -1.53366, 2.98451, 0, 3)
-radius = 15
-depth = 0.2
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Sled"]
-position = Vector2(-14.25, 0)
-shape = SubResource("RectangleShape2D_p8kj0")
-
-[node name="Sprite2D" type="Sprite2D" parent="Sled"]
-position = Vector2(-14, -14)
-texture = ExtResource("1_wjpnl")
+[node name="Sled" parent="." instance=ExtResource("3_ex6je")]
+position = Vector2(-17, -12)
