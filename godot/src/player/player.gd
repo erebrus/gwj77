@@ -51,6 +51,11 @@ func crash() -> void:
 	is_alive = false
 	
 
+func modify_speed(factor) -> void:
+	speed *= factor
+	turn_speed *= factor
+	
+
 func _recalibrate_positions() -> void:
 	var sled_offset = sled.position
 	global_position = sled.global_position
