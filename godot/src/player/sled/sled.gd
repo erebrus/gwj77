@@ -1,12 +1,8 @@
 class_name Sled extends Area2D
 
 
-var follow_component: FollowComponent:
-	get(): 
-		if follow_component == null:
-			follow_component = $FollowComponent
-		return follow_component
-	
+@export var follow_component: FollowComponent
+@export var jump_component: JumpComponent
 
 var height: float:
 	set(value):

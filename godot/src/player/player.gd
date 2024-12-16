@@ -17,14 +17,13 @@ var is_alive:= false
 
 
 func _ready() -> void:
-	sled.area_entered.connect(_on_sled_area_entered)
-	
 	_add_dog_pair(Vector2(sled_distance, 0))
 	sled.follow_component.leader = dog_pairs[0]
 	
 	for i in range(1, dog_pair_number):
 		_add_dog_pair(Vector2(sled_distance + i * distance, 0))
 		dog_pairs[i-1].follow_component.leader = dog_pairs[i]
+		
 	
 	is_alive = true
 	
@@ -47,11 +46,9 @@ func _physics_process(delta: float) -> void:
 		dog_pairs.back().jump_component.jump()
 	
 
-func _follow(current_position: Vector2, lead_position: Vector2, dist: float) -> Vector2:
-	if current_position.distance_squared_to(lead_position) > pow(dist, 2):
-		return lead_position + dist * lead_position.direction_to(current_position)
-	else:
-		return current_position
+func crash() -> void:
+	Events.obstacle_hit.emit()
+	is_alive = false
 	
 
 func _recalibrate_positions() -> void:
@@ -69,7 +66,3 @@ func _add_dog_pair(at_position: Vector2) -> void:
 	add_child(dogs)
 	dog_pairs.append(dogs)
 	
-
-func _on_sled_area_entered(_area: Area2D) -> void:
-	Events.obstacle_hit.emit()
-	is_alive = false

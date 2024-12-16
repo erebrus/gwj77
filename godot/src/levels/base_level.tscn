@@ -1,13 +1,15 @@
-[gd_scene load_steps=4 format=3 uid="uid://cxt63d3uyyala"]
+[gd_scene load_steps=5 format=3 uid="uid://cxt63d3uyyala"]
 
 [ext_resource type="PackedScene" uid="uid://cbcfxexxa6mg4" path="res://src/player/player.tscn" id="1_7k3nw"]
 [ext_resource type="Script" path="res://src/levels/base_level.gd" id="1_3225r"]
+[ext_resource type="PackedScene" uid="uid://d0yuuvv25tlcq" path="res://src/obstacles/log_obstacle.tscn" id="2_2uxai"]
 [ext_resource type="PackedScene" uid="uid://cojv1dhgejmm" path="res://src/obstacles/tree.tscn" id="2_ma2j3"]
 
 [node name="LandscapeBaseLevel" type="Node2D"]
 y_sort_enabled = true
 script = ExtResource("1_3225r")
 TreeScene = ExtResource("2_ma2j3")
+LogScene = ExtResource("2_2uxai")
 
 [node name="PlaceTreeTimer" type="Timer" parent="."]
 wait_time = 0.1
