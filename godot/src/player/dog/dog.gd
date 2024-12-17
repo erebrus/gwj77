@@ -27,7 +27,9 @@ func on_speed_changed(new_speed:float):
 			sprite.speed_scale=calculate_speed_scale()
 
 func calculate_speed_scale():
-	return speed / Types.DEFAULT_SPEED
+	var ret = max(0.75, speed / Types.DEFAULT_SPEED)
+	Logger.trace("factor: %2f" % ret)
+	return ret
 	
 func on_jumped():
 	sprite.speed_scale=1.0

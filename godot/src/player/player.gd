@@ -11,6 +11,7 @@ signal speed_changed(new_speed:float)
 
 @export var turn_speed:= 60.0
 @export var speed:= 150.0
+@export var min_speed := 50.0
 @export var accel:= 10.0
 @export var breaking := 10.0
 
@@ -19,7 +20,7 @@ var is_alive:= false
 
 @onready var sled: Area2D = $Sled
 
-@onready var current_speed := 0.0
+@onready var current_speed := min_speed
 
 func _ready() -> void:
 	_add_dog_pair(Vector2(sled_distance, 0))
@@ -43,7 +44,7 @@ func _physics_process(delta: float) -> void:
 		var previous_speed = current_speed
 		var input = Input.get_vector("move_left", "move_right","break", "accelerate")		
 		if input.y < 0:
-			current_speed = max(0, current_speed + breaking*input.y)
+			current_speed = max(min_speed, current_speed + breaking*input.y)
 		elif input.y > 0 :
 			current_speed = min(speed, current_speed + accel*input.y)
 			
