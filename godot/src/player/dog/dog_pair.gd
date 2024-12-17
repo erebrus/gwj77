@@ -49,3 +49,6 @@ func _physics_process(_delta: float) -> void:
 func set_trailing_lead(other: Vector2) -> void:
 	lead_to_back.points[1] = other - global_position
 	
+func on_speed_changed(new_speed:float):
+	left_dog.on_speed_changed(new_speed)
+	right_dog.on_speed_changed(new_speed)

@@ -1,5 +1,7 @@
 extends Node2D
 
+signal speed_changed(new_speed:float)
+
 @export var DogPairScene: PackedScene
 
 @export var dog_pair_number: int = 4
@@ -7,14 +9,17 @@ extends Node2D
 @export var sled_distance:= 10.0
 @export var distance:= 20.0
 
-@export var turn_speed:= 40
-@export var speed:= 100
+@export var turn_speed:= 60.0
+@export var speed:= 150.0
+@export var accel:= 10.0
+@export var breaking := 10.0
 
 var dog_pairs: Array[DogPair]
 var is_alive:= false
 
 @onready var sled: Area2D = $Sled
 
+@onready var current_speed := 0.0
 
 func _ready() -> void:
 	_add_dog_pair(Vector2(sled_distance, 0))
@@ -35,10 +40,17 @@ func _physics_process(delta: float) -> void:
 		dog_pairs[i].follow_component.at_distance(distance)
 		
 	if is_alive:
-		var input = Input.get_axis("move_left", "move_right")
-		var velocity = Vector2(speed, input * turn_speed)
+		var previous_speed = current_speed
+		var input = Input.get_vector("move_left", "move_right","break", "accelerate")		
+		if input.y < 0:
+			current_speed = max(0, current_speed + breaking*input.y)
+		elif input.y > 0 :
+			current_speed = min(speed, current_speed + accel*input.y)
+			
+		var velocity = Vector2(current_speed, input.x * turn_speed)
 		dog_pairs.back().position += delta * velocity
-		
+		if current_speed != previous_speed:
+			speed_changed.emit(current_speed)
 		if Input.is_action_just_pressed("jump"):
 			dog_pairs.back().jump_component.jump()
 	
@@ -70,4 +82,5 @@ func _add_dog_pair(at_position: Vector2) -> void:
 	dogs.position = at_position
 	add_child(dogs)
 	dog_pairs.append(dogs)
+	speed_changed.connect(dogs.on_speed_changed)
 	
