@@ -30,8 +30,17 @@ func _ready() -> void:
 	lead.points[1] = follow_component.position
 	lead_to_back.points[0] = follow_component.position
 	lead_to_back.points[1] = follow_component.position
-	
+	jump_component.jumped.connect(_on_jumped)
+	jump_component.landed.connect(_on_landed)
 
+func _on_jumped():
+	left_dog.on_jumped()
+	right_dog.on_jumped()
+
+func _on_landed():
+	left_dog.on_landed()
+	right_dog.on_landed()
+	
 func _physics_process(_delta: float) -> void:
 	lead.points[0] = left_dog.lead_marker.global_position - global_position
 	lead.points[2] = right_dog.lead_marker.global_position - global_position

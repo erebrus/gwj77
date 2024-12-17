@@ -1,4 +1,4 @@
-[gd_scene load_steps=10 format=3 uid="uid://dgmyppls2ppbo"]
+[gd_scene load_steps=14 format=3 uid="uid://dgmyppls2ppbo"]
 
 [ext_resource type="Script" path="res://src/player/dog/dog.gd" id="2_131mw"]
 [ext_resource type="PackedScene" uid="uid://gdqr022umlpa" path="res://src/components/shadow/shadow.tscn" id="3_2wnjp"]
@@ -24,6 +24,22 @@ region = Rect2(93, 0, 31, 17)
 atlas = ExtResource("3_555tg")
 region = Rect2(124, 0, 31, 17)
 
+[sub_resource type="AtlasTexture" id="AtlasTexture_a0lps"]
+atlas = ExtResource("3_555tg")
+region = Rect2(0, 0, 31, 17)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_e5uyi"]
+atlas = ExtResource("3_555tg")
+region = Rect2(31, 0, 31, 17)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_oscvw"]
+atlas = ExtResource("3_555tg")
+region = Rect2(93, 0, 31, 17)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_t53qm"]
+atlas = ExtResource("3_555tg")
+region = Rect2(124, 0, 31, 17)
+
 [sub_resource type="SpriteFrames" id="SpriteFrames_36ath"]
 animations = [{
 "frames": [{
@@ -45,6 +61,28 @@ animations = [{
 "loop": true,
 "name": &"default",
 "speed": 10.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_a0lps")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_e5uyi")
+}],
+"loop": false,
+"name": &"jump",
+"speed": 10.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_oscvw")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_t53qm")
+}],
+"loop": false,
+"name": &"land",
+"speed": 10.0
 }]
 
 [node name="Dog" type="Node2D"]
@@ -58,8 +96,8 @@ depth = 0.2
 
 [node name="AnimatedSprite" type="AnimatedSprite2D" parent="."]
 sprite_frames = SubResource("SpriteFrames_36ath")
+animation = &"land"
 autoplay = "default"
-frame_progress = 0.478208
 
 [node name="LeadMarker" type="Marker2D" parent="AnimatedSprite"]
 unique_name_in_owner = true
