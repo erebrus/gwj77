@@ -4,6 +4,7 @@ signal jumped
 
 @export var target: Node2D
 
+@export var down_gravity_factor:float = 1.5
 @export var gravity: float = 200
 @export var impulse: float = -100
 
@@ -29,7 +30,7 @@ func jump() -> void:
 
 func _physics_process(delta: float) -> void:
 	if speed != 0 or height != 0:
-		speed += gravity * delta
+		speed += (gravity if speed < 0 else gravity * down_gravity_factor) * delta			
 		height = min(0, height + speed * delta)
 		
 		if is_on_ground():
