@@ -1,36 +1,50 @@
-[gd_scene load_steps=8 format=3 uid="uid://dgmyppls2ppbo"]
+[gd_scene load_steps=10 format=3 uid="uid://dgmyppls2ppbo"]
 
-[ext_resource type="Texture2D" uid="uid://bbanwgi8i2om1" path="res://assets/gfx/dogs/placeholder_dog_side.png" id="1_8ilm8"]
 [ext_resource type="Script" path="res://src/player/dog/dog.gd" id="2_131mw"]
 [ext_resource type="PackedScene" uid="uid://gdqr022umlpa" path="res://src/components/shadow/shadow.tscn" id="3_2wnjp"]
+[ext_resource type="Texture2D" uid="uid://bys6i6qv74u2w" path="res://assets/gfx/dogs/dog - run.png" id="3_555tg"]
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_warsp"]
-atlas = ExtResource("1_8ilm8")
-region = Rect2(0, 0, 21, 15)
+[sub_resource type="AtlasTexture" id="AtlasTexture_soh6s"]
+atlas = ExtResource("3_555tg")
+region = Rect2(0, 0, 31, 17)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_18qnw"]
-atlas = ExtResource("1_8ilm8")
-region = Rect2(21, 0, 21, 15)
+[sub_resource type="AtlasTexture" id="AtlasTexture_73jde"]
+atlas = ExtResource("3_555tg")
+region = Rect2(31, 0, 31, 17)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_53ab7"]
-atlas = ExtResource("1_8ilm8")
-region = Rect2(42, 0, 21, 15)
+[sub_resource type="AtlasTexture" id="AtlasTexture_o5ro8"]
+atlas = ExtResource("3_555tg")
+region = Rect2(62, 0, 31, 17)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_61vqh"]
+atlas = ExtResource("3_555tg")
+region = Rect2(93, 0, 31, 17)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_4efyg"]
+atlas = ExtResource("3_555tg")
+region = Rect2(124, 0, 31, 17)
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_36ath"]
 animations = [{
 "frames": [{
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_warsp")
+"texture": SubResource("AtlasTexture_soh6s")
 }, {
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_18qnw")
+"texture": SubResource("AtlasTexture_73jde")
 }, {
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_53ab7")
+"texture": SubResource("AtlasTexture_o5ro8")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_61vqh")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_4efyg")
 }],
 "loop": true,
 "name": &"default",
-"speed": 5.0
+"speed": 10.0
 }]
 
 [node name="Dog" type="Node2D"]
@@ -45,7 +59,7 @@ depth = 0.2
 [node name="AnimatedSprite" type="AnimatedSprite2D" parent="."]
 sprite_frames = SubResource("SpriteFrames_36ath")
 autoplay = "default"
-frame_progress = 0.166396
+frame_progress = 0.478208
 
 [node name="LeadMarker" type="Marker2D" parent="AnimatedSprite"]
 unique_name_in_owner = true
