@@ -30,7 +30,7 @@ func _ready() -> void:
 		_add_dog_pair(Vector2(sled_distance + i * distance, 0))
 		dog_pairs[i-1].follow_component.leader = dog_pairs[i]
 		
-	
+	speed_changed.emit(current_speed)
 	is_alive = true
 	
 

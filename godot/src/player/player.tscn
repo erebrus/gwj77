@@ -11,3 +11,9 @@ DogPairScene = ExtResource("3_fusw6")
 
 [node name="Sled" parent="." instance=ExtResource("3_ex6je")]
 position = Vector2(-17, -12)
+
+[node name="BufferTimer" type="Timer" parent="."]
+wait_time = 0.2
+one_shot = true
+
+[connection signal="timeout" from="BufferTimer" to="." method="_on_buffer_timer_timeout"]
