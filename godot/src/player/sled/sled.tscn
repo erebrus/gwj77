@@ -2,8 +2,8 @@
 
 [ext_resource type="Script" path="res://src/player/sled/sled.gd" id="1_0ihuf"]
 [ext_resource type="PackedScene" uid="uid://gdqr022umlpa" path="res://src/components/shadow/shadow.tscn" id="1_4d11q"]
-[ext_resource type="Texture2D" uid="uid://ps3wd188yqie" path="res://assets/gfx/placeholder_sled_sideview.png" id="2_ficlm"]
 [ext_resource type="Script" path="res://src/player/follow/follow_component.gd" id="3_md0so"]
+[ext_resource type="Texture2D" uid="uid://bxipsgd0oprog" path="res://assets/gfx/sled/sled - placeholder (new).png" id="3_sy631"]
 [ext_resource type="Script" path="res://src/player/jump/jump_component.gd" id="4_xlo5g"]
 [ext_resource type="Texture2D" uid="uid://d0rxns14ip217" path="res://assets/gfx/sled/snow - start+loop.png" id="6_fljwt"]
 
@@ -92,7 +92,7 @@ depth = 0.2
 
 [node name="Sprite2D" type="Sprite2D" parent="JumpingBits"]
 position = Vector2(-16.5, -11.5)
-texture = ExtResource("2_ficlm")
+texture = ExtResource("3_sy631")
 
 [node name="JumpComponent" type="Node" parent="." node_paths=PackedStringArray("target")]
 script = ExtResource("4_xlo5g")
@@ -105,7 +105,7 @@ parent = NodePath("..")
 jump_component = NodePath("../JumpComponent")
 
 [node name="SnowSprite" type="AnimatedSprite2D" parent="."]
-position = Vector2(-43, -6)
+position = Vector2(-41, -5)
 sprite_frames = SubResource("SpriteFrames_0lf8s")
 animation = &"run"
-frame_progress = 0.544344
+frame_progress = 0.346595
