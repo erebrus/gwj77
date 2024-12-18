@@ -64,10 +64,14 @@ func crash() -> void:
 	is_alive = false
 	
 
-func modify_speed(factor) -> void:
-	speed *= factor
+func modify_current_speed(factor) -> void:
+	current_speed *= factor
+
+
+func modify_acceleration(factor:float) -> void:
+	accel *= factor
 	turn_speed *= factor
-	
+
 
 func _recalibrate_positions() -> void:
 	var sled_offset = sled.position
