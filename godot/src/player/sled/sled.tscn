@@ -109,3 +109,6 @@ position = Vector2(-42, -4)
 sprite_frames = SubResource("SpriteFrames_0lf8s")
 animation = &"run"
 frame_progress = 0.346595
+
+[connection signal="jumped" from="JumpComponent" to="." method="_on_jump_component_jumped"]
+[connection signal="landed" from="JumpComponent" to="." method="_on_jump_component_landed"]

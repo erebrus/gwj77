@@ -14,3 +14,14 @@ var height: float:
 	
 func _ready():
 	snow_sprite.play("run")
+
+
+func _on_jump_component_jumped() -> void:
+	snow_sprite.visible=false
+
+
+func _on_jump_component_landed() -> void:
+	snow_sprite.play("start")
+	snow_sprite.visible=true
+	await snow_sprite.animation_finished
+	snow_sprite.play("run")
