@@ -9,9 +9,10 @@ var sfx_volume:float = 100
 const GameDataPath = "user://conf.cfg"
 var config:ConfigFile
 
-var debug_build := false
 var in_game:=false
 var in_dialogue:=false
+
+var player: Player
 
 var music_on:=true:
 	set(v):

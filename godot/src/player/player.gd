@@ -1,4 +1,4 @@
-extends Node2D
+class_name Player extends Node2D
 
 signal speed_changed(new_speed:float)
 
@@ -23,6 +23,8 @@ var is_alive:= false
 @onready var current_speed := min_speed
 
 func _ready() -> void:
+	Globals.player = self
+	
 	_add_dog_pair(Vector2(sled_distance, 0))
 	sled.follow_component.leader = dog_pairs[0]
 	
