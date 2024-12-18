@@ -8,6 +8,10 @@
 y_sort_enabled = true
 script = ExtResource("1_1frfq")
 DogPairScene = ExtResource("3_fusw6")
+sled_distance = 12.0
+distance = 28.0
+accel = 50.0
+breaking = 50.0
 
 [node name="Sled" parent="." instance=ExtResource("3_ex6je")]
 position = Vector2(-17, -12)

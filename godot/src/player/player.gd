@@ -44,9 +44,9 @@ func _physics_process(delta: float) -> void:
 		var previous_speed = current_speed
 		var input = Input.get_vector("move_left", "move_right","break", "accelerate")		
 		if input.y < 0:
-			current_speed = max(min_speed, current_speed + breaking*input.y)
+			current_speed = max(min_speed, current_speed + delta * breaking * input.y)
 		elif input.y > 0 :
-			current_speed = min(speed, current_speed + accel*input.y)
+			current_speed = min(speed, current_speed + delta * accel * input.y)
 			
 		var velocity = Vector2(current_speed, input.x * turn_speed)
 		dog_pairs.back().position += delta * velocity
