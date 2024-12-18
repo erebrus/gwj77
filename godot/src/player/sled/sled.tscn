@@ -1,13 +1,76 @@
-[gd_scene load_steps=7 format=3 uid="uid://wg63g48yqauy"]
+[gd_scene load_steps=16 format=3 uid="uid://wg63g48yqauy"]
 
 [ext_resource type="Script" path="res://src/player/sled/sled.gd" id="1_0ihuf"]
 [ext_resource type="PackedScene" uid="uid://gdqr022umlpa" path="res://src/components/shadow/shadow.tscn" id="1_4d11q"]
 [ext_resource type="Texture2D" uid="uid://ps3wd188yqie" path="res://assets/gfx/placeholder_sled_sideview.png" id="2_ficlm"]
 [ext_resource type="Script" path="res://src/player/follow/follow_component.gd" id="3_md0so"]
 [ext_resource type="Script" path="res://src/player/jump/jump_component.gd" id="4_xlo5g"]
+[ext_resource type="Texture2D" uid="uid://d0rxns14ip217" path="res://assets/gfx/sled/snow - start+loop.png" id="6_fljwt"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_p8kj0"]
 size = Vector2(16, 6)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_8o2f4"]
+atlas = ExtResource("6_fljwt")
+region = Rect2(0, 20, 34, 20)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_jorfa"]
+atlas = ExtResource("6_fljwt")
+region = Rect2(34, 20, 34, 20)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_amgaf"]
+atlas = ExtResource("6_fljwt")
+region = Rect2(68, 20, 34, 20)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_mahg7"]
+atlas = ExtResource("6_fljwt")
+region = Rect2(0, 0, 34, 20)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_da84n"]
+atlas = ExtResource("6_fljwt")
+region = Rect2(34, 0, 34, 20)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_65xl1"]
+atlas = ExtResource("6_fljwt")
+region = Rect2(68, 0, 34, 20)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_f70nn"]
+atlas = ExtResource("6_fljwt")
+region = Rect2(102, 0, 34, 20)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_0lf8s"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_8o2f4")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_jorfa")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_amgaf")
+}],
+"loop": true,
+"name": &"run",
+"speed": 10.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_mahg7")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_da84n")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_65xl1")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_f70nn")
+}],
+"loop": false,
+"name": &"start",
+"speed": 10.0
+}]
 
 [node name="Sled" type="Area2D" node_paths=PackedStringArray("follow_component", "jump_component")]
 collision_mask = 0
@@ -40,3 +103,9 @@ position = Vector2(-2, 2)
 script = ExtResource("3_md0so")
 parent = NodePath("..")
 jump_component = NodePath("../JumpComponent")
+
+[node name="SnowSprite" type="AnimatedSprite2D" parent="."]
+position = Vector2(-43, -6)
+sprite_frames = SubResource("SpriteFrames_0lf8s")
+animation = &"run"
+frame_progress = 0.544344
