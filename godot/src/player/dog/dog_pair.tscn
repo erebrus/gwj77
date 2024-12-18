@@ -14,14 +14,14 @@ show_behind_parent = true
 position = Vector2(7, -9)
 
 [node name="Lead" type="Line2D" parent="."]
-points = PackedVector2Array(5.5, -11.5, 0, -4, 5.5, 0.5)
-width = 2.0
-default_color = Color(0, 0.486275, 0.486275, 1)
+points = PackedVector2Array(7, -11, 2, -4, 8, -1)
+width = 1.0
+default_color = Color(0.513726, 0.278431, 0.239216, 1)
 
 [node name="LeadToBack" type="Line2D" parent="."]
-points = PackedVector2Array(0, -4, 0, -4)
-width = 2.0
-default_color = Color(0, 0.486275, 0.486275, 1)
+points = PackedVector2Array(2, -4, 2, -4)
+width = 1.0
+default_color = Color(0.513726, 0.278431, 0.239216, 1)
 
 [node name="RightDog" parent="." instance=ExtResource("2_b720v")]
 position = Vector2(8, 1)
@@ -31,7 +31,7 @@ script = ExtResource("3_sa4ur")
 target = NodePath("..")
 
 [node name="FollowComponent" type="Marker2D" parent="." node_paths=PackedStringArray("parent", "jump_component")]
-position = Vector2(0, -4)
+position = Vector2(2, -4)
 script = ExtResource("4_vwptv")
 parent = NodePath("..")
 jump_component = NodePath("../JumpComponent")

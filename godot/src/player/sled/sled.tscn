@@ -91,7 +91,7 @@ depth = 0.2
 [node name="JumpingBits" type="Node2D" parent="."]
 
 [node name="Sprite2D" type="Sprite2D" parent="JumpingBits"]
-position = Vector2(-16.5, -11.5)
+position = Vector2(-16, -10)
 texture = ExtResource("3_sy631")
 
 [node name="JumpComponent" type="Node" parent="." node_paths=PackedStringArray("target")]
@@ -99,13 +99,13 @@ script = ExtResource("4_xlo5g")
 target = NodePath("..")
 
 [node name="FollowComponent" type="Marker2D" parent="." node_paths=PackedStringArray("parent", "jump_component")]
-position = Vector2(-2, 2)
+position = Vector2(-7, -2)
 script = ExtResource("3_md0so")
 parent = NodePath("..")
 jump_component = NodePath("../JumpComponent")
 
 [node name="SnowSprite" type="AnimatedSprite2D" parent="."]
-position = Vector2(-41, -5)
+position = Vector2(-42, -4)
 sprite_frames = SubResource("SpriteFrames_0lf8s")
 animation = &"run"
 frame_progress = 0.346595

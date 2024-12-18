@@ -112,4 +112,4 @@ autoplay = "default"
 
 [node name="LeadMarker" type="Marker2D" parent="AnimatedSprite"]
 unique_name_in_owner = true
-position = Vector2(-2, -2)
+position = Vector2(0, -2)
