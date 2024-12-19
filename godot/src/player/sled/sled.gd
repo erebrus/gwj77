@@ -1,5 +1,6 @@
 class_name Sled extends Area2D
 
+const FADING_SNOW_SCENE:PackedScene=preload("res://src/player/sled/fading_snow.tscn")
 
 @export var follow_component: FollowComponent
 @export var jump_component: JumpComponent
@@ -17,8 +18,11 @@ func _ready():
 
 
 func _on_jump_component_jumped() -> void:
+	var fading_snow := FADING_SNOW_SCENE.instantiate() as FadingSnow
+	fading_snow.global_position=snow_sprite.global_position
+	get_parent().get_parent().add_child(fading_snow)
 	snow_sprite.visible=false
-
+	
 
 func _on_jump_component_landed() -> void:
 	snow_sprite.play("start")

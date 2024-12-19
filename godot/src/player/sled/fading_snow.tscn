@@ -1,0 +1,46 @@
+[gd_scene load_steps=8 format=3 uid="uid://cwscdv85noebs"]
+
+[ext_resource type="Script" path="res://src/player/sled/fading_snow.gd" id="1_h5pns"]
+[ext_resource type="Texture2D" uid="uid://pnl4psi12aii" path="res://assets/gfx/sled/sled - stop.png" id="2_3cn3p"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_4naux"]
+atlas = ExtResource("2_3cn3p")
+region = Rect2(0, 0, 36, 26)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_wo66o"]
+atlas = ExtResource("2_3cn3p")
+region = Rect2(36, 0, 36, 26)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_vu25v"]
+atlas = ExtResource("2_3cn3p")
+region = Rect2(72, 0, 36, 26)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_bcaj8"]
+atlas = ExtResource("2_3cn3p")
+region = Rect2(108, 0, 36, 26)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_ix1nw"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_4naux")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_wo66o")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_vu25v")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_bcaj8")
+}],
+"loop": false,
+"name": &"default",
+"speed": 10.0
+}]
+
+[node name="FadingSnow" type="Node2D"]
+script = ExtResource("1_h5pns")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_ix1nw")
