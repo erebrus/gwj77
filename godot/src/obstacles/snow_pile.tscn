@@ -1,24 +1,28 @@
-[gd_scene load_steps=5 format=3 uid="uid://b6xr1byneqnqj"]
+[gd_scene load_steps=6 format=3 uid="uid://b6xr1byneqnqj"]
 
 [ext_resource type="PackedScene" uid="uid://bcb1qayut8h4" path="res://src/obstacles/obstacle_component.tscn" id="1_hdp6c"]
 [ext_resource type="Script" path="res://src/obstacles/snow_pile.gd" id="1_vixro"]
-[ext_resource type="Texture2D" uid="uid://rlpenfmbxxtw" path="res://assets/gfx/placeholder_snowpile.png" id="2_qewfl"]
+[ext_resource type="Texture2D" uid="uid://dfn2yy8mj2yaq" path="res://assets/gfx/slopes.png" id="2_drshl"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_d8ivw"]
+atlas = ExtResource("2_drshl")
+region = Rect2(0, 39.0122, 108.567, 47.9878)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_wrcr6"]
-size = Vector2(112, 19)
+size = Vector2(56, 25)
 
 [node name="SnowPile" type="Node2D"]
 script = ExtResource("1_vixro")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
-position = Vector2(1, -8)
-texture = ExtResource("2_qewfl")
+position = Vector2(-3, 4)
+texture = SubResource("AtlasTexture_d8ivw")
 
 [node name="ObstacleComponent" parent="." node_paths=PackedStringArray("parent") instance=ExtResource("1_hdp6c")]
 is_jumpable = true
-height = 15.0
+height = 10.0
 parent = NodePath("..")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="ObstacleComponent"]
-position = Vector2(-1, -5.5)
+position = Vector2(3, 4)
 shape = SubResource("RectangleShape2D_wrcr6")
