@@ -69,7 +69,7 @@ animations = [{
 }],
 "loop": false,
 "name": &"start",
-"speed": 10.0
+"speed": 20.0
 }]
 
 [node name="Sled" type="Area2D" node_paths=PackedStringArray("follow_component", "jump_component")]
@@ -107,8 +107,7 @@ jump_component = NodePath("../JumpComponent")
 [node name="SnowSprite" type="AnimatedSprite2D" parent="."]
 position = Vector2(-42, -4)
 sprite_frames = SubResource("SpriteFrames_0lf8s")
-animation = &"run"
-frame_progress = 0.346595
+animation = &"start"
 
 [connection signal="jumped" from="JumpComponent" to="." method="_on_jump_component_jumped"]
 [connection signal="landed" from="JumpComponent" to="." method="_on_jump_component_landed"]

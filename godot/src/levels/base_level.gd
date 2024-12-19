@@ -3,6 +3,8 @@ extends Node2D
 @export var TreeScene: PackedScene
 @export var LogScene: PackedScene
 @export var SnowPileScene: PackedScene
+@export var MooseScene:PackedScene
+@export var RabbitScene:PackedScene
 
 func _ready() -> void:
 	
