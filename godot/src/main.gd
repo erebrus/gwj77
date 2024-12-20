@@ -12,8 +12,11 @@ func _ready() -> void:
 	timer.start()
 	
 	Events.obstacle_hit.connect(_on_obstacle_hit)
-	
+	Events.music_change_requested.connect(_on_music_change_requested)
 
+func _on_music_change_requested(id:Types.GameMusic):
+	Globals.music_manager.change_game_music_to(id)
+	
 func _physics_process(_delta: float) -> void:
 	distance_label.text = "%d m" % (Globals.player.position.x / pixel_per_meter)
 	

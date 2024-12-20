@@ -54,3 +54,4 @@ func change_game_music_to(new_id:Types.GameMusic, time:=1.0):
 	tween.parallel().tween_method(_helper_set_volume.bind(new_id),-60,0, time).set_ease(Tween.EASE_OUT)
 	await tween.finished
 	current_game_music_id = new_id
+	Logger.info("Music changed to: %s" % new_id)
