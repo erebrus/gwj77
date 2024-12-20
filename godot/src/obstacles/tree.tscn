@@ -1,23 +1,52 @@
-[gd_scene load_steps=5 format=3 uid="uid://cojv1dhgejmm"]
+[gd_scene load_steps=13 format=3 uid="uid://cojv1dhgejmm"]
 
 [ext_resource type="Script" path="res://src/obstacles/tree.gd" id="1_dqako"]
-[ext_resource type="Texture2D" uid="uid://cgrt0obptdy0i" path="res://assets/gfx/placeholder_tree.png" id="1_y5cw8"]
 [ext_resource type="PackedScene" uid="uid://bcb1qayut8h4" path="res://src/obstacles/obstacle_component.tscn" id="2_0taqo"]
+[ext_resource type="Shader" path="res://src/obstacles/wind.gdshader" id="2_2lgyd"]
+[ext_resource type="Texture2D" uid="uid://ce5rpvcqokinq" path="res://assets/gfx/tr01.png" id="2_ywkj6"]
+[ext_resource type="Texture2D" uid="uid://burwxenp4876a" path="res://assets/gfx/tr02.png" id="3_05j1j"]
+[ext_resource type="Texture2D" uid="uid://v0bcsk6fvq1a" path="res://assets/gfx/tr21.png" id="4_b0kmi"]
+[ext_resource type="Texture2D" uid="uid://bj8p8v02ry0vh" path="res://assets/gfx/tr31.png" id="5_ud8ls"]
+[ext_resource type="Texture2D" uid="uid://e8xa8l0jc24m" path="res://assets/gfx/tr41.png" id="6_ssygy"]
+[ext_resource type="Texture2D" uid="uid://defk2xowtxuts" path="res://assets/gfx/tr51.png" id="7_sok6f"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_noj16"]
+shader = ExtResource("2_2lgyd")
+shader_parameter/speed = 5.0
+shader_parameter/strength = 0.0
+shader_parameter/extra = 0.0
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_cdxnp"]
-radius = 3.0
-height = 12.0
+radius = 5.0
+height = 18.0
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_wd5vc"]
+radius = 49.0102
 
 [node name="Tree" type="Node2D"]
 script = ExtResource("1_dqako")
+textures = Array[Texture]([ExtResource("2_ywkj6"), ExtResource("3_05j1j"), ExtResource("4_b0kmi"), ExtResource("5_ud8ls"), ExtResource("6_ssygy"), ExtResource("7_sok6f")])
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
-position = Vector2(0, -14)
-texture = ExtResource("1_y5cw8")
+material = SubResource("ShaderMaterial_noj16")
+position = Vector2(-0.5, -33.5)
+texture = ExtResource("2_ywkj6")
 
 [node name="ObstacleComponent" parent="." node_paths=PackedStringArray("parent") instance=ExtResource("2_0taqo")]
+position = Vector2(0.5, -1.5)
 parent = NodePath("..")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="ObstacleComponent"]
+position = Vector2(-1, 2)
 rotation = 1.5708
 shape = SubResource("CapsuleShape2D_cdxnp")
+
+[node name="ShakeArea" type="Area2D" parent="."]
+position = Vector2(0.5, -6.5)
+collision_layer = 0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="ShakeArea"]
+position = Vector2(0, -3)
+shape = SubResource("CircleShape2D_wd5vc")
+
+[connection signal="area_exited" from="ShakeArea" to="." method="_on_shake_area_area_exited"]

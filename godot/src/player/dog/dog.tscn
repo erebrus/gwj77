@@ -108,7 +108,9 @@ depth = 0.2
 
 [node name="AnimatedSprite" type="AnimatedSprite2D" parent="."]
 sprite_frames = SubResource("SpriteFrames_36ath")
+animation = &"run"
 autoplay = "default"
+frame_progress = 0.106609
 
 [node name="LeadMarker" type="Marker2D" parent="AnimatedSprite"]
 unique_name_in_owner = true

@@ -1,8 +1,44 @@
-[gd_scene load_steps=7 format=3 uid="uid://cghgspdrl6mb7"]
+[gd_scene load_steps=12 format=3 uid="uid://cghgspdrl6mb7"]
 
 [ext_resource type="Texture2D" uid="uid://cfk6r80k40f4f" path="res://assets/gfx/avalanche_back_placeholder.png" id="1_6g0fj"]
 [ext_resource type="Script" path="res://src/levels/avalanche/avalanche.gd" id="1_p6btb"]
-[ext_resource type="Texture2D" uid="uid://jcj2ms8qvvjt" path="res://assets/gfx/avalanche_placeholder.png" id="2_56top"]
+[ext_resource type="Texture2D" uid="uid://ddmrn4jbc2ob6" path="res://assets/gfx/avalanche.png" id="3_tyjyn"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_i6wkk"]
+atlas = ExtResource("3_tyjyn")
+region = Rect2(0, 0, 221, 320)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_u3q56"]
+atlas = ExtResource("3_tyjyn")
+region = Rect2(221, 0, 221, 320)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_noi11"]
+atlas = ExtResource("3_tyjyn")
+region = Rect2(442, 0, 221, 320)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_x7vmm"]
+atlas = ExtResource("3_tyjyn")
+region = Rect2(663, 0, 221, 320)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_f22u2"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_i6wkk")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_u3q56")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_noi11")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_x7vmm")
+}],
+"loop": true,
+"name": &"default",
+"speed": 7.0
+}]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_xbh5h"]
 size = Vector2(40, 320)
@@ -17,7 +53,7 @@ size = Vector2(286, 335)
 script = ExtResource("1_p6btb")
 
 [node name="Parallax2D" type="Parallax2D" parent="."]
-repeat_size = Vector2(0, 463)
+repeat_size = Vector2(0, 320)
 repeat_times = 4
 
 [node name="Back" type="Sprite2D" parent="Parallax2D"]
@@ -25,8 +61,10 @@ texture_repeat = 2
 position = Vector2(-352, 0)
 texture = ExtResource("1_6g0fj")
 
-[node name="Front" type="Sprite2D" parent="Parallax2D"]
-texture = ExtResource("2_56top")
+[node name="Front" type="AnimatedSprite2D" parent="Parallax2D"]
+sprite_frames = SubResource("SpriteFrames_f22u2")
+autoplay = "default"
+frame_progress = 0.138961
 
 [node name="HitBox" type="Area2D" parent="."]
 collision_layer = 0
