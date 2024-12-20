@@ -1,4 +1,4 @@
-[gd_scene load_steps=21 format=3 uid="uid://wg63g48yqauy"]
+[gd_scene load_steps=24 format=3 uid="uid://wg63g48yqauy"]
 
 [ext_resource type="Script" path="res://src/player/sled/sled.gd" id="1_0ihuf"]
 [ext_resource type="PackedScene" uid="uid://gdqr022umlpa" path="res://src/components/shadow/shadow.tscn" id="1_4d11q"]
@@ -6,6 +6,7 @@
 [ext_resource type="Texture2D" uid="uid://cxvh14qjl7x24" path="res://assets/gfx/sled/actual-sled.png" id="3_qbjww"]
 [ext_resource type="Script" path="res://src/player/jump/jump_component.gd" id="4_xlo5g"]
 [ext_resource type="Texture2D" uid="uid://d0rxns14ip217" path="res://assets/gfx/sled/snow - start+loop.png" id="6_fljwt"]
+[ext_resource type="Texture2D" uid="uid://dtkxo4l30qdsf" path="res://assets/gfx/snow/small_particles.png" id="8_tmodl"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_p8kj0"]
 size = Vector2(16, 6)
@@ -108,6 +109,23 @@ animations = [{
 "speed": 20.0
 }]
 
+[sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_0wb6u"]
+particles_animation = true
+particles_anim_h_frames = 5
+particles_anim_v_frames = 1
+particles_anim_loop = false
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_fg5r2"]
+particle_flag_disable_z = true
+emission_shape = 1
+emission_sphere_radius = 12.0
+spread = 0.0
+gravity = Vector3(0, 9, 0)
+damping_min = 1.0
+damping_max = 1.0
+anim_speed_min = 0.8
+anim_speed_max = 1.2
+
 [node name="Sled" type="Area2D" node_paths=PackedStringArray("follow_component", "jump_component")]
 collision_mask = 0
 script = ExtResource("1_0ihuf")
@@ -144,7 +162,14 @@ jump_component = NodePath("../JumpComponent")
 [node name="SnowSprite" type="AnimatedSprite2D" parent="."]
 position = Vector2(-42, -4)
 sprite_frames = SubResource("SpriteFrames_0lf8s")
-animation = &"start"
+animation = &"run"
+
+[node name="SnowParticles" type="GPUParticles2D" parent="."]
+material = SubResource("CanvasItemMaterial_0wb6u")
+position = Vector2(-56, 4)
+process_material = SubResource("ParticleProcessMaterial_fg5r2")
+texture = ExtResource("8_tmodl")
+lifetime = 0.8
 
 [connection signal="jumped" from="JumpComponent" to="." method="_on_jump_component_jumped"]
 [connection signal="landed" from="JumpComponent" to="." method="_on_jump_component_landed"]

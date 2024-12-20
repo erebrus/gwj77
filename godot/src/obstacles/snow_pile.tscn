@@ -1,22 +1,25 @@
-[gd_scene load_steps=6 format=3 uid="uid://b6xr1byneqnqj"]
+[gd_scene load_steps=11 format=3 uid="uid://b6xr1byneqnqj"]
 
 [ext_resource type="PackedScene" uid="uid://bcb1qayut8h4" path="res://src/obstacles/obstacle_component.tscn" id="1_hdp6c"]
 [ext_resource type="Script" path="res://src/obstacles/snow_pile.gd" id="1_vixro"]
-[ext_resource type="Texture2D" uid="uid://dfn2yy8mj2yaq" path="res://assets/gfx/slopes.png" id="2_drshl"]
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_d8ivw"]
-atlas = ExtResource("2_drshl")
-region = Rect2(0, 39.0122, 108.567, 47.9878)
+[ext_resource type="Texture2D" uid="uid://dxhin2jo0g2fr" path="res://assets/gfx/slope1.png" id="2_6mbrw"]
+[ext_resource type="Texture2D" uid="uid://cf7bubt62ykr3" path="res://assets/gfx/slope2.png" id="3_oetxh"]
+[ext_resource type="Texture2D" uid="uid://dla2j34ed6ns5" path="res://assets/gfx/slope3.png" id="4_khwor"]
+[ext_resource type="Texture2D" uid="uid://bvkyxwtx4wcwa" path="res://assets/gfx/slope4.png" id="5_68pu6"]
+[ext_resource type="Texture2D" uid="uid://detwwli16l4uy" path="res://assets/gfx/slope5.png" id="6_natgu"]
+[ext_resource type="Texture2D" uid="uid://cdr60vb01m40" path="res://assets/gfx/slope6.png" id="7_tqhqm"]
+[ext_resource type="Texture2D" uid="uid://mu4pmqrcjp2n" path="res://assets/gfx/slope7.png" id="8_fe884"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_wrcr6"]
 size = Vector2(56, 25)
 
 [node name="SnowPile" type="Node2D"]
 script = ExtResource("1_vixro")
+textures = Array[Texture]([ExtResource("2_6mbrw"), ExtResource("3_oetxh"), ExtResource("4_khwor"), ExtResource("5_68pu6"), ExtResource("6_natgu"), ExtResource("7_tqhqm"), ExtResource("8_fe884")])
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 position = Vector2(-3, 4)
-texture = SubResource("AtlasTexture_d8ivw")
+texture = ExtResource("2_6mbrw")
 
 [node name="ObstacleComponent" parent="." node_paths=PackedStringArray("parent") instance=ExtResource("1_hdp6c")]
 is_jumpable = true
