@@ -11,10 +11,10 @@ func _input(event: InputEvent) -> void:
 	
 
 func _on_music_tension_toggle_pressed() -> void:
-	if Globals.music_manager.current_game_music_id==1:
-		Globals.music_manager.change_game_music_to(2)
+	if Globals.music_manager.current_game_music_id==Types.GameMusic.HARD:
+		Globals.music_manager.change_game_music_to(Types.GameMusic.EASY)
 	else:
-		Globals.music_manager.change_game_music_to(1)
+		Globals.music_manager.change_game_music_to(Globals.music_manager.current_game_music_id+1)
 	
 
 func _on_next_level_pressed():

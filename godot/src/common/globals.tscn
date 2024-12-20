@@ -1,12 +1,19 @@
-[gd_scene load_steps=4 format=3 uid="uid://rumvotveqal5"]
+[gd_scene load_steps=8 format=3 uid="uid://rumvotveqal5"]
 
 [ext_resource type="Script" path="res://src/common/globals.gd" id="1_noqpm"]
+[ext_resource type="AudioStream" uid="uid://dnp3rorxcnj12" path="res://assets/music/Ava_Run_easy_loop.mp3" id="3_g8tj7"]
 [ext_resource type="Script" path="res://src/common/music_manager.gd" id="3_h14hn"]
+[ext_resource type="AudioStream" uid="uid://d2xubxt3buarj" path="res://assets/music/Ava_Run_loop.mp3" id="4_5afmd"]
+[ext_resource type="AudioStream" uid="uid://ctc7xti16vojy" path="res://assets/music/Ava_Run_tense_loop.mp3" id="5_njxxq"]
+[ext_resource type="AudioStream" uid="uid://bik45i3lvhm4m" path="res://assets/music/Ava_Run_menu_loop.mp3" id="6_6gn7s"]
 
 [sub_resource type="AudioStreamSynchronized" id="AudioStreamSynchronized_q1nu8"]
 stream_count = 3
+stream_0/stream = ExtResource("3_g8tj7")
 stream_0/volume = 0.0
+stream_1/stream = ExtResource("4_5afmd")
 stream_1/volume = -60.0
+stream_2/stream = ExtResource("5_njxxq")
 stream_2/volume = 0.0
 
 [node name="Globals" type="Node"]
@@ -14,6 +21,7 @@ script = ExtResource("1_noqpm")
 
 [node name="MusicManager" type="Node" parent="."]
 script = ExtResource("3_h14hn")
+music_bus_volume = null
 
 [node name="game_music" type="AudioStreamPlayer" parent="MusicManager"]
 process_mode = 3
@@ -21,5 +29,4 @@ stream = SubResource("AudioStreamSynchronized_q1nu8")
 
 [node name="menu_music" type="AudioStreamPlayer" parent="MusicManager"]
 process_mode = 3
-
-[node name="murder_music" type="AudioStreamPlayer" parent="MusicManager"]
+stream = ExtResource("6_6gn7s")

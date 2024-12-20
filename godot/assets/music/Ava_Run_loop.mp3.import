@@ -12,8 +12,8 @@ dest_files=["res://.godot/imported/Ava_Run_loop.mp3-8a6ad6537dbf8d5b15a5af67ad34
 
 [params]
 
-loop=false
-loop_offset=0
-bpm=0
+loop=true
+loop_offset=0.0
+bpm=0.0
 beat_count=0
 bar_beats=4
