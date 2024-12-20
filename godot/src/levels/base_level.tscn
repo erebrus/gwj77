@@ -15,6 +15,7 @@ script = ExtResource("1_3225r")
 TreeScene = ExtResource("2_ma2j3")
 LogScene = ExtResource("2_2uxai")
 SnowPileScene = ExtResource("4_fmug8")
+PresentScene = ExtResource("8_fr8my")
 
 [node name="BackgroundParallax" type="Parallax2D" parent="."]
 repeat_size = Vector2(1280, 640)
@@ -36,11 +37,5 @@ position_smoothing_speed = 2.0
 
 [node name="Avalanche" parent="." instance=ExtResource("6_7qnp1")]
 z_index = 1
-
-[node name="Present" parent="." instance=ExtResource("8_fr8my")]
-position = Vector2(808.4, 223.799)
-
-[node name="Present2" parent="." instance=ExtResource("8_fr8my")]
-position = Vector2(1112, 28)
 
 [connection signal="timeout" from="PlaceTreeTimer" to="." method="_on_place_tree_timer_timeout"]

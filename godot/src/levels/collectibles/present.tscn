@@ -2,7 +2,7 @@
 
 [ext_resource type="PackedScene" uid="uid://gdqr022umlpa" path="res://src/components/shadow/shadow.tscn" id="1_qy6qq"]
 [ext_resource type="Script" path="res://src/levels/collectibles/collectible.gd" id="1_scdyu"]
-[ext_resource type="Texture2D" uid="uid://bcggjp7pwhtot" path="res://assets/gfx/present.png" id="2_id08j"]
+[ext_resource type="Texture2D" uid="uid://c2peroonqdg20" path="res://assets/gfx/present.png" id="2_id08j"]
 
 [sub_resource type="Animation" id="Animation_sdg08"]
 length = 0.001
