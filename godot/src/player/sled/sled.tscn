@@ -1,14 +1,50 @@
-[gd_scene load_steps=16 format=3 uid="uid://wg63g48yqauy"]
+[gd_scene load_steps=21 format=3 uid="uid://wg63g48yqauy"]
 
 [ext_resource type="Script" path="res://src/player/sled/sled.gd" id="1_0ihuf"]
 [ext_resource type="PackedScene" uid="uid://gdqr022umlpa" path="res://src/components/shadow/shadow.tscn" id="1_4d11q"]
 [ext_resource type="Script" path="res://src/player/follow/follow_component.gd" id="3_md0so"]
-[ext_resource type="Texture2D" uid="uid://bxipsgd0oprog" path="res://assets/gfx/sled/sled - placeholder (new).png" id="3_sy631"]
+[ext_resource type="Texture2D" uid="uid://cxvh14qjl7x24" path="res://assets/gfx/sled/actual-sled.png" id="3_qbjww"]
 [ext_resource type="Script" path="res://src/player/jump/jump_component.gd" id="4_xlo5g"]
 [ext_resource type="Texture2D" uid="uid://d0rxns14ip217" path="res://assets/gfx/sled/snow - start+loop.png" id="6_fljwt"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_p8kj0"]
 size = Vector2(16, 6)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_s0kuj"]
+atlas = ExtResource("3_qbjww")
+region = Rect2(0, 0, 28, 27)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_dg0xh"]
+atlas = ExtResource("3_qbjww")
+region = Rect2(28, 0, 28, 27)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_sunci"]
+atlas = ExtResource("3_qbjww")
+region = Rect2(56, 0, 28, 27)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_qfy5l"]
+atlas = ExtResource("3_qbjww")
+region = Rect2(84, 0, 28, 27)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_mhp7i"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_s0kuj")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_dg0xh")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_sunci")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_qfy5l")
+}],
+"loop": true,
+"name": &"run",
+"speed": 10.0
+}]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_8o2f4"]
 atlas = ExtResource("6_fljwt")
@@ -90,9 +126,10 @@ depth = 0.2
 
 [node name="JumpingBits" type="Node2D" parent="."]
 
-[node name="Sprite2D" type="Sprite2D" parent="JumpingBits"]
+[node name="Sprite2D" type="AnimatedSprite2D" parent="JumpingBits"]
 position = Vector2(-16, -10)
-texture = ExtResource("3_sy631")
+sprite_frames = SubResource("SpriteFrames_mhp7i")
+animation = &"run"
 
 [node name="JumpComponent" type="Node" parent="." node_paths=PackedStringArray("target")]
 script = ExtResource("4_xlo5g")

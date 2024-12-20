@@ -6,6 +6,7 @@ const FADING_SNOW_SCENE:PackedScene=preload("res://src/player/sled/fading_snow.t
 @export var jump_component: JumpComponent
 
 @onready var snow_sprite: AnimatedSprite2D = $SnowSprite
+@onready var sprite: AnimatedSprite2D = $JumpingBits/Sprite2D
 
 var height: float:
 	set(value):
@@ -15,6 +16,7 @@ var height: float:
 	
 func _ready():
 	snow_sprite.play("run")
+	sprite.play("run")
 
 
 func _on_jump_component_jumped() -> void:
