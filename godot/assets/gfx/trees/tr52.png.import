@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://bocygiok5d84o"
-path="res://.godot/imported/trees-no-snow.png-e35f87b7a7d52f3ec8f0b3fa78a9d0c0.ctex"
+uid="uid://cwkmmxk0bjnw7"
+path="res://.godot/imported/tr52.png-e80aed0c1c20a75d132f64111c09a36c.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/gfx/trees-no-snow.png"
-dest_files=["res://.godot/imported/trees-no-snow.png-e35f87b7a7d52f3ec8f0b3fa78a9d0c0.ctex"]
+source_file="res://assets/gfx/trees/tr52.png"
+dest_files=["res://.godot/imported/tr52.png-e80aed0c1c20a75d132f64111c09a36c.ctex"]
 
 [params]
 
