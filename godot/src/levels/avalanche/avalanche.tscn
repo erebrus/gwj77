@@ -1,0 +1,30 @@
+[gd_scene load_steps=5 format=3 uid="uid://cghgspdrl6mb7"]
+
+[ext_resource type="Texture2D" uid="uid://cfk6r80k40f4f" path="res://assets/gfx/avalanche_back_placeholder.png" id="1_6g0fj"]
+[ext_resource type="Script" path="res://src/levels/avalanche/avalanche.gd" id="1_p6btb"]
+[ext_resource type="Texture2D" uid="uid://jcj2ms8qvvjt" path="res://assets/gfx/avalanche_placeholder.png" id="2_56top"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_xbh5h"]
+size = Vector2(40, 320)
+
+[node name="Avalanche" type="Node2D"]
+script = ExtResource("1_p6btb")
+
+[node name="Parallax2D" type="Parallax2D" parent="."]
+repeat_size = Vector2(0, 463)
+repeat_times = 4
+
+[node name="Back" type="Sprite2D" parent="Parallax2D"]
+texture_repeat = 2
+position = Vector2(-352, 0)
+texture = ExtResource("1_6g0fj")
+
+[node name="Front" type="Sprite2D" parent="Parallax2D"]
+texture = ExtResource("2_56top")
+
+[node name="HitBox" type="Area2D" parent="."]
+collision_layer = 0
+collision_mask = 3
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="HitBox"]
+shape = SubResource("RectangleShape2D_xbh5h")
