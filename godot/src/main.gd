@@ -58,7 +58,6 @@ func level_up():
 	current_level += 1
 	Events.level_up.emit()
 	Logger.info("Leveled up to %d" % current_level)
-	
 func _on_obstacle_hit() -> void:
 	if not timer.started:
 		return
