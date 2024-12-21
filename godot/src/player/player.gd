@@ -14,7 +14,7 @@ signal speed_changed(new_speed:float)
 @export var min_speed := 50.0
 @export var accel:= 10.0
 @export var breaking := 10.0
-@export var turbo_factor := 1.25
+@export var turbo_factor := 1.0
 
 @export_category("stamina")
 @export var max_stamina := 100.0
@@ -36,6 +36,7 @@ var invulnerable := false
 @onready var sled: Area2D = $Sled
 @onready var stamina_timer: Timer = $StaminaTimer
 
+var jump_enabled:=false
 var ui_avalanche_meter:=false:
 	set(v):
 		ui_avalanche_meter=v
@@ -81,7 +82,7 @@ func _physics_process(delta: float) -> void:
 			current_speed = max(min_speed, current_speed + delta * breaking * input.y)
 			_update_pitch()
 		elif input.y > 0  and stamina > 0:
-			var turbo_on:=Input.is_action_pressed("turbo")
+			var turbo_on:=turbo_factor > 1 and Input.is_action_pressed("turbo")
 			var actual_max_speed = speed if not turbo_on else speed * turbo_factor
 			var actual_accel = accel if not turbo_on else accel * turbo_factor
 			current_speed = min(actual_max_speed, current_speed + delta * actual_accel * input.y)
@@ -90,7 +91,7 @@ func _physics_process(delta: float) -> void:
 		dog_pairs.back().position += delta * velocity
 		if current_speed != previous_speed:
 			speed_changed.emit(current_speed)
-		if Input.is_action_just_pressed("jump"):
+		if jump_enabled and Input.is_action_just_pressed("jump"):
 			dog_pairs.back().jump_component.jump()
 	
 	_recalibrate_positions()

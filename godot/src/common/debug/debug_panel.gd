@@ -19,8 +19,8 @@ func _on_music_tension_toggle_pressed() -> void:
 	
 
 func _on_next_level_pressed():
-	Events.level_up.emit()
-	#Globals.upgrade_manager.apply(Globals.upgrade_manager.get_random_available(1)[0])
+	#Events.level_up.emit()
+	Globals.upgrade_manager.apply(Globals.upgrade_manager.get_random_available(1)[0])
 	
 
 func _on_win_game_pressed():
@@ -32,3 +32,11 @@ func _on_invulnerable_toggled(toggled_on: bool) -> void:
 	Globals.player.invulnerable=toggled_on
 	Debug.invulnerable = toggled_on
 	Logger.info("No crashing = %s" % Globals.player.invulnerable)
+
+
+func _on_enable_jump_pressed() -> void:
+	Globals.player.jump_enabled=true
+
+
+func _on_enable_turbo_pressed() -> void:
+	Globals.player.turbo_factor=1.25
