@@ -1,15 +1,40 @@
-[gd_scene load_steps=24 format=3 uid="uid://wg63g48yqauy"]
+[gd_scene load_steps=31 format=3 uid="uid://wg63g48yqauy"]
 
 [ext_resource type="Script" path="res://src/player/sled/sled.gd" id="1_0ihuf"]
 [ext_resource type="PackedScene" uid="uid://gdqr022umlpa" path="res://src/components/shadow/shadow.tscn" id="1_4d11q"]
 [ext_resource type="Script" path="res://src/player/follow/follow_component.gd" id="3_md0so"]
 [ext_resource type="Texture2D" uid="uid://cxvh14qjl7x24" path="res://assets/gfx/sled/actual-sled.png" id="3_qbjww"]
+[ext_resource type="Texture2D" uid="uid://cnj5h7sbb37h" path="res://assets/gfx/sled/crash-animation.png" id="3_y7e1j"]
 [ext_resource type="Script" path="res://src/player/jump/jump_component.gd" id="4_xlo5g"]
 [ext_resource type="Texture2D" uid="uid://d0rxns14ip217" path="res://assets/gfx/sled/snow - start+loop.png" id="6_fljwt"]
 [ext_resource type="Texture2D" uid="uid://dtkxo4l30qdsf" path="res://assets/gfx/snow/small_particles.png" id="8_tmodl"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_p8kj0"]
 size = Vector2(16, 6)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_lseyw"]
+atlas = ExtResource("3_y7e1j")
+region = Rect2(0, 0, 62, 29)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_0mcqt"]
+atlas = ExtResource("3_y7e1j")
+region = Rect2(62, 0, 62, 29)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_pyn72"]
+atlas = ExtResource("3_y7e1j")
+region = Rect2(124, 0, 62, 29)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_p1js1"]
+atlas = ExtResource("3_y7e1j")
+region = Rect2(186, 0, 62, 29)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_0v3jc"]
+atlas = ExtResource("3_y7e1j")
+region = Rect2(248, 0, 62, 29)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_1hgtx"]
+atlas = ExtResource("3_y7e1j")
+region = Rect2(310, 0, 62, 29)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_s0kuj"]
 atlas = ExtResource("3_qbjww")
@@ -29,6 +54,29 @@ region = Rect2(84, 0, 28, 27)
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_mhp7i"]
 animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_lseyw")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_0mcqt")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_pyn72")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_p1js1")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_0v3jc")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_1hgtx")
+}],
+"loop": false,
+"name": &"crash",
+"speed": 10.0
+}, {
 "frames": [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_s0kuj")
@@ -147,7 +195,9 @@ depth = 0.2
 [node name="Sprite2D" type="AnimatedSprite2D" parent="JumpingBits"]
 position = Vector2(-16, -10)
 sprite_frames = SubResource("SpriteFrames_mhp7i")
-animation = &"run"
+animation = &"crash"
+frame = 5
+frame_progress = 1.0
 
 [node name="JumpComponent" type="Node" parent="." node_paths=PackedStringArray("target")]
 script = ExtResource("4_xlo5g")

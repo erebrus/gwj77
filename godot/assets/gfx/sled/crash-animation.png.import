@@ -3,15 +3,15 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://cnj5h7sbb37h"
-path="res://.godot/imported/crash-animation.png-0aa574fa38a2633f1b2d4cb019794784.ctex"
+path="res://.godot/imported/crash-animation.png-6cc614eb279e4dedf35dd0b97e202077.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/gfx/crash-animation.png"
-dest_files=["res://.godot/imported/crash-animation.png-0aa574fa38a2633f1b2d4cb019794784.ctex"]
+source_file="res://assets/gfx/sled/crash-animation.png"
+dest_files=["res://.godot/imported/crash-animation.png-6cc614eb279e4dedf35dd0b97e202077.ctex"]
 
 [params]
 

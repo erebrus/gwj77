@@ -7,6 +7,7 @@ const FADING_SNOW_SCENE:PackedScene=preload("res://src/player/sled/fading_snow.t
 
 @onready var snow_sprite: AnimatedSprite2D = $SnowSprite
 @onready var sprite: AnimatedSprite2D = $JumpingBits/Sprite2D
+@onready var snow_particles: GPUParticles2D = $SnowParticles
 
 var height: float:
 	set(value):
@@ -17,7 +18,12 @@ var height: float:
 func _ready():
 	snow_sprite.play("run")
 	sprite.play("run")
+	Events.obstacle_hit.connect(_on_crash)
 
+func _on_crash():
+	sprite.play("crash")
+	snow_particles.emitting=false
+	_on_jump_component_jumped()
 
 func _on_jump_component_jumped() -> void:
 	var fading_snow := FADING_SNOW_SCENE.instantiate() as FadingSnow
