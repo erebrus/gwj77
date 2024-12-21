@@ -19,3 +19,9 @@ TreeScene = ExtResource("3_lcjw7")
 LogScene = ExtResource("4_fiqdh")
 SnowPileScenes = Array[PackedScene]([ExtResource("5_r2mrx"), ExtResource("6_fcd7v"), ExtResource("7_ke2cl"), ExtResource("8_6xfla"), ExtResource("9_sgeqi"), ExtResource("10_17167"), ExtResource("11_f8ddo")])
 PresentScene = ExtResource("12_6hr3r")
+
+[node name="PlaceTreeTimer" type="Timer" parent="." index="3"]
+wait_time = 0.2
+autostart = true
+
+[connection signal="timeout" from="PlaceTreeTimer" to="." method="_on_place_tree_timer_timeout"]

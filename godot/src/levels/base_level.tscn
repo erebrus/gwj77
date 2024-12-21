@@ -15,10 +15,6 @@ repeat_size = Vector2(1280, 640)
 [node name="BG" type="Sprite2D" parent="BackgroundParallax"]
 texture = ExtResource("5_d35ak")
 
-[node name="PlaceTreeTimer" type="Timer" parent="."]
-wait_time = 0.2
-autostart = true
-
 [node name="Sled" parent="." instance=ExtResource("1_7k3nw")]
 position = Vector2(200, 160)
 
@@ -29,5 +25,3 @@ position_smoothing_speed = 2.0
 
 [node name="Avalanche" parent="." instance=ExtResource("6_7qnp1")]
 z_index = 1
-
-[connection signal="timeout" from="PlaceTreeTimer" to="." method="_on_place_tree_timer_timeout"]
