@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://rlpenfmbxxtw"
-path="res://.godot/imported/placeholder_snowpile.png-3d74ad8ce7c48c7f5b101a20aacdd090.ctex"
+uid="uid://cf7bubt62ykr3"
+path="res://.godot/imported/slope2.png-da7245cb5a7cafaabe0965026d202d92.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/gfx/placeholder_snowpile.png"
-dest_files=["res://.godot/imported/placeholder_snowpile.png-3d74ad8ce7c48c7f5b101a20aacdd090.ctex"]
+source_file="res://assets/gfx/snow/slope2.png"
+dest_files=["res://.godot/imported/slope2.png-da7245cb5a7cafaabe0965026d202d92.ctex"]
 
 [params]
 

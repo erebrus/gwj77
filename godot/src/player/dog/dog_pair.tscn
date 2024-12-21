@@ -1,13 +1,24 @@
-[gd_scene load_steps=5 format=3 uid="uid://berp0bpd3fukm"]
+[gd_scene load_steps=6 format=3 uid="uid://berp0bpd3fukm"]
 
 [ext_resource type="Script" path="res://src/player/dog/dog_pair.gd" id="1_35xlw"]
 [ext_resource type="PackedScene" uid="uid://dgmyppls2ppbo" path="res://src/player/dog/dog.tscn" id="2_b720v"]
 [ext_resource type="Script" path="res://src/player/jump/jump_component.gd" id="3_sa4ur"]
 [ext_resource type="Script" path="res://src/player/follow/follow_component.gd" id="4_vwptv"]
 
-[node name="DogPair" type="Node2D"]
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_xprgs"]
+radius = 2.0
+height = 12.0
+
+[node name="DogPair" type="Area2D"]
 y_sort_enabled = true
+collision_layer = 4
+collision_mask = 0
 script = ExtResource("1_35xlw")
+
+[node name="LeftDogCollisionShape" type="CollisionShape2D" parent="."]
+position = Vector2(9, -3)
+rotation = 1.5708
+shape = SubResource("CapsuleShape2D_xprgs")
 
 [node name="LeftDog" parent="." instance=ExtResource("2_b720v")]
 show_behind_parent = true
@@ -22,6 +33,11 @@ default_color = Color(0.513726, 0.278431, 0.239216, 1)
 points = PackedVector2Array(2, -4, 2, -4)
 width = 1.0
 default_color = Color(0.513726, 0.278431, 0.239216, 1)
+
+[node name="RightDogCollisionShape" type="CollisionShape2D" parent="."]
+position = Vector2(9, 7)
+rotation = 1.5708
+shape = SubResource("CapsuleShape2D_xprgs")
 
 [node name="RightDog" parent="." instance=ExtResource("2_b720v")]
 position = Vector2(8, 1)

@@ -77,8 +77,9 @@ debug={
 
 [layer_names]
 
-2d_physics/layer_1="player"
+2d_physics/layer_1="sled"
 2d_physics/layer_2="obstacles"
+2d_physics/layer_3="dogs"
 
 [rendering]
 

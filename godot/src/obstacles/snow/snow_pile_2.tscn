@@ -1,0 +1,12 @@
+[gd_scene load_steps=3 format=3 uid="uid://bfttaeov1og1c"]
+
+[ext_resource type="PackedScene" uid="uid://b6xr1byneqnqj" path="res://src/obstacles/snow/snow_pile.tscn" id="1_7ppta"]
+[ext_resource type="Texture2D" uid="uid://cf7bubt62ykr3" path="res://assets/gfx/snow/slope2.png" id="2_fimpw"]
+
+[node name="SnowPile2" instance=ExtResource("1_7ppta")]
+
+[node name="Sprite2D" parent="." index="0"]
+texture = ExtResource("2_fimpw")
+
+[node name="CollisionPolygon2D" parent="ObstacleComponent" index="0"]
+polygon = PackedVector2Array(5, 1, 34, 8, 1, 12, -34, 10)

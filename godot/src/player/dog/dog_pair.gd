@@ -1,4 +1,4 @@
-class_name DogPair extends Node2D
+class_name DogPair extends Area2D
 
 
 var height: float:

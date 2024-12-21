@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://ps3wd188yqie"
-path="res://.godot/imported/placeholder_sled_sideview.png-52efc4a6c53527ea97996ba195347281.ctex"
+uid="uid://dla2j34ed6ns5"
+path="res://.godot/imported/slope3.png-f87c60d8aac4d75692b0294aafe5a79f.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/gfx/placeholder_sled_sideview.png"
-dest_files=["res://.godot/imported/placeholder_sled_sideview.png-52efc4a6c53527ea97996ba195347281.ctex"]
+source_file="res://assets/gfx/snow/slope3.png"
+dest_files=["res://.godot/imported/slope3.png-f87c60d8aac4d75692b0294aafe5a79f.ctex"]
 
 [params]
 
