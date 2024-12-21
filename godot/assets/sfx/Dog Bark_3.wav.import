@@ -1,0 +1,24 @@
+[remap]
+
+importer="wav"
+type="AudioStreamWAV"
+uid="uid://ck5mbgyho01cp"
+path="res://.godot/imported/Dog Bark_3.wav-b1b301d85a093fa5bbcca0c0f644295d.sample"
+
+[deps]
+
+source_file="res://assets/sfx/Dog Bark_3.wav"
+dest_files=["res://.godot/imported/Dog Bark_3.wav-b1b301d85a093fa5bbcca0c0f644295d.sample"]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop_mode=0
+edit/loop_begin=0
+edit/loop_end=-1
+compress/mode=0

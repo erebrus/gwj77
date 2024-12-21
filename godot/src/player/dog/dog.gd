@@ -42,3 +42,7 @@ func on_landed():
 	await sprite.animation_finished
 	sprite.speed_scale=calculate_speed_scale()
 	sprite.play("run")
+
+
+func _on_random_range_timer_timeout() -> void:
+	$sfx_bark.play()
