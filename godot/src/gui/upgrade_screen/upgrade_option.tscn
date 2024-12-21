@@ -1,0 +1,38 @@
+[gd_scene load_steps=4 format=3 uid="uid://d0c73gdmfjddk"]
+
+[ext_resource type="StyleBox" uid="uid://bbwyki3w173u7" path="res://src/gui/panel.tres" id="1_2xpmb"]
+[ext_resource type="Theme" uid="uid://bwsudxwusgxog" path="res://src/gui/theme.tres" id="1_ctx16"]
+[ext_resource type="Script" path="res://src/gui/upgrade_screen/upgrade_option.gd" id="2_tir6m"]
+
+[node name="UpgradeOption" type="PanelContainer"]
+custom_minimum_size = Vector2(160, 0)
+offset_left = 30.0
+offset_right = 130.0
+offset_bottom = 142.0
+size_flags_horizontal = 4
+theme = ExtResource("1_ctx16")
+theme_override_styles/panel = ExtResource("1_2xpmb")
+script = ExtResource("2_tir6m")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
+layout_mode = 2
+
+[node name="NameLabel" type="Label" parent="VBoxContainer"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(50, 0)
+layout_mode = 2
+theme_type_variation = &"HeaderLarge"
+text = "Upgrade Name"
+autowrap_mode = 3
+
+[node name="DescriptionLabel" type="Label" parent="VBoxContainer"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(20, 0)
+layout_mode = 2
+theme_type_variation = &"HeaderSmall"
+text = "A description with some words. Probably more than this. But not really more than this."
+autowrap_mode = 3
+
+[connection signal="gui_input" from="." to="." method="_on_gui_input"]
+[connection signal="mouse_entered" from="." to="." method="_on_mouse_entered"]
+[connection signal="mouse_exited" from="." to="." method="_on_mouse_exited"]

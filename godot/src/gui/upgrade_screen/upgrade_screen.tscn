@@ -1,0 +1,17 @@
+[gd_scene load_steps=4 format=3 uid="uid://brrtsof55b81h"]
+
+[ext_resource type="Script" path="res://src/gui/upgrade_screen/upgrade_screen.gd" id="1_e7jdx"]
+[ext_resource type="PackedScene" uid="uid://d0c73gdmfjddk" path="res://src/gui/upgrade_screen/upgrade_option.tscn" id="2_dilgj"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_co3sa"]
+
+[node name="UpgradeScreen" type="PanelContainer"]
+size_flags_horizontal = 4
+size_flags_vertical = 4
+theme_override_styles/panel = SubResource("StyleBoxEmpty_co3sa")
+script = ExtResource("1_e7jdx")
+OptionScene = ExtResource("2_dilgj")
+
+[node name="UpgradeContainer" type="HBoxContainer" parent="."]
+unique_name_in_owner = true
+layout_mode = 2

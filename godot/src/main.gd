@@ -19,7 +19,6 @@ func _ready() -> void:
 	Events.music_change_requested.connect(_on_music_change_requested)
 	Events.present_captured.connect(_on_present_captured)
 	Events.stamina_changed.connect(_on_stamina_changed)
-	Events.level_up.connect(_on_level_up)
 	
 	var level = LevelScene.instantiate()
 	level.ready.connect(_on_level_loaded)
@@ -58,6 +57,8 @@ func level_up():
 	current_level += 1
 	Events.level_up.emit()
 	Logger.info("Leveled up to %d" % current_level)
+	
+
 func _on_obstacle_hit() -> void:
 	if not timer.started:
 		return
@@ -65,8 +66,4 @@ func _on_obstacle_hit() -> void:
 	timer.stop()
 	await get_tree().create_timer(1).timeout
 	Globals.start_game()
-	
-
-func _on_level_up() -> void:
-	get_tree().paused = true
 	
