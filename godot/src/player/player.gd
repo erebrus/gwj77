@@ -75,12 +75,13 @@ func _physics_process(delta: float) -> void:
 		var input = Input.get_vector("move_left", "move_right","break", "accelerate")		
 		if input.y < 0:
 			current_speed = max(min_speed, current_speed + delta * breaking * input.y)
+			_update_pitch()
 		elif input.y > 0  and stamina > 0:
 			var turbo_on:=Input.is_action_pressed("turbo")
 			var actual_max_speed = speed if not turbo_on else speed * turbo_factor
 			var actual_accel = accel if not turbo_on else accel * turbo_factor
 			current_speed = min(actual_max_speed, current_speed + delta * actual_accel * input.y)
-			
+			_update_pitch()
 		var velocity = Vector2(current_speed, input.x * turn_speed)
 		dog_pairs.back().position += delta * velocity
 		if current_speed != previous_speed:
@@ -92,7 +93,8 @@ func _physics_process(delta: float) -> void:
 	_handle_stamina(delta)
 	
 
-
+func _update_pitch():
+	$sfx_layer2.pitch_scale=.85+.3*min((current_speed-75)/(225-75),1)
 func _handle_stamina(delta: float)-> void:
 	if not stamina_timer.is_stopped():
 		return
