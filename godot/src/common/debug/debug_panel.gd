@@ -19,8 +19,8 @@ func _on_music_tension_toggle_pressed() -> void:
 	
 
 func _on_next_level_pressed():
-	#Events.level_up.emit()
-	Globals.upgrade_manager.apply(Globals.upgrade_manager.get_random_available(1)[0])
+	Events.level_up.emit()
+	#Globals.upgrade_manager.apply(Globals.upgrade_manager.get_random_available(1)[0])
 	
 
 func _on_win_game_pressed():
