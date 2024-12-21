@@ -18,7 +18,7 @@ func _physics_process(delta: float) -> void:
 	closing_in.global_position.y = Globals.player.global_position.y
 	close.global_position.y = Globals.player.global_position.y
 	
-	if Debug.avalanche_enabled: 
+	if not Debug.invulnerable: 
 		global_position.x += speed * delta
 	
 

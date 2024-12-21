@@ -5,9 +5,9 @@ extends CanvasLayer
 		debug_build = value
 		visible = value
 
-@export var avalanche_enabled: bool = false:
+@export var invulnerable: bool = false:
 	get:
-		return not debug_build or avalanche_enabled
+		return not debug_build or invulnerable
 	
 
 func _ready() -> void:
