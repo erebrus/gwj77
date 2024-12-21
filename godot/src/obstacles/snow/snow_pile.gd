@@ -1,13 +1,23 @@
 extends Node2D
 
 
-func enter(sled: Area2D) -> void:
-	Logger.info("Entered snow pile")
-	sled.get_parent().modify_current_speed(Types.PILE_SPEED_FACTOR)
-	sled.get_parent().modify_acceleration(Types.PILE_ACCCEL_FACTOR)
+func enter(_area: Area2D) -> void:
+	var previous_speed = Globals.player.current_speed
+	var previous_acc = Globals.player.accel
+	Globals.player.modify_current_speed(Types.PILE_SPEED_FACTOR)
+	Globals.player.modify_acceleration(Types.PILE_ACCCEL_FACTOR)
+	Logger.info("Entered snow pile. Speed: %.4f -> %.4f. Accel: %.4f -> %.4f" % [
+		previous_speed, Globals.player.current_speed,
+		previous_acc, Globals.player.accel
+	])
 	
 
-func exit(sled: Area2D) -> void:
-	Logger.info("Exited snow pile")
-	sled.get_parent().modify_acceleration(1/Types.PILE_ACCCEL_FACTOR)
+func exit(_area: Area2D) -> void:
+	var previous_speed = Globals.player.current_speed
+	var previous_acc = Globals.player.accel
+	Globals.player.modify_acceleration(1/Types.PILE_ACCCEL_FACTOR)
+	Logger.info("Exited snow pile. Speed: %.4f -> %.4f. Accel: %.4f -> %.4f" % [
+		previous_speed, Globals.player.current_speed,
+		previous_acc, Globals.player.accel
+	])
 	
