@@ -24,3 +24,8 @@ func _on_next_level_pressed():
 func _on_win_game_pressed():
 	Globals.do_win()
 	
+
+
+func _on_invulnerable_toggled(toggled_on: bool) -> void:
+	Globals.player.invulnerable=toggled_on
+	Logger.info("No crashing = %s" % Globals.player.invulnerable)
