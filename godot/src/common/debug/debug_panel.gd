@@ -3,7 +3,8 @@ extends PanelContainer
 
 func _ready() -> void:
 	hide()
-	
+	%Invulnerable.button_pressed = Debug.invulnerable
+	 
 
 func _input(event: InputEvent) -> void:
 	if Debug.debug_build and event.is_action_pressed("debug"):
@@ -28,4 +29,5 @@ func _on_win_game_pressed():
 
 func _on_invulnerable_toggled(toggled_on: bool) -> void:
 	Globals.player.invulnerable=toggled_on
+	Debug.invulnerable = toggled_on
 	Logger.info("No crashing = %s" % Globals.player.invulnerable)

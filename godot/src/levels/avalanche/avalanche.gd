@@ -18,8 +18,8 @@ func _physics_process(delta: float) -> void:
 	closing_in.global_position.y = Globals.player.global_position.y
 	close.global_position.y = Globals.player.global_position.y
 	
-	
-	global_position.x += speed * delta
+	if not Debug.invulnerable: 
+		global_position.x += speed * delta
 	
 
 func _on_hitbox_entered(area: Area2D) -> void:

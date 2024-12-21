@@ -13,16 +13,12 @@ extends BaseLevel
 @export var templates: Array[Texture2D]
 @export var start_template:Texture2D
 
-var grid: Dictionary # Dictionary[Vector2, Node]
-
-
-
 @onready var cells_per_screen = 640.0 / grid_size
 @onready var cells_in_advance = screens_in_advance * cells_per_screen
 @onready var checkpoint = -cells_in_advance
 
 
-var previous_obstacles: Dictionary
+var previous_obstacles: Dictionary # Dictionary[Vector2, Types.Obstacle]
 
 
 func _ready() -> void:

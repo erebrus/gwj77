@@ -45,11 +45,15 @@ shape = SubResource("CapsuleShape2D_cdxnp")
 [node name="ShakeArea" type="Area2D" parent="."]
 position = Vector2(0.5, -6.5)
 collision_layer = 0
+collision_mask = 5
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="ShakeArea"]
 position = Vector2(0, -3)
 shape = SubResource("CircleShape2D_wd5vc")
 
 [node name="RemoveOnPassedComponent" parent="." instance=ExtResource("10_xg1mv")]
+
+[node name="ShakeTimer" type="Timer" parent="."]
+one_shot = true
 
 [connection signal="area_exited" from="ShakeArea" to="." method="_on_shake_area_area_exited"]

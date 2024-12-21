@@ -6,4 +6,3 @@ uniform float extra = 0;
 void vertex() {
 	VERTEX.x += sin(TIME * speed) * strength * (UV.y-1.0) - extra * (UV.y - 1.0);
 }
-
