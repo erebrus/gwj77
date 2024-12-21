@@ -5,6 +5,6 @@ extends Area2D
 func _ready():
 	animation_player.play("default")
 	
-func _on_area_entered(sled: Area2D) -> void:
+func _on_area_entered(_sled: Area2D) -> void:
 	Events.present_captured.emit()
 	queue_free()

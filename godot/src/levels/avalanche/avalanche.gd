@@ -28,17 +28,17 @@ func _on_hitbox_entered(area: Area2D) -> void:
 	
 
 
-func _on_close_area_entered(area: Area2D) -> void:
+func _on_close_area_entered(_area: Area2D) -> void:
 	Events.music_change_requested.emit(Types.GameMusic.HARD)
 
 
-func _on_close_area_exited(area: Area2D) -> void:
+func _on_close_area_exited(_area: Area2D) -> void:
 	Events.music_change_requested.emit(Types.GameMusic.NORMAL)
 
 
-func _on_closing_in_area_entered(area: Area2D) -> void:
+func _on_closing_in_area_entered(_area: Area2D) -> void:
 	Events.music_change_requested.emit(Types.GameMusic.NORMAL)
 
 
-func _on_closing_in_area_exited(area: Area2D) -> void:
+func _on_closing_in_area_exited(_area: Area2D) -> void:
 	Events.music_change_requested.emit(Types.GameMusic.EASY)
