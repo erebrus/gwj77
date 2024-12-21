@@ -1,21 +1,13 @@
-[gd_scene load_steps=9 format=3 uid="uid://cxt63d3uyyala"]
+[gd_scene load_steps=5 format=3 uid="uid://cxt63d3uyyala"]
 
 [ext_resource type="PackedScene" uid="uid://cbcfxexxa6mg4" path="res://src/player/player.tscn" id="1_7k3nw"]
 [ext_resource type="Script" path="res://src/levels/base_level.gd" id="1_3225r"]
-[ext_resource type="PackedScene" uid="uid://d0yuuvv25tlcq" path="res://src/obstacles/log_obstacle.tscn" id="2_2uxai"]
-[ext_resource type="PackedScene" uid="uid://cojv1dhgejmm" path="res://src/obstacles/tree.tscn" id="2_ma2j3"]
-[ext_resource type="PackedScene" uid="uid://b6xr1byneqnqj" path="res://src/obstacles/snow/snow_pile.tscn" id="4_fmug8"]
 [ext_resource type="Texture2D" uid="uid://beooco7rx0pts" path="res://assets/gfx/BG-p2.png" id="5_d35ak"]
 [ext_resource type="PackedScene" uid="uid://cghgspdrl6mb7" path="res://src/levels/avalanche/avalanche.tscn" id="6_7qnp1"]
-[ext_resource type="PackedScene" uid="uid://d2lblqb1obdwr" path="res://src/levels/collectibles/present.tscn" id="8_fr8my"]
 
-[node name="LandscapeBaseLevel" type="Node2D"]
+[node name="BaseLevel" type="Node2D"]
 y_sort_enabled = true
 script = ExtResource("1_3225r")
-TreeScene = ExtResource("2_ma2j3")
-LogScene = ExtResource("2_2uxai")
-SnowPileScene = ExtResource("4_fmug8")
-PresentScene = ExtResource("8_fr8my")
 
 [node name="BackgroundParallax" type="Parallax2D" parent="."]
 repeat_size = Vector2(1280, 640)

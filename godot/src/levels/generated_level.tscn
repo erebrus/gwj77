@@ -1,0 +1,21 @@
+[gd_scene load_steps=13 format=3 uid="uid://d0e1ebfincae"]
+
+[ext_resource type="PackedScene" uid="uid://cxt63d3uyyala" path="res://src/levels/base_level.tscn" id="1_ptced"]
+[ext_resource type="Script" path="res://src/levels/generated_level.gd" id="2_3dexe"]
+[ext_resource type="PackedScene" uid="uid://cojv1dhgejmm" path="res://src/obstacles/tree.tscn" id="3_lcjw7"]
+[ext_resource type="PackedScene" uid="uid://d0yuuvv25tlcq" path="res://src/obstacles/log_obstacle.tscn" id="4_fiqdh"]
+[ext_resource type="PackedScene" uid="uid://b6xr1byneqnqj" path="res://src/obstacles/snow/snow_pile.tscn" id="5_r2mrx"]
+[ext_resource type="PackedScene" uid="uid://bfttaeov1og1c" path="res://src/obstacles/snow/snow_pile_2.tscn" id="6_fcd7v"]
+[ext_resource type="PackedScene" uid="uid://d2n2rl2604d8m" path="res://src/obstacles/snow/snow_pile_3.tscn" id="7_ke2cl"]
+[ext_resource type="PackedScene" uid="uid://c8ejyg7k3yjpy" path="res://src/obstacles/snow/snow_pile_4.tscn" id="8_6xfla"]
+[ext_resource type="PackedScene" uid="uid://cymlwcymuksr6" path="res://src/obstacles/snow/snow_pile_5.tscn" id="9_sgeqi"]
+[ext_resource type="PackedScene" uid="uid://dh4rm4s60riov" path="res://src/obstacles/snow/snow_pile_6.tscn" id="10_17167"]
+[ext_resource type="PackedScene" uid="uid://b3egjmexha8ra" path="res://src/obstacles/snow/snow_pile_7.tscn" id="11_f8ddo"]
+[ext_resource type="PackedScene" uid="uid://d2lblqb1obdwr" path="res://src/levels/collectibles/present.tscn" id="12_6hr3r"]
+
+[node name="GeneratedLevel" instance=ExtResource("1_ptced")]
+script = ExtResource("2_3dexe")
+TreeScene = ExtResource("3_lcjw7")
+LogScene = ExtResource("4_fiqdh")
+SnowPileScenes = Array[PackedScene]([ExtResource("5_r2mrx"), ExtResource("6_fcd7v"), ExtResource("7_ke2cl"), ExtResource("8_6xfla"), ExtResource("9_sgeqi"), ExtResource("10_17167"), ExtResource("11_f8ddo")])
+PresentScene = ExtResource("12_6hr3r")
