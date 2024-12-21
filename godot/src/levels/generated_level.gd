@@ -11,7 +11,7 @@ extends BaseLevel
 @export var cells_between_log_and_snow:= 4
 @export var screens_in_advance:= 1.5
 @export var templates: Array[Texture2D]
-
+@export var start_template:Texture2D
 
 var grid: Dictionary # Dictionary[Vector2, Node]
 
@@ -27,6 +27,7 @@ var previous_obstacles: Dictionary
 
 func _ready() -> void:
 	super()
+	_place_section(start_template)
 	while checkpoint < 0:
 		_place_section()
 	
@@ -36,10 +37,10 @@ func _physics_process(_delta: float) -> void:
 		_place_section()
 	
 
-func _place_section() -> void:
+func _place_section(tex:Texture2D=null) -> void:
 	var start_cell = Vector2(checkpoint + cells_in_advance, $Sled.position.y / grid_size)
 	
-	var template: Texture2D = templates.pick_random()
+	var template: Texture2D = tex if tex != null else templates.pick_random()
 	var image: Image = template.get_image()
 	var template_size = template.get_size()
 	var obstacles: Dictionary

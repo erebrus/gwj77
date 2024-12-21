@@ -1,4 +1,4 @@
-[gd_scene load_steps=21 format=3 uid="uid://d0e1ebfincae"]
+[gd_scene load_steps=25 format=3 uid="uid://bndr53funklqt"]
 
 [ext_resource type="PackedScene" uid="uid://cxt63d3uyyala" path="res://src/levels/base_level.tscn" id="1_ptced"]
 [ext_resource type="Script" path="res://src/levels/generated_level.gd" id="2_3dexe"]
@@ -20,6 +20,10 @@
 [ext_resource type="Texture2D" uid="uid://ccp00skoc04i7" path="res://assets/level_generation/corridor_mid_01.png" id="18_x2iu0"]
 [ext_resource type="Texture2D" uid="uid://dmqj46uduwp8u" path="res://assets/level_generation/corridor_mid_02.png" id="19_pw0na"]
 [ext_resource type="Texture2D" uid="uid://ciss3ybe8v51w" path="res://assets/level_generation/corridor_mid_03.png" id="20_s5r55"]
+[ext_resource type="Texture2D" uid="uid://dfuv6sp1xjtjc" path="res://assets/level_generation/funnel_narrow.png" id="21_7x0kk"]
+[ext_resource type="Texture2D" uid="uid://bbmdheth6jd1r" path="res://assets/level_generation/island_narrow.png" id="22_j2g0a"]
+[ext_resource type="Texture2D" uid="uid://by6nqfe7718xl" path="res://assets/level_generation/3islands_narrow.png" id="23_v5orh"]
+[ext_resource type="Texture2D" uid="uid://brh4qf1o81h6m" path="res://assets/level_generation/start.png" id="27_48kwm"]
 
 [node name="GeneratedLevel" instance=ExtResource("1_ptced")]
 script = ExtResource("2_3dexe")
@@ -30,4 +34,5 @@ PresentScene = ExtResource("12_6hr3r")
 grid_size = 40
 cells_between_log_and_snow = 4
 screens_in_advance = 1.5
-templates = Array[Texture2D]([ExtResource("14_ct8ro"), ExtResource("15_u8ug6"), ExtResource("15_xjv0y"), ExtResource("16_07irg"), ExtResource("17_fikk6"), ExtResource("18_x2iu0"), ExtResource("19_pw0na"), ExtResource("20_s5r55")])
+templates = Array[Texture2D]([ExtResource("14_ct8ro"), ExtResource("15_u8ug6"), ExtResource("15_xjv0y"), ExtResource("16_07irg"), ExtResource("17_fikk6"), ExtResource("18_x2iu0"), ExtResource("19_pw0na"), ExtResource("20_s5r55"), ExtResource("21_7x0kk"), ExtResource("22_j2g0a"), ExtResource("23_v5orh")])
+start_template = ExtResource("27_48kwm")
