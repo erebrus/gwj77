@@ -1,4 +1,4 @@
-[gd_scene load_steps=14 format=3 uid="uid://cojv1dhgejmm"]
+[gd_scene load_steps=18 format=3 uid="uid://cojv1dhgejmm"]
 
 [ext_resource type="Script" path="res://src/obstacles/tree.gd" id="1_dqako"]
 [ext_resource type="PackedScene" uid="uid://bcb1qayut8h4" path="res://src/obstacles/obstacle_component/obstacle_component.tscn" id="2_0taqo"]
@@ -10,6 +10,9 @@
 [ext_resource type="Texture2D" uid="uid://b8hldny5xv5hf" path="res://assets/gfx/trees/tr41.png" id="6_ssygy"]
 [ext_resource type="Texture2D" uid="uid://dcxm34f8yvn05" path="res://assets/gfx/trees/tr51.png" id="7_sok6f"]
 [ext_resource type="PackedScene" uid="uid://doqt8kerf31t2" path="res://src/obstacles/remove_on_passed_component/remove_on_passed_component.tscn" id="10_xg1mv"]
+[ext_resource type="AudioStream" uid="uid://wtc1n704p5b0" path="res://assets/sfx/Tree_collision_1.wav" id="11_60h2o"]
+[ext_resource type="AudioStream" uid="uid://digbenvwtxwlg" path="res://assets/sfx/Tree_collision_2.wav" id="12_04drc"]
+[ext_resource type="AudioStream" uid="uid://p0wppapijync" path="res://assets/sfx/Tree_collision_3.wav" id="13_yuydg"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_noj16"]
 shader = ExtResource("2_2lgyd")
@@ -23,6 +26,12 @@ height = 18.0
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_wd5vc"]
 radius = 49.0102
+
+[sub_resource type="AudioStreamRandomizer" id="AudioStreamRandomizer_67tms"]
+streams_count = 3
+stream_0/stream = ExtResource("11_60h2o")
+stream_1/stream = ExtResource("12_04drc")
+stream_2/stream = ExtResource("13_yuydg")
 
 [node name="Tree" type="Node2D"]
 script = ExtResource("1_dqako")
@@ -55,5 +64,8 @@ shape = SubResource("CircleShape2D_wd5vc")
 
 [node name="ShakeTimer" type="Timer" parent="."]
 one_shot = true
+
+[node name="sfx" type="AudioStreamPlayer2D" parent="."]
+stream = SubResource("AudioStreamRandomizer_67tms")
 
 [connection signal="area_exited" from="ShakeArea" to="." method="_on_shake_area_area_exited"]

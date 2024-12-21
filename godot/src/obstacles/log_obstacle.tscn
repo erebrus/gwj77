@@ -1,13 +1,22 @@
-[gd_scene load_steps=6 format=3 uid="uid://d0yuuvv25tlcq"]
+[gd_scene load_steps=10 format=3 uid="uid://d0yuuvv25tlcq"]
 
 [ext_resource type="Script" path="res://src/obstacles/log_obstacle.gd" id="1_g2fyr"]
 [ext_resource type="Texture2D" uid="uid://c7rehkx1jaao" path="res://assets/gfx/log-1.png" id="2_4qjsd"]
 [ext_resource type="PackedScene" uid="uid://bcb1qayut8h4" path="res://src/obstacles/obstacle_component/obstacle_component.tscn" id="2_u2h7p"]
 [ext_resource type="PackedScene" uid="uid://doqt8kerf31t2" path="res://src/obstacles/remove_on_passed_component/remove_on_passed_component.tscn" id="4_kiob0"]
+[ext_resource type="AudioStream" uid="uid://c44d1nlovdhts" path="res://assets/sfx/DeadTreetrunk_collision_1.wav" id="5_lwkbw"]
+[ext_resource type="AudioStream" uid="uid://cjx8tmfuok3q5" path="res://assets/sfx/DeadTreetrunk_collision_2.wav" id="6_uuac0"]
+[ext_resource type="AudioStream" uid="uid://8hoox3ogdsq0" path="res://assets/sfx/DeadTreetrunk_collision_3.wav" id="7_53tdm"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_a87ec"]
 radius = 4.0
 height = 26.8828
+
+[sub_resource type="AudioStreamRandomizer" id="AudioStreamRandomizer_egsyw"]
+streams_count = 3
+stream_0/stream = ExtResource("5_lwkbw")
+stream_1/stream = ExtResource("6_uuac0")
+stream_2/stream = ExtResource("7_53tdm")
 
 [node name="LogObstacle" type="Node2D"]
 script = ExtResource("1_g2fyr")
@@ -26,3 +35,6 @@ rotation = -0.775469
 shape = SubResource("CapsuleShape2D_a87ec")
 
 [node name="RemoveOnPassedComponent" parent="." instance=ExtResource("4_kiob0")]
+
+[node name="sfx" type="AudioStreamPlayer2D" parent="."]
+stream = SubResource("AudioStreamRandomizer_egsyw")

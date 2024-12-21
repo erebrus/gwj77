@@ -2,6 +2,7 @@ extends Node2D
 
 
 func enter(_area: Area2D) -> void:
+	$sfx.play()
 	var previous_speed = Globals.player.current_speed
 	var previous_acc = Globals.player.accel
 	Globals.player.modify_current_speed(Types.PILE_SPEED_FACTOR)

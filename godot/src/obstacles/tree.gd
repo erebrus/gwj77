@@ -14,6 +14,7 @@ func _ready():
 
 func enter(sled: Sled) -> void:
 	sled.get_parent().crash()
+	$sfx.play()
 	
 
 func _on_shake_area_area_exited(_area):
