@@ -1,7 +1,7 @@
-[gd_scene load_steps=13 format=3 uid="uid://cojv1dhgejmm"]
+[gd_scene load_steps=14 format=3 uid="uid://cojv1dhgejmm"]
 
 [ext_resource type="Script" path="res://src/obstacles/tree.gd" id="1_dqako"]
-[ext_resource type="PackedScene" uid="uid://bcb1qayut8h4" path="res://src/obstacles/obstacle_component.tscn" id="2_0taqo"]
+[ext_resource type="PackedScene" uid="uid://bcb1qayut8h4" path="res://src/obstacles/obstacle_component/obstacle_component.tscn" id="2_0taqo"]
 [ext_resource type="Shader" path="res://src/obstacles/wind.gdshader" id="2_2lgyd"]
 [ext_resource type="Texture2D" uid="uid://b8hbq1sqwq1uu" path="res://assets/gfx/trees/tr01.png" id="2_ywkj6"]
 [ext_resource type="Texture2D" uid="uid://bbs7xl2egtqg0" path="res://assets/gfx/trees/tr02.png" id="3_05j1j"]
@@ -9,6 +9,7 @@
 [ext_resource type="Texture2D" uid="uid://c3ecukydje71g" path="res://assets/gfx/trees/tr31.png" id="5_ud8ls"]
 [ext_resource type="Texture2D" uid="uid://b8hldny5xv5hf" path="res://assets/gfx/trees/tr41.png" id="6_ssygy"]
 [ext_resource type="Texture2D" uid="uid://dcxm34f8yvn05" path="res://assets/gfx/trees/tr51.png" id="7_sok6f"]
+[ext_resource type="PackedScene" uid="uid://doqt8kerf31t2" path="res://src/obstacles/remove_on_passed_component/remove_on_passed_component.tscn" id="10_xg1mv"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_noj16"]
 shader = ExtResource("2_2lgyd")
@@ -48,5 +49,7 @@ collision_layer = 0
 [node name="CollisionShape2D" type="CollisionShape2D" parent="ShakeArea"]
 position = Vector2(0, -3)
 shape = SubResource("CircleShape2D_wd5vc")
+
+[node name="RemoveOnPassedComponent" parent="." instance=ExtResource("10_xg1mv")]
 
 [connection signal="area_exited" from="ShakeArea" to="." method="_on_shake_area_area_exited"]

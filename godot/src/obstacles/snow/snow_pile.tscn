@@ -1,8 +1,9 @@
-[gd_scene load_steps=4 format=3 uid="uid://b6xr1byneqnqj"]
+[gd_scene load_steps=5 format=3 uid="uid://b6xr1byneqnqj"]
 
-[ext_resource type="PackedScene" uid="uid://bcb1qayut8h4" path="res://src/obstacles/obstacle_component.tscn" id="1_hdp6c"]
+[ext_resource type="PackedScene" uid="uid://bcb1qayut8h4" path="res://src/obstacles/obstacle_component/obstacle_component.tscn" id="1_hdp6c"]
 [ext_resource type="Script" path="res://src/obstacles/snow/snow_pile.gd" id="1_vixro"]
 [ext_resource type="Texture2D" uid="uid://dxhin2jo0g2fr" path="res://assets/gfx/snow/slope1.png" id="2_6mbrw"]
+[ext_resource type="PackedScene" uid="uid://doqt8kerf31t2" path="res://src/obstacles/remove_on_passed_component/remove_on_passed_component.tscn" id="4_dmqva"]
 
 [node name="SnowPile" type="Node2D"]
 script = ExtResource("1_vixro")
@@ -19,3 +20,5 @@ parent = NodePath("..")
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="ObstacleComponent"]
 polygon = PackedVector2Array(-42, 3, -4, -6, 17, -10, 36, -5, 37, 3, 34, 8, 42, 13, 0, 16, -21, 14, -7, 2)
+
+[node name="RemoveOnPassedComponent" parent="." instance=ExtResource("4_dmqva")]

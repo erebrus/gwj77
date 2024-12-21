@@ -22,6 +22,7 @@ var grid: Dictionary # Dictionary[Vector2, Node]
 
 
 func _ready() -> void:
+	super()
 	while checkpoint < 0:
 		_place_section()
 	

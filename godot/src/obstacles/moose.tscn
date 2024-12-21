@@ -1,7 +1,8 @@
 [gd_scene load_steps=4 format=3 uid="uid://b8yx4dpe6jrjg"]
 
 [ext_resource type="Script" path="res://src/obstacles/moose.gd" id="1_f1m5g"]
-[ext_resource type="PackedScene" uid="uid://bcb1qayut8h4" path="res://src/obstacles/obstacle_component.tscn" id="2_lv066"]
+[ext_resource type="PackedScene" uid="uid://bcb1qayut8h4" path="res://src/obstacles/obstacle_component/obstacle_component.tscn" id="2_lv066"]
+
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_4tvgo"]
 size = Vector2(8, 24)
