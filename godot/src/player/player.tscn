@@ -20,4 +20,7 @@ position = Vector2(-17, -12)
 wait_time = 0.2
 one_shot = true
 
+[node name="StaminaTimer" type="Timer" parent="."]
+
 [connection signal="timeout" from="BufferTimer" to="." method="_on_buffer_timer_timeout"]
+[connection signal="timeout" from="StaminaTimer" to="." method="_on_stamina_timer_timeout"]
