@@ -17,7 +17,7 @@ content_margin_bottom = 5.0
 
 [node name="Main" type="Node"]
 script = ExtResource("1_qalx3")
-xp_levels = Array[int]([300, 800, 1300, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0])
+xp_levels = Array[int]([200, 500, 900, 1300, 1800, 2400, 3100, 3900, 4800, 5800, 6900, 8000, 9000, 10200, 11500, 13000, 15000])
 LevelScene = ExtResource("2_0qw3c")
 
 [node name="GUI" type="CanvasLayer" parent="."]
