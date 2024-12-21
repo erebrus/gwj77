@@ -20,7 +20,7 @@ signal speed_changed(new_speed:float)
 @export var max_stamina := 100.0
 @export var stamina_drain := 10.0
 @export var stamina_recovery := 10.0
-@export var stamina_depleted_timeout := 1.0
+@export var stamina_depleted_timeout := 2.5
 @export var stamina_speed_neutral := Vector2(.75,.9)
 
 var dog_pairs: Array[DogPair]
@@ -110,6 +110,7 @@ func _drain_stamina(delta: float):
 	stamina-=drain_value*delta
 	if stamina <= 0:
 		stamina = 0
+		current_speed=min_speed
 		stamina_timer.start()
 	Events.stamina_changed.emit(stamina)
 	

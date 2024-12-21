@@ -1,0 +1,24 @@
+[remap]
+
+importer="wav"
+type="AudioStreamWAV"
+uid="uid://c5e8378e1d7l2"
+path="res://.godot/imported/Teaching sled dog directional commands..wav-1e8ec18095ea0c38f1abca30ed35b2a0.sample"
+
+[deps]
+
+source_file="res://assets/sfx/Teaching sled dog directional commands..wav"
+dest_files=["res://.godot/imported/Teaching sled dog directional commands..wav-1e8ec18095ea0c38f1abca30ed35b2a0.sample"]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop_mode=0
+edit/loop_begin=0
+edit/loop_end=-1
+compress/mode=0
