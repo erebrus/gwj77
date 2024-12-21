@@ -27,7 +27,11 @@ var dog_pairs: Array[DogPair]
 var is_alive:= false
 var invulnerable := false
 @onready var current_speed := min_speed
-@onready var stamina := max_stamina
+@onready var stamina := max_stamina:
+	set(value):
+		if value != stamina:
+			stamina = value
+			Events.stamina_changed.emit(stamina)
 
 @onready var sled: Area2D = $Sled
 @onready var stamina_timer: Timer = $StaminaTimer
@@ -114,12 +118,10 @@ func _drain_stamina(delta: float):
 		stamina = 0
 		current_speed=min_speed
 		stamina_timer.start()
-	Events.stamina_changed.emit(stamina)
 	
 func _recover_stamina(delta: float):
 	stamina += stamina_recovery*delta
 	stamina = min(stamina, max_stamina)
-	Events.stamina_changed.emit(stamina)
 	
 func crash() -> void:
 	if invulnerable:
@@ -157,4 +159,4 @@ func _add_dog_pair(at_position: Vector2) -> void:
 
 
 func _on_stamina_timer_timeout() -> void:
-	pass # Replace with function body.
+	Events.stamina_exhaustion_finished.emit()
