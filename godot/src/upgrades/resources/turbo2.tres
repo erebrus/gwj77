@@ -1,0 +1,14 @@
+[gd_resource type="Resource" script_class="UpgradeFloat" load_steps=5 format=3 uid="uid://4wnjiv58fdln"]
+
+[ext_resource type="Script" path="res://src/upgrades/upgrade.gd" id="1_cw8py"]
+[ext_resource type="Resource" uid="uid://cks82suyexg0s" path="res://src/upgrades/resources/speed1.tres" id="2_p3lll"]
+[ext_resource type="Resource" uid="uid://dilq41y3v1lhv" path="res://src/upgrades/resources/stamina1.tres" id="3_ir5o4"]
+[ext_resource type="Script" path="res://src/upgrades/upgrade_float.gd" id="4_o0liy"]
+
+[resource]
+script = ExtResource("4_o0liy")
+value = 1.5
+name = "Turbo Upgrade"
+description = "Increase acceleration and speed to 150% at expense of stamina."
+requirements = Array[ExtResource("1_cw8py")]([ExtResource("2_p3lll"), ExtResource("3_ir5o4")])
+property_name = "turbo_factor"

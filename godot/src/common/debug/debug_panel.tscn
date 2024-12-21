@@ -37,6 +37,18 @@ focus_mode = 0
 toggle_mode = true
 text = "No Crashing"
 
+[node name="Enable Jump" type="Button" parent="VBoxContainer/HFlowContainer2"]
+layout_mode = 2
+focus_mode = 0
+text = "Enable Jump
+"
+
+[node name="Enable Turbo" type="Button" parent="VBoxContainer/HFlowContainer2"]
+layout_mode = 2
+focus_mode = 0
+text = "Enable Turbo
+"
+
 [node name="GameOverLabel" type="Label" parent="VBoxContainer"]
 layout_mode = 2
 text = "Game Over"
@@ -56,5 +68,7 @@ text = "Win Game"
 
 [connection signal="pressed" from="VBoxContainer/HFlowContainer2/MusicTensionToggle" to="." method="_on_music_tension_toggle_pressed"]
 [connection signal="toggled" from="VBoxContainer/HFlowContainer2/Invulnerable" to="." method="_on_invulnerable_toggled"]
+[connection signal="pressed" from="VBoxContainer/HFlowContainer2/Enable Jump" to="." method="_on_enable_jump_pressed"]
+[connection signal="pressed" from="VBoxContainer/HFlowContainer2/Enable Turbo" to="." method="_on_enable_turbo_pressed"]
 [connection signal="pressed" from="VBoxContainer/HFlowContainer/NextLevel" to="." method="_on_next_level_pressed"]
 [connection signal="pressed" from="VBoxContainer/HFlowContainer/WinGame" to="." method="_on_win_game_pressed"]
