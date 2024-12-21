@@ -1,0 +1,13 @@
+[gd_resource type="Resource" script_class="UpgradeFloat" load_steps=4 format=3 uid="uid://db31r0gjy7ek6"]
+
+[ext_resource type="Script" path="res://src/upgrades/upgrade.gd" id="1_414qp"]
+[ext_resource type="Script" path="res://src/upgrades/upgrade_float.gd" id="2_3cutq"]
+[ext_resource type="Resource" uid="uid://gfe5ikpne7er" path="res://src/upgrades/resources/break1.tres" id="2_577ko"]
+
+[resource]
+script = ExtResource("2_3cutq")
+value = 30.0
+name = "Quickest stop"
+description = "Increase max breaking to 30."
+requirements = Array[ExtResource("1_414qp")]([ExtResource("2_577ko")])
+property_name = "breaking"

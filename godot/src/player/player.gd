@@ -18,8 +18,8 @@ signal speed_changed(new_speed:float)
 
 @export_category("stamina")
 @export var max_stamina := 100.0
-@export var stamina_drain := 5.0
-@export var stamina_recovery := 2.0
+@export var stamina_drain := 10.0
+@export var stamina_recovery := 10.0
 @export var stamina_depleted_timeout := 1.0
 @export var stamina_speed_neutral := Vector2(.75,.9)
 
@@ -32,6 +32,22 @@ var invulnerable := false
 @onready var sled: Area2D = $Sled
 @onready var stamina_timer: Timer = $StaminaTimer
 
+var ui_avalanche_meter:=false:
+	set(v):
+		ui_avalanche_meter=v
+		Events.ui_configuration_updated.emit()
+var ui_speed_meter:=false:
+	set(v):
+		ui_speed_meter=v
+		Events.ui_configuration_updated.emit()
+var ui_stamina_meter:=false:
+	set(v):
+		ui_stamina_meter=v
+		Events.ui_configuration_updated.emit()
+var ui_distance_meter:=false:
+	set(v):
+		ui_distance_meter=v
+		Events.ui_configuration_updated.emit()
 
 func _ready() -> void:
 	Globals.player = self

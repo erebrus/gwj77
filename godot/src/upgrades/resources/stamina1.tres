@@ -1,0 +1,12 @@
+[gd_resource type="Resource" script_class="UpgradeFloat" load_steps=3 format=3 uid="uid://dilq41y3v1lhv"]
+
+[ext_resource type="Script" path="res://src/upgrades/upgrade.gd" id="1_xp0bd"]
+[ext_resource type="Script" path="res://src/upgrades/upgrade_float.gd" id="2_rdaik"]
+
+[resource]
+script = ExtResource("2_rdaik")
+value = 180.0
+name = "Faster"
+description = "Increase max speed to 180."
+requirements = Array[ExtResource("1_xp0bd")]([])
+property_name = "speed"
