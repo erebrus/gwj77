@@ -16,7 +16,7 @@ func enter(sled: Sled) -> void:
 	sled.get_parent().crash()
 	
 
-func _on_shake_area_area_exited(area):
+func _on_shake_area_area_exited(_area):
 	sprite.material.set_shader_parameter("strength", 3)
 	shake_timer.start()
 	

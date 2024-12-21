@@ -25,3 +25,4 @@ position_smoothing_speed = 2.0
 
 [node name="Avalanche" parent="." instance=ExtResource("6_7qnp1")]
 z_index = 1
+position = Vector2(-640, 0)

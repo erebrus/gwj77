@@ -70,9 +70,10 @@ func _place_section(tex:Texture2D=null) -> void:
 
 func _place_obstacle_on_cell(obstacle_scene: PackedScene, cell: Vector2) -> void:
 	var obstacle = obstacle_scene.instantiate()
-	var viewport_size = get_viewport().size
 	var at_position = grid_size * cell
+	@warning_ignore("integer_division")
 	obstacle.position.x = at_position.x + randi_range(- grid_size / 2, grid_size / 2)
+	@warning_ignore("integer_division")
 	obstacle.position.y = at_position.y + randi_range(- grid_size / 2, grid_size / 2)
 	add_child(obstacle)
 	

@@ -44,10 +44,10 @@ animations = [{
 size = Vector2(40, 320)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_81gvh"]
-size = Vector2(366, 330)
+size = Vector2(640, 330)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_mf0hj"]
-size = Vector2(286, 335)
+size = Vector2(320, 335)
 
 [node name="Avalanche" type="Node2D"]
 script = ExtResource("1_p6btb")
@@ -77,14 +77,14 @@ shape = SubResource("RectangleShape2D_xbh5h")
 collision_layer = 0
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="ClosingIn"]
-position = Vector2(173, -3)
+position = Vector2(320, 0)
 shape = SubResource("RectangleShape2D_81gvh")
 
 [node name="Close" type="Area2D" parent="."]
 collision_layer = 0
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Close"]
-position = Vector2(41, -2.5)
+position = Vector2(160, 0)
 shape = SubResource("RectangleShape2D_mf0hj")
 
 [connection signal="area_entered" from="ClosingIn" to="." method="_on_closing_in_area_entered"]

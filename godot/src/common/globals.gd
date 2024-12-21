@@ -14,22 +14,6 @@ var in_dialogue:=false
 
 var player: Player
 
-var music_on:=true:
-	set(v):
-		music_on=v
-		Logger.info("music %s" % [music_on])
-		var sfx_index= AudioServer.get_bus_index("Music")
-		AudioServer.set_bus_volume_db(sfx_index, music_manager.music_bus_volume if music_on else -60)
-	
-
-var sound_on:=true:
-	set(v):
-		sound_on = v
-		Logger.info("sound %s" % [sound_on])
-		var sfx_index= AudioServer.get_bus_index("Sound")
-		AudioServer.set_bus_volume_db(sfx_index, 0 if sound_on else -60)
-	
-
 @onready var music_manager: MusicManager = $MusicManager
 
 
@@ -40,7 +24,7 @@ func _ready():
 	#music_manager.fade_in_menu_music()
 
 	start_game(false)
-	music_on=false
+	
 
 func start_game(from_menu:=true):
 	in_game=true
