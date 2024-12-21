@@ -1,9 +1,32 @@
-[gd_scene load_steps=5 format=3 uid="uid://cbcfxexxa6mg4"]
+[gd_scene load_steps=15 format=3 uid="uid://cbcfxexxa6mg4"]
 
 [ext_resource type="Script" path="res://src/player/player.gd" id="1_1frfq"]
 [ext_resource type="PackedScene" uid="uid://wg63g48yqauy" path="res://src/player/sled/sled.tscn" id="3_ex6je"]
 [ext_resource type="PackedScene" uid="uid://berp0bpd3fukm" path="res://src/player/dog/dog_pair.tscn" id="3_fusw6"]
 [ext_resource type="AudioStream" uid="uid://c5ohk85uafav" path="res://assets/sfx/Sled_Sliding_loop_layer_1.wav" id="4_i4867"]
+[ext_resource type="AudioStream" uid="uid://7wu5h7joikd8" path="res://assets/sfx/Speedup_1.wav" id="5_yypbi"]
+[ext_resource type="AudioStream" uid="uid://cmwvq6ouqxwkm" path="res://assets/sfx/Speedup_2.wav" id="6_5edkx"]
+[ext_resource type="AudioStream" uid="uid://bixxv1sj8d4dw" path="res://assets/sfx/Break_1.wav" id="7_h3j12"]
+[ext_resource type="AudioStream" uid="uid://c83656hciqyyq" path="res://assets/sfx/Break_2.wav" id="8_4rs3s"]
+[ext_resource type="AudioStream" uid="uid://bh2vxcxxlucac" path="res://assets/sfx/Break_3.wav" id="9_oqnym"]
+[ext_resource type="AudioStream" uid="uid://vlteljxjdoxe" path="res://assets/sfx/Turbo_1.wav" id="10_8xinf"]
+[ext_resource type="AudioStream" uid="uid://u1ydlvsgalww" path="res://assets/sfx/Turbo_2.wav" id="11_24ql2"]
+
+[sub_resource type="AudioStreamRandomizer" id="AudioStreamRandomizer_nflv7"]
+streams_count = 2
+stream_0/stream = ExtResource("5_yypbi")
+stream_1/stream = ExtResource("6_5edkx")
+
+[sub_resource type="AudioStreamRandomizer" id="AudioStreamRandomizer_ssxtc"]
+streams_count = 3
+stream_0/stream = ExtResource("7_h3j12")
+stream_1/stream = ExtResource("8_4rs3s")
+stream_2/stream = ExtResource("9_oqnym")
+
+[sub_resource type="AudioStreamRandomizer" id="AudioStreamRandomizer_iewlc"]
+streams_count = 2
+stream_0/stream = ExtResource("10_8xinf")
+stream_1/stream = ExtResource("11_24ql2")
 
 [node name="Player" type="Node2D"]
 y_sort_enabled = true
@@ -34,6 +57,18 @@ volume_db = -10.0
 pitch_scale = 0.85
 autoplay = true
 bus = &"Sfx"
+
+[node name="sfx_accel" type="AudioStreamPlayer2D" parent="."]
+position = Vector2(0, 1)
+stream = SubResource("AudioStreamRandomizer_nflv7")
+
+[node name="sfx_break" type="AudioStreamPlayer2D" parent="."]
+position = Vector2(0, 1)
+stream = SubResource("AudioStreamRandomizer_ssxtc")
+
+[node name="sfx_turbo" type="AudioStreamPlayer2D" parent="."]
+position = Vector2(0, 1)
+stream = SubResource("AudioStreamRandomizer_iewlc")
 
 [connection signal="timeout" from="BufferTimer" to="." method="_on_buffer_timer_timeout"]
 [connection signal="timeout" from="StaminaTimer" to="." method="_on_stamina_timer_timeout"]

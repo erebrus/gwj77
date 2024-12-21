@@ -80,9 +80,18 @@ func _physics_process(delta: float) -> void:
 		var input = Input.get_vector("move_left", "move_right","break", "accelerate")		
 		if input.y < 0:
 			current_speed = max(min_speed, current_speed + delta * breaking * input.y)
+			if Input.is_action_just_pressed("break") and not $sfx_break.playing:
+				$sfx_break.play()
+			
 			_update_pitch()
+			
 		elif input.y > 0  and stamina > 0:
 			var turbo_on:=turbo_factor > 1 and Input.is_action_pressed("turbo")
+			if turbo_on and Input.is_action_just_pressed("turbo") and not $sfx_turbo.playing:
+				$sfx_turbo.play()
+			if not turbo_on and Input.is_action_just_pressed("accelerate") and not $sfx_accel.playing:
+				$sfx_accel.play()
+				
 			var actual_max_speed = speed if not turbo_on else speed * turbo_factor
 			var actual_accel = accel if not turbo_on else accel * turbo_factor
 			current_speed = min(actual_max_speed, current_speed + delta * actual_accel * input.y)
