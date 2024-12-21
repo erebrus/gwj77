@@ -40,7 +40,7 @@ func _ready():
 	#music_manager.fade_in_menu_music()
 
 	start_game(false)
-	
+	music_on=false
 
 func start_game(from_menu:=true):
 	in_game=true

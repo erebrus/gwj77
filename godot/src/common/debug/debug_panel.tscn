@@ -30,6 +30,12 @@ layout_mode = 2
 focus_mode = 0
 text = "Swap Music"
 
+[node name="Invulnerable" type="Button" parent="VBoxContainer/HFlowContainer2"]
+layout_mode = 2
+focus_mode = 0
+toggle_mode = true
+text = "No Crashing"
+
 [node name="GameOverLabel" type="Label" parent="VBoxContainer"]
 layout_mode = 2
 text = "Game Over"
@@ -48,5 +54,6 @@ focus_mode = 0
 text = "Win Game"
 
 [connection signal="pressed" from="VBoxContainer/HFlowContainer2/MusicTensionToggle" to="." method="_on_music_tension_toggle_pressed"]
+[connection signal="toggled" from="VBoxContainer/HFlowContainer2/Invulnerable" to="." method="_on_invulnerable_toggled"]
 [connection signal="pressed" from="VBoxContainer/HFlowContainer/NextLevel" to="." method="_on_next_level_pressed"]
 [connection signal="pressed" from="VBoxContainer/HFlowContainer/WinGame" to="." method="_on_win_game_pressed"]
