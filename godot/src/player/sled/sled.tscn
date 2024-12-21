@@ -1,4 +1,4 @@
-[gd_scene load_steps=31 format=3 uid="uid://wg63g48yqauy"]
+[gd_scene load_steps=30 format=3 uid="uid://wg63g48yqauy"]
 
 [ext_resource type="Script" path="res://src/player/sled/sled.gd" id="1_0ihuf"]
 [ext_resource type="PackedScene" uid="uid://gdqr022umlpa" path="res://src/components/shadow/shadow.tscn" id="1_4d11q"]
@@ -11,10 +11,6 @@
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_p8kj0"]
 size = Vector2(16, 6)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_lseyw"]
-atlas = ExtResource("3_y7e1j")
-region = Rect2(0, 0, 62, 29)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_0mcqt"]
 atlas = ExtResource("3_y7e1j")
@@ -55,9 +51,6 @@ region = Rect2(84, 0, 28, 27)
 [sub_resource type="SpriteFrames" id="SpriteFrames_mhp7i"]
 animations = [{
 "frames": [{
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_lseyw")
-}, {
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_0mcqt")
 }, {
@@ -196,7 +189,7 @@ depth = 0.2
 position = Vector2(-16, -10)
 sprite_frames = SubResource("SpriteFrames_mhp7i")
 animation = &"crash"
-frame = 5
+frame = 4
 frame_progress = 1.0
 
 [node name="JumpComponent" type="Node" parent="." node_paths=PackedStringArray("target")]
