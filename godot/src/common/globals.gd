@@ -15,7 +15,7 @@ var in_dialogue:=false
 var player: Player
 
 @onready var music_manager: MusicManager = $MusicManager
-
+@onready var upgrade_manager: UpgradeManager = $UpgradeManager
 
 
 func _ready():

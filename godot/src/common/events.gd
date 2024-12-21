@@ -17,3 +17,6 @@ signal stamina_exhaustion_finished
 
 @warning_ignore("unused_signal")
 signal ui_configuration_updated
+
+@warning_ignore("unused_signal")
+signal level_up

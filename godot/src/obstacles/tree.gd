@@ -18,8 +18,9 @@ func enter(sled: Sled) -> void:
 	
 
 func _on_shake_area_area_exited(_area):
-	sprite.material.set_shader_parameter("strength", 3)
-	shake_timer.start()
+	if shake_timer.is_inside_tree():
+		sprite.material.set_shader_parameter("strength", 3)
+		shake_timer.start()
 	
 	
 

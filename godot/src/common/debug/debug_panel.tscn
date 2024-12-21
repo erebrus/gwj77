@@ -47,7 +47,7 @@ layout_mode = 2
 [node name="NextLevel" type="Button" parent="VBoxContainer/HFlowContainer"]
 layout_mode = 2
 focus_mode = 0
-text = "Next Level"
+text = "Level Up"
 
 [node name="WinGame" type="Button" parent="VBoxContainer/HFlowContainer"]
 layout_mode = 2

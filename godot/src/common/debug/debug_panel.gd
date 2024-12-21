@@ -19,7 +19,7 @@ func _on_music_tension_toggle_pressed() -> void:
 	
 
 func _on_next_level_pressed():
-	Events.reached_level_end.emit()
+	Events.level_up.emit()
 	
 
 func _on_win_game_pressed():

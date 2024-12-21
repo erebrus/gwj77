@@ -1,4 +1,4 @@
-[gd_scene load_steps=8 format=3 uid="uid://rumvotveqal5"]
+[gd_scene load_steps=9 format=3 uid="uid://rumvotveqal5"]
 
 [ext_resource type="Script" path="res://src/common/globals.gd" id="1_noqpm"]
 [ext_resource type="AudioStream" uid="uid://dnp3rorxcnj12" path="res://assets/music/Ava_Run_easy_loop.mp3" id="3_g8tj7"]
@@ -6,6 +6,7 @@
 [ext_resource type="AudioStream" uid="uid://d2xubxt3buarj" path="res://assets/music/Ava_Run_loop.mp3" id="4_5afmd"]
 [ext_resource type="AudioStream" uid="uid://ctc7xti16vojy" path="res://assets/music/Ava_Run_tense_loop.mp3" id="5_njxxq"]
 [ext_resource type="AudioStream" uid="uid://bik45i3lvhm4m" path="res://assets/music/Ava_Run_menu_loop.mp3" id="6_6gn7s"]
+[ext_resource type="PackedScene" uid="uid://bks885saapih5" path="res://src/upgrades/manager/upgrade_manager.tscn" id="7_0uw6l"]
 
 [sub_resource type="AudioStreamSynchronized" id="AudioStreamSynchronized_q1nu8"]
 stream_count = 3
@@ -31,3 +32,5 @@ bus = &"Music"
 process_mode = 3
 stream = ExtResource("6_6gn7s")
 bus = &"Music"
+
+[node name="UpgradeManager" parent="." instance=ExtResource("7_0uw6l")]
