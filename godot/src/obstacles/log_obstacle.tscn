@@ -1,19 +1,19 @@
 [gd_scene load_steps=6 format=3 uid="uid://d0yuuvv25tlcq"]
 
 [ext_resource type="Script" path="res://src/obstacles/log_obstacle.gd" id="1_g2fyr"]
-[ext_resource type="Texture2D" uid="uid://b60m28n7wfjjv" path="res://assets/gfx/placeholder_log.png" id="1_n27gk"]
+[ext_resource type="Texture2D" uid="uid://c7rehkx1jaao" path="res://assets/gfx/log-1.png" id="2_4qjsd"]
 [ext_resource type="PackedScene" uid="uid://bcb1qayut8h4" path="res://src/obstacles/obstacle_component/obstacle_component.tscn" id="2_u2h7p"]
 [ext_resource type="PackedScene" uid="uid://doqt8kerf31t2" path="res://src/obstacles/remove_on_passed_component/remove_on_passed_component.tscn" id="4_kiob0"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_a87ec"]
 radius = 4.0
-height = 24.0
+height = 26.8828
 
 [node name="LogObstacle" type="Node2D"]
 script = ExtResource("1_g2fyr")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
-texture = ExtResource("1_n27gk")
+texture = ExtResource("2_4qjsd")
 
 [node name="ObstacleComponent" parent="." node_paths=PackedStringArray("parent") instance=ExtResource("2_u2h7p")]
 is_jumpable = true
@@ -21,6 +21,8 @@ height = 10.0
 parent = NodePath("..")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="ObstacleComponent"]
+position = Vector2(1, 1)
+rotation = -0.775469
 shape = SubResource("CapsuleShape2D_a87ec")
 
 [node name="RemoveOnPassedComponent" parent="." instance=ExtResource("4_kiob0")]
