@@ -5,8 +5,8 @@
 
 [resource]
 script = ExtResource("2_rdaik")
-value = 180.0
-name = "Faster"
-description = "Increase max speed to 180."
+value = 120.0
+name = "Endurance"
+description = "Increase max stamina to 120."
 requirements = Array[ExtResource("1_xp0bd")]([])
-property_name = "speed"
+property_name = "max_stamina"

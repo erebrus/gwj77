@@ -1,6 +1,12 @@
-[gd_resource type="Resource" script_class="UpgradeBool" load_steps=2 format=3 uid="uid://lf6frhlf2otb"]
+[gd_resource type="Resource" script_class="UpgradeBool" load_steps=3 format=3 uid="uid://lf6frhlf2otb"]
 
 [ext_resource type="Script" path="res://src/upgrades/upgrade_bool.gd" id="1_1ew6g"]
+[ext_resource type="Script" path="res://src/upgrades/upgrade.gd" id="1_urid4"]
 
 [resource]
 script = ExtResource("1_1ew6g")
+value = true
+name = "Avalanche Meter"
+description = "Shows a meter of how close the avalanche is."
+requirements = Array[ExtResource("1_urid4")]([])
+property_name = "ui_avalanche_meter"
