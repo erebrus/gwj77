@@ -1,6 +1,6 @@
 extends Node
 
-
+@export var xp_levels:Array[int]=[]
 @export var LevelScene: PackedScene
 
 @export var pixel_per_meter := 32
@@ -11,7 +11,8 @@ extends Node
 
 var distance:float=0.0
 var presents:int=0
-
+var current_level:=0
+var xp:=0
 
 func _ready() -> void:
 	Events.obstacle_hit.connect(_on_obstacle_hit)
@@ -36,6 +37,7 @@ func _on_stamina_changed(value:float):
 func _on_present_captured():
 	presents+=1
 	Logger.info("Collected present.")
+	_check_level()
 	
 
 func _on_music_change_requested(id:Types.GameMusic):
@@ -44,9 +46,18 @@ func _on_music_change_requested(id:Types.GameMusic):
 
 func _physics_process(_delta: float) -> void:
 	distance = Globals.player.position.x / pixel_per_meter
+	_check_level()
 	distance_label.text = "%d m" % (distance)
 	
-
+func _check_level():
+	xp=presents*Types.XP_PER_PRESENT + distance*Types.XP_PER_METER
+	if xp > xp_levels[current_level]:
+		level_up()
+		
+func level_up():
+	current_level += 1
+	Logger.info("Leveled up to %d" % current_level)
+	
 func _on_obstacle_hit() -> void:
 	if not timer.started:
 		return
