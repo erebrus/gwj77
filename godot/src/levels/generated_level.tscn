@@ -1,4 +1,4 @@
-[gd_scene load_steps=25 format=3 uid="uid://bndr53funklqt"]
+[gd_scene load_steps=26 format=3 uid="uid://bndr53funklqt"]
 
 [ext_resource type="PackedScene" uid="uid://cxt63d3uyyala" path="res://src/levels/base_level.tscn" id="1_ptced"]
 [ext_resource type="Script" path="res://src/levels/generated_level.gd" id="2_3dexe"]
@@ -12,6 +12,7 @@
 [ext_resource type="PackedScene" uid="uid://dh4rm4s60riov" path="res://src/obstacles/snow/snow_pile_6.tscn" id="10_17167"]
 [ext_resource type="PackedScene" uid="uid://b3egjmexha8ra" path="res://src/obstacles/snow/snow_pile_7.tscn" id="11_f8ddo"]
 [ext_resource type="PackedScene" uid="uid://d2lblqb1obdwr" path="res://src/levels/collectibles/present.tscn" id="12_6hr3r"]
+[ext_resource type="PackedScene" uid="uid://77tauhqd2wq6" path="res://src/obstacles/snowman.tscn" id="13_1qvyb"]
 [ext_resource type="Texture2D" uid="uid://dsfn6ov4xm1ua" path="res://assets/level_generation/corridor_2.png" id="14_ct8ro"]
 [ext_resource type="Texture2D" uid="uid://bmu4his8julau" path="res://assets/level_generation/curve_1.png" id="15_u8ug6"]
 [ext_resource type="Texture2D" uid="uid://dnwmpjrxyhdde" path="res://assets/level_generation/corridor_easy_01.png" id="15_xjv0y"]
@@ -31,6 +32,7 @@ TreeScene = ExtResource("3_lcjw7")
 LogScene = ExtResource("4_fiqdh")
 SnowPileScenes = Array[PackedScene]([ExtResource("5_r2mrx"), ExtResource("6_fcd7v"), ExtResource("7_ke2cl"), ExtResource("8_6xfla"), ExtResource("9_sgeqi"), ExtResource("10_17167"), ExtResource("11_f8ddo")])
 PresentScene = ExtResource("12_6hr3r")
+SnowmanScene = ExtResource("13_1qvyb")
 grid_size = 40
 cells_between_log_and_snow = 4
 screens_in_advance = 1.5

@@ -8,4 +8,4 @@ const XP_PER_METER:=1.0
 
 enum GameMusic {EASY, NORMAL, HARD}
 
-enum Obstacle { Log, Snowpile }
+enum Obstacle { Log, Snowpile, Snowman }

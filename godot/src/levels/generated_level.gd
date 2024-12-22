@@ -5,6 +5,7 @@ extends BaseLevel
 @export var LogScene: PackedScene
 @export var SnowPileScenes: Array[PackedScene]
 @export var PresentScene: PackedScene
+@export var SnowmanScene: PackedScene
 
 @export_category("Generation")
 @export var grid_size:= 32
@@ -53,14 +54,23 @@ func _place_section(tex:Texture2D=null) -> void:
 				_place_obstacle_on_cell(TreeScene, cell)
 			else:
 				if randf() < pixel.b:
-					if randf() < 0.5:
-						if not _has_obstacle_in_range(Types.Obstacle.Log, cell, obstacles):
-							_place_obstacle_on_cell(SnowPileScenes.pick_random(), cell)
-							obstacles[cell] = Types.Obstacle.Snowpile
+					var rnd = randf()
+					if  rnd < 0.4:
+						if not _has_obstacle_in_range(Types.Obstacle.Log, cell, obstacles)\
+							and not _has_obstacle_in_range(Types.Obstacle.Snowman, cell, obstacles):
+								_place_obstacle_on_cell(SnowPileScenes.pick_random(), cell)
+								obstacles[cell] = Types.Obstacle.Snowpile
+					elif rnd <.9:
+						if not _has_obstacle_in_range(Types.Obstacle.Snowpile, cell, obstacles)\
+							and not _has_obstacle_in_range(Types.Obstacle.Snowman, cell, obstacles):
+								_place_obstacle_on_cell(LogScene, cell)
+								obstacles[cell] = Types.Obstacle.Log
 					else:
-						if not _has_obstacle_in_range(Types.Obstacle.Snowpile, cell, obstacles):
-							_place_obstacle_on_cell(LogScene, cell)
-							obstacles[cell] = Types.Obstacle.Log
+						if not _has_obstacle_in_range(Types.Obstacle.Snowpile, cell, obstacles)\
+							and not _has_obstacle_in_range(Types.Obstacle.Log, cell, obstacles):
+								_place_obstacle_on_cell(SnowmanScene, cell)
+								obstacles[cell] = Types.Obstacle.Log
+						
 				if randf() < pixel.r:
 					_place_obstacle_on_cell(PresentScene, cell)
 	
