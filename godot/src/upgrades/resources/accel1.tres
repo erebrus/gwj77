@@ -5,8 +5,8 @@
 
 [resource]
 script = ExtResource("2_dvb0i")
-value = 180.0
+value = 20.0
 name = "Quick Start"
-description = "Increase max speed to 180."
+description = "Increase max acceleration to 20."
 requirements = Array[ExtResource("1_3iy1b")]([])
 property_name = "speed"

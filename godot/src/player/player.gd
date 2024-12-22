@@ -138,6 +138,7 @@ func _drain_stamina(drain_value: float):
 		if Input.is_action_pressed("turbo"):
 			Events.turbo_released.emit()
 			Logger.info("NO TURBO. NO STAMINA.")
+			
 	
 func _recover_stamina(delta: float):
 	if not stamina_timer.is_stopped() or not stamina_enabled:

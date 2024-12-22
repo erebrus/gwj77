@@ -9,6 +9,6 @@
 script = ExtResource("4_o0liy")
 value = 1.5
 name = "Turbo Upgrade"
-description = "Increase acceleration and speed to 150% at expense of stamina."
+description = "Hold shift while accelerating for a 150% boost at expense of stamina."
 requirements = Array[ExtResource("1_cw8py")]([ExtResource("2_p3lll"), ExtResource("3_ir5o4")])
 property_name = "turbo_factor"
