@@ -7,6 +7,6 @@
 script = ExtResource("2_rt7p4")
 value = 20.0
 name = "Quick stop"
-description = "Increase max acceleration to 20."
+description = "Increase max breaking to 20."
 requirements = Array[ExtResource("1_bwdu0")]([])
 property_name = "accel"

@@ -1,6 +1,7 @@
 class_name UpgradeManager extends Node
 
 var faster:Upgrade=preload("res://src/upgrades/resources/speed1.tres") as Upgrade
+var even_faster:Upgrade=preload("res://src/upgrades/resources/speed2.tres") as Upgrade
 var stamina_meter:Upgrade=preload("res://src/upgrades/resources/meter_stamina.tres") as Upgrade
 var turbo:Upgrade=preload("res://src/upgrades/resources/turbo.tres") as Upgrade
 var jump:Upgrade=preload("res://src/upgrades/resources/jump.tres") as Upgrade
@@ -11,11 +12,10 @@ var jump:Upgrade=preload("res://src/upgrades/resources/jump.tres") as Upgrade
 	preload("res://src/upgrades/resources/break1.tres") as Upgrade,
 	preload("res://src/upgrades/resources/break2.tres") as Upgrade,
 	preload("res://src/upgrades/resources/meter_avalanche.tres") as Upgrade,
-	preload("res://src/upgrades/resources/meter_distance.tres") as Upgrade,
 	preload("res://src/upgrades/resources/meter_speed.tres") as Upgrade,
 	stamina_meter,
 	faster,
-	preload("res://src/upgrades/resources/speed2.tres") as Upgrade,
+	even_faster,
 	preload("res://src/upgrades/resources/speed3.tres") as Upgrade,
 	preload("res://src/upgrades/resources/stamina1.tres") as Upgrade,
 	preload("res://src/upgrades/resources/stamina2.tres") as Upgrade,
@@ -45,7 +45,10 @@ func get_available() -> Array[Upgrade]:
 	var possible:Array[Upgrade]=[]
 	for u in available:
 		if are_requirements_satisfied(u):
+			Logger.debug("Possible %s" % u.name)
 			possible.append(u)
+	if faster in possible and even_faster in possible:
+		Logger.warn("ERROR. Fast and Faster")
 	return possible
 	
 
@@ -86,7 +89,9 @@ func maximum_speed() -> float:
 	
 
 func apply(upgrade:Upgrade)-> void:
-	Globals.player.set(upgrade.property_name, upgrade.value)
+	if not upgrade is UpgradeFloat or Globals.player.get(upgrade.property_name)< upgrade.value:
+		Globals.player.set(upgrade.property_name, upgrade.value)
+	Logger.info("applied %s. New value = %s" % [upgrade.name, Globals.player.get(upgrade.property_name)])
 	applied.append(upgrade)
 	available.erase(upgrade)
-	Logger.info("applied %s. New value = %s" % [upgrade.name, Globals.player.get(upgrade.property_name)])
+	
