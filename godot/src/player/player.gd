@@ -85,7 +85,7 @@ func _physics_process(delta: float) -> void:
 		var previous_speed = current_speed
 		var input = Input.get_vector("move_left", "move_right","break", "accelerate")		
 		if current_speed > speed and not turbo_on:
-			current_speed = max(min_speed, current_speed + delta * accel * input.y)
+			current_speed = max(min_speed, current_speed - delta * accel/2.0 * input.y)
 			_update_pitch()
 		elif input.y < 0: 
 			current_speed = max(min_speed, current_speed + delta * breaking * input.y)
@@ -132,6 +132,7 @@ func _drain_stamina(drain_value: float):
 	if stamina <= 0:
 		stamina = 0
 		current_speed=min_speed
+		speed_changed.emit(current_speed)
 		Events.dogs_tired.emit()
 		stamina_timer.start()
 		if Input.is_action_pressed("turbo"):
