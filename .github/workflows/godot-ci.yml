@@ -6,8 +6,8 @@ on:
 
 env:
   GODOT_VERSION: 4.3.stable
-  EXPORT_NAME: gwj-77
-  ITCH_GAME: gwj-77
+  EXPORT_NAME: sled-away
+  ITCH_GAME: sled-away
   ITCH_USER: erebrus
 
 jobs:

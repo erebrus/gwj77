@@ -18,6 +18,7 @@ var current_level:=0
 var xp:=0
 
 func _ready() -> void:
+	
 	Events.obstacle_hit.connect(_on_obstacle_hit)
 	Events.music_change_requested.connect(_on_music_change_requested)
 	Events.present_captured.connect(_on_present_captured)
@@ -30,6 +31,9 @@ func _ready() -> void:
 	level.ready.connect(_on_level_loaded)
 	add_child(level)
 	_on_ui_configuration_updated()
+	
+	var tween:= create_tween().set_ease(Tween.EASE_OUT).set_trans(Tween.TRANS_CIRC)
+	tween.tween_property(%BlackFade,"modulate",Color(Color.WHITE,0),1)
 	
 
 func _on_ui_configuration_updated():
