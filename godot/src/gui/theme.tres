@@ -1,12 +1,57 @@
-[gd_resource type="Theme" load_steps=2 format=3 uid="uid://bwsudxwusgxog"]
+[gd_resource type="Theme" load_steps=15 format=3 uid="uid://bwsudxwusgxog"]
 
 [ext_resource type="FontFile" uid="uid://dhke1esa3nyn2" path="res://assets/fonts/kenney/Kenney Mini Square.ttf" id="1_at25y"]
+[ext_resource type="FontFile" uid="uid://bc5t0r2of4fqb" path="res://assets/fonts/kenney/Kenney Future Square.ttf" id="1_udmrc"]
+[ext_resource type="StyleBox" uid="uid://cteq032rr1xib" path="res://src/gui/panel3.tres" id="2_lq2oi"]
+[ext_resource type="StyleBox" uid="uid://bbwyki3w173u7" path="res://src/gui/panel.tres" id="2_xu3nk"]
+[ext_resource type="StyleBox" uid="uid://dyo3yyurxenqe" path="res://src/gui/panel2.tres" id="3_jl776"]
+[ext_resource type="Texture2D" uid="uid://poycin8abr6x" path="res://assets/gfx/ui/slider_grabber.png" id="4_pwjt0"]
+[ext_resource type="Texture2D" uid="uid://be6y5jfd73c2f" path="res://assets/gfx/ui/slider_grabber_highlighted.png" id="5_1d731"]
+[ext_resource type="Texture2D" uid="uid://5rmr1j8ixsay" path="res://assets/gfx/ui/slider_grabber_area.png" id="6_tuc54"]
+[ext_resource type="Texture2D" uid="uid://cqt4cqif4osro" path="res://assets/gfx/ui/slider_grabber_area_highlighted.png" id="7_a4cqn"]
+[ext_resource type="Texture2D" uid="uid://c0sf5itr3w7ml" path="res://assets/gfx/ui/slider_bg.png" id="8_on330"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_r073m"]
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_7jrv2"]
+texture = ExtResource("6_tuc54")
+texture_margin_left = 4.0
+texture_margin_top = 4.0
+texture_margin_right = 4.0
+texture_margin_bottom = 4.0
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_ygggr"]
+texture = ExtResource("7_a4cqn")
+texture_margin_left = 4.0
+texture_margin_top = 4.0
+texture_margin_right = 4.0
+texture_margin_bottom = 4.0
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_rphtn"]
+texture = ExtResource("8_on330")
+texture_margin_left = 4.0
+texture_margin_top = 4.0
+texture_margin_right = 4.0
+texture_margin_bottom = 4.0
 
 [resource]
 default_font = ExtResource("1_at25y")
-default_font_size = 5
+default_font_size = 8
+Button/styles/disabled = ExtResource("2_xu3nk")
+Button/styles/focus = SubResource("StyleBoxEmpty_r073m")
+Button/styles/hover = ExtResource("2_lq2oi")
+Button/styles/hover_pressed = ExtResource("2_lq2oi")
+Button/styles/normal = ExtResource("2_xu3nk")
+Button/styles/pressed = ExtResource("3_jl776")
+HSlider/icons/grabber = ExtResource("4_pwjt0")
+HSlider/icons/grabber_highlight = ExtResource("5_1d731")
+HSlider/styles/grabber_area = SubResource("StyleBoxTexture_7jrv2")
+HSlider/styles/grabber_area_highlight = SubResource("StyleBoxTexture_ygggr")
+HSlider/styles/slider = SubResource("StyleBoxTexture_rphtn")
 HeaderLarge/colors/font_color = Color(0.51, 0.51, 0.2295, 1)
-HeaderLarge/font_sizes/font_size = 16
+HeaderLarge/font_sizes/font_size = 24
+HeaderLarge/fonts/font = ExtResource("1_udmrc")
 HeaderSmall/colors/font_color = Color(0.56, 0.56, 0.392, 1)
 HeaderSmall/font_sizes/font_size = 8
 Label/colors/font_color = Color(0, 0, 0, 1)
+PanelContainer/styles/panel = ExtResource("2_xu3nk")
