@@ -9,6 +9,8 @@ extends Node
 @onready var distance_label = %DistanceLabel
 @onready var stamina_label: Label = %StaminaLabel
 
+@onready var game_over: Control = %GameOver
+
 var distance:float=0.0
 var presents:int=0
 var current_level:=0
@@ -19,6 +21,7 @@ func _ready() -> void:
 	Events.music_change_requested.connect(_on_music_change_requested)
 	Events.present_captured.connect(_on_present_captured)
 	Events.stamina_changed.connect(_on_stamina_changed)
+	Events.game_over.connect(_on_game_over)
 	
 	var level = LevelScene.instantiate()
 	level.ready.connect(_on_level_loaded)
@@ -65,5 +68,8 @@ func _on_obstacle_hit() -> void:
 	
 	timer.stop()
 	await get_tree().create_timer(1).timeout
-	Globals.start_game()
+	Globals.do_lose()
 	
+
+func _on_game_over() -> void:
+	game_over.open(distance, presents, xp)

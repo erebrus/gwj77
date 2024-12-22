@@ -61,14 +61,15 @@ layout_mode = 2
 focus_mode = 0
 text = "Level Up"
 
-[node name="WinGame" type="Button" parent="VBoxContainer/HFlowContainer"]
+[node name="GameOver" type="Button" parent="VBoxContainer/HFlowContainer"]
 layout_mode = 2
 focus_mode = 0
-text = "Win Game"
+text = "Game Over
+"
 
 [connection signal="pressed" from="VBoxContainer/HFlowContainer2/MusicTensionToggle" to="." method="_on_music_tension_toggle_pressed"]
 [connection signal="toggled" from="VBoxContainer/HFlowContainer2/Invulnerable" to="." method="_on_invulnerable_toggled"]
 [connection signal="pressed" from="VBoxContainer/HFlowContainer2/Enable Jump" to="." method="_on_enable_jump_pressed"]
 [connection signal="pressed" from="VBoxContainer/HFlowContainer2/Enable Turbo" to="." method="_on_enable_turbo_pressed"]
 [connection signal="pressed" from="VBoxContainer/HFlowContainer/NextLevel" to="." method="_on_next_level_pressed"]
-[connection signal="pressed" from="VBoxContainer/HFlowContainer/WinGame" to="." method="_on_win_game_pressed"]
+[connection signal="pressed" from="VBoxContainer/HFlowContainer/GameOver" to="." method="_on_game_over_pressed"]

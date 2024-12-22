@@ -39,6 +39,10 @@ func start_game(from_menu:=true):
 	music_manager.fade_in_game_music()
 	
 
+func start_screen():
+	start_game()
+	
+
 func _init_logger():
 	Logger.set_logger_level(Logger.LOG_LEVEL_INFO)
 	Logger.set_logger_format(Logger.LOG_FORMAT_MORE)
@@ -52,7 +56,8 @@ func _init_logger():
 	
 
 func do_lose():
-	start_game()
+	Events.game_over.emit()
+	
 
 func do_win():
 	get_tree().quit()

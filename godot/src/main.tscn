@@ -1,4 +1,4 @@
-[gd_scene load_steps=10 format=3 uid="uid://ke438w5ne7cw"]
+[gd_scene load_steps=11 format=3 uid="uid://ke438w5ne7cw"]
 
 [ext_resource type="Script" path="res://src/main.gd" id="1_qalx3"]
 [ext_resource type="PackedScene" uid="uid://bndr53funklqt" path="res://src/levels/generated_level.tscn" id="2_0qw3c"]
@@ -8,6 +8,7 @@
 [ext_resource type="PackedScene" uid="uid://oc57k7h0vh15" path="res://src/gui/stamina/stamina_meter.tscn" id="6_31uhi"]
 [ext_resource type="AudioStream" uid="uid://c8ytb8xph3yje" path="res://assets/sfx/Amb_Loop.wav" id="6_he4wm"]
 [ext_resource type="PackedScene" uid="uid://brrtsof55b81h" path="res://src/gui/upgrade_screen/upgrade_screen.tscn" id="7_uqq0g"]
+[ext_resource type="PackedScene" uid="uid://cu0hvds0hvb3b" path="res://src/gui/game_over/game_over.tscn" id="8_ikyai"]
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_6vxwb"]
 content_margin_left = 5.0
@@ -21,6 +22,7 @@ xp_levels = Array[int]([200, 500, 900, 1300, 1800, 2400, 3100, 3900, 4800, 5800,
 LevelScene = ExtResource("2_0qw3c")
 
 [node name="GUI" type="CanvasLayer" parent="."]
+layer = 10
 
 [node name="ViewportBorder" type="PanelContainer" parent="GUI"]
 unique_name_in_owner = true
@@ -61,8 +63,10 @@ layout_mode = 2
 size_flags_horizontal = 8
 size_flags_vertical = 0
 
-[node name="UpgradeScreen" parent="GUI/ViewportBorder" instance=ExtResource("7_uqq0g")]
-layout_mode = 2
+[node name="UpgradeScreen" parent="GUI" instance=ExtResource("7_uqq0g")]
+
+[node name="GameOver" parent="GUI" instance=ExtResource("8_ikyai")]
+unique_name_in_owner = true
 
 [node name="ambient" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("6_he4wm")

@@ -20,3 +20,5 @@ signal ui_configuration_updated
 
 @warning_ignore("unused_signal")
 signal level_up
+@warning_ignore("unused_signal")
+signal game_over

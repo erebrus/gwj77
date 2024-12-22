@@ -1,10 +1,11 @@
-[gd_resource type="Theme" load_steps=15 format=3 uid="uid://bwsudxwusgxog"]
+[gd_resource type="Theme" load_steps=16 format=3 uid="uid://bwsudxwusgxog"]
 
 [ext_resource type="FontFile" uid="uid://dhke1esa3nyn2" path="res://assets/fonts/kenney/Kenney Mini Square.ttf" id="1_at25y"]
+[ext_resource type="StyleBox" uid="uid://c3dvq6rv2usto" path="res://src/gui/button_normal.tres" id="1_k6yvj"]
 [ext_resource type="FontFile" uid="uid://bc5t0r2of4fqb" path="res://assets/fonts/kenney/Kenney Future Square.ttf" id="1_udmrc"]
-[ext_resource type="StyleBox" uid="uid://cteq032rr1xib" path="res://src/gui/panel3.tres" id="2_lq2oi"]
+[ext_resource type="StyleBox" uid="uid://dyo3yyurxenqe" path="res://src/gui/button_hover.tres" id="2_majc0"]
 [ext_resource type="StyleBox" uid="uid://bbwyki3w173u7" path="res://src/gui/panel.tres" id="2_xu3nk"]
-[ext_resource type="StyleBox" uid="uid://dyo3yyurxenqe" path="res://src/gui/panel2.tres" id="3_jl776"]
+[ext_resource type="StyleBox" uid="uid://cteq032rr1xib" path="res://src/gui/button_pressed.tres" id="3_xahub"]
 [ext_resource type="Texture2D" uid="uid://poycin8abr6x" path="res://assets/gfx/ui/slider_grabber.png" id="4_pwjt0"]
 [ext_resource type="Texture2D" uid="uid://be6y5jfd73c2f" path="res://assets/gfx/ui/slider_grabber_highlighted.png" id="5_1d731"]
 [ext_resource type="Texture2D" uid="uid://5rmr1j8ixsay" path="res://assets/gfx/ui/slider_grabber_area.png" id="6_tuc54"]
@@ -37,12 +38,16 @@ texture_margin_bottom = 4.0
 [resource]
 default_font = ExtResource("1_at25y")
 default_font_size = 8
-Button/styles/disabled = ExtResource("2_xu3nk")
+Button/colors/font_color = Color(0.172549, 0.192157, 0.0980392, 1)
+Button/colors/font_hover_color = Color(0.415686, 0.415686, 0.192157, 1)
+Button/colors/font_hover_pressed_color = Color(0.415686, 0.415686, 0.192157, 1)
+Button/colors/font_pressed_color = Color(0.51, 0.51, 0.2295, 1)
+Button/styles/disabled = ExtResource("1_k6yvj")
 Button/styles/focus = SubResource("StyleBoxEmpty_r073m")
-Button/styles/hover = ExtResource("2_lq2oi")
-Button/styles/hover_pressed = ExtResource("2_lq2oi")
-Button/styles/normal = ExtResource("2_xu3nk")
-Button/styles/pressed = ExtResource("3_jl776")
+Button/styles/hover = ExtResource("2_majc0")
+Button/styles/hover_pressed = ExtResource("2_majc0")
+Button/styles/normal = ExtResource("1_k6yvj")
+Button/styles/pressed = ExtResource("3_xahub")
 HSlider/icons/grabber = ExtResource("4_pwjt0")
 HSlider/icons/grabber_highlight = ExtResource("5_1d731")
 HSlider/styles/grabber_area = SubResource("StyleBoxTexture_7jrv2")
@@ -51,7 +56,9 @@ HSlider/styles/slider = SubResource("StyleBoxTexture_rphtn")
 HeaderLarge/colors/font_color = Color(0.51, 0.51, 0.2295, 1)
 HeaderLarge/font_sizes/font_size = 24
 HeaderLarge/fonts/font = ExtResource("1_udmrc")
+HeaderMedium/colors/font_color = Color(0.51, 0.51, 0.2295, 1)
+HeaderMedium/font_sizes/font_size = 16
 HeaderSmall/colors/font_color = Color(0.56, 0.56, 0.392, 1)
 HeaderSmall/font_sizes/font_size = 8
-Label/colors/font_color = Color(0, 0, 0, 1)
+Label/colors/font_color = Color(0.741176, 0.733333, 0.682353, 1)
 PanelContainer/styles/panel = ExtResource("2_xu3nk")

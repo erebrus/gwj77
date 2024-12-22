@@ -23,11 +23,6 @@ func _on_next_level_pressed():
 	#Globals.upgrade_manager.apply(Globals.upgrade_manager.get_random_available(1)[0])
 	
 
-func _on_win_game_pressed():
-	Globals.do_win()
-	
-
-
 func _on_invulnerable_toggled(toggled_on: bool) -> void:
 	Globals.player.invulnerable=toggled_on
 	Debug.invulnerable = toggled_on
@@ -40,3 +35,7 @@ func _on_enable_jump_pressed() -> void:
 
 func _on_enable_turbo_pressed() -> void:
 	Globals.player.turbo_factor=1.25
+
+
+func _on_game_over_pressed():
+	Globals.do_lose()
