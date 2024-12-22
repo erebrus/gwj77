@@ -35,11 +35,16 @@ func are_requirements_satisfied(upgrade:Upgrade)->bool:
 			return false
 	return true
 
-func get_random_available(count:int=3)->Array[Upgrade]:
+func get_available() -> Array[Upgrade]:
 	var possible:Array[Upgrade]=[]
 	for u in available:
 		if are_requirements_satisfied(u):
 			possible.append(u)
+	return possible
+	
+
+func get_random_available(count:int=3)->Array[Upgrade]:
+	var possible = get_available()
 	var ret:Array[Upgrade]=[]
 	for i in range(count):
 		if possible.is_empty():

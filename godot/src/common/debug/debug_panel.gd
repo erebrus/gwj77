@@ -1,5 +1,7 @@
 extends PanelContainer
 
+var upgrades: Array[Upgrade]
+@onready var upgrades_button: OptionButton = %Upgrades
 
 func _ready() -> void:
 	hide()
@@ -8,7 +10,19 @@ func _ready() -> void:
 
 func _input(event: InputEvent) -> void:
 	if Debug.debug_build and event.is_action_pressed("debug"):
-		visible = not visible
+		if visible:
+			hide()
+		else:
+			open()
+	
+
+func open() -> void:
+	upgrades = Globals.upgrade_manager.get_available()
+	upgrades_button.clear()
+	for i in upgrades.size():
+		upgrades_button.add_item(upgrades[i].name, i)
+	
+	show()
 	
 
 func _on_music_tension_toggle_pressed() -> void:
@@ -43,3 +57,10 @@ func _on_game_over_pressed():
 
 func _on_disable_stamina_pressed() -> void:
 	Globals.player.stamina_enabled = not Globals.player.stamina_enabled
+
+
+func _on_upgrade_button_pressed():
+	var id = upgrades_button.get_selected_id()
+	var upgrade = upgrades[id]
+	Globals.upgrade_manager.apply(upgrade)
+	open()

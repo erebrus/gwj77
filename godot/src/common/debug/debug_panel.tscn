@@ -59,6 +59,17 @@ text = "Stamina
 layout_mode = 2
 text = "Game Over"
 
+[node name="HBoxContainer" type="HBoxContainer" parent="VBoxContainer"]
+layout_mode = 2
+
+[node name="Upgrades" type="OptionButton" parent="VBoxContainer/HBoxContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+
+[node name="Button" type="Button" parent="VBoxContainer/HBoxContainer"]
+layout_mode = 2
+text = "Add upgrade"
+
 [node name="HFlowContainer" type="HFlowContainer" parent="VBoxContainer"]
 layout_mode = 2
 
@@ -78,5 +89,6 @@ text = "Game Over
 [connection signal="pressed" from="VBoxContainer/HFlowContainer2/Enable Jump" to="." method="_on_enable_jump_pressed"]
 [connection signal="pressed" from="VBoxContainer/HFlowContainer2/Enable Turbo" to="." method="_on_enable_turbo_pressed"]
 [connection signal="pressed" from="VBoxContainer/HFlowContainer2/Stamina" to="." method="_on_disable_stamina_pressed"]
+[connection signal="pressed" from="VBoxContainer/HBoxContainer/Button" to="." method="_on_upgrade_button_pressed"]
 [connection signal="pressed" from="VBoxContainer/HFlowContainer/NextLevel" to="." method="_on_next_level_pressed"]
 [connection signal="pressed" from="VBoxContainer/HFlowContainer/GameOver" to="." method="_on_game_over_pressed"]
