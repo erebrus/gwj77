@@ -45,7 +45,7 @@ func _easy_prob(level: int) -> float:
 func _medium_prob(level: int) -> float:
 	if level < 8:
 		return 1
-	return (level - 8) * 0.06
+	return 1 - (level - 8) * 0.06
 	
 
 func _get_random_template() -> Texture2D:
