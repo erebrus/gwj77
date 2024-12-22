@@ -2,6 +2,8 @@ class_name Dog extends Node2D
 
 @onready var lead_marker: Marker2D = %LeadMarker
 @onready var sprite: AnimatedSprite2D = $AnimatedSprite
+@onready var front_snow_particles: GPUParticles2D = $FrontSnowParticles
+@onready var back_snow_particles: GPUParticles2D = $BackSnowParticles
 
 var speed := 0.0
 
@@ -10,6 +12,10 @@ var height: float:
 		if value != height:
 			height = value
 			sprite.position.y = height
+
+func set_particles(value:bool)->void:
+	front_snow_particles.emitting = value
+	back_snow_particles.emitting = value
 	
 func on_speed_changed(new_speed:float):
 	var prev_speed = speed
@@ -34,6 +40,7 @@ func calculate_speed_scale():
 func on_jumped():
 	sprite.speed_scale=1.0
 	sprite.play("jump")
+	set_particles(false)
 	
 	
 func on_landed():
@@ -42,6 +49,7 @@ func on_landed():
 	await sprite.animation_finished
 	sprite.speed_scale=calculate_speed_scale()
 	sprite.play("run")
+	set_particles(true)
 
 
 func _on_random_range_timer_timeout() -> void:

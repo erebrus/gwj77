@@ -30,6 +30,7 @@ func _on_jump_component_jumped() -> void:
 	fading_snow.global_position=snow_sprite.global_position
 	get_parent().get_parent().add_child(fading_snow)
 	snow_sprite.visible=false
+	snow_particles.emitting=false
 	
 
 func _on_jump_component_landed() -> void:
@@ -37,3 +38,4 @@ func _on_jump_component_landed() -> void:
 	snow_sprite.visible=true
 	await snow_sprite.animation_finished
 	snow_sprite.play("run")
+	snow_particles.emitting=true
