@@ -129,6 +129,7 @@ func _drain_stamina(delta: float):
 	if stamina <= 0:
 		stamina = 0
 		current_speed=min_speed
+		Events.dogs_tired.emit()
 		stamina_timer.start()
 	
 func _recover_stamina(delta: float):
