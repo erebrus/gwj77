@@ -18,7 +18,6 @@ var current_level:=0
 var xp:=0
 
 func _ready() -> void:
-	
 	Events.obstacle_hit.connect(_on_obstacle_hit)
 	Events.music_change_requested.connect(_on_music_change_requested)
 	Events.present_captured.connect(_on_present_captured)
@@ -26,7 +25,9 @@ func _ready() -> void:
 	Events.dogs_tired.connect(func():stamina_out_label.activate())
 	Events.stamina_exhaustion_finished.connect(func():stamina_out_label.deactivate())
 	Events.game_over.connect(_on_game_over)
-
+	Events.turbo_trigerred.connect(func(): %TurboLabel.show())
+	Events.turbo_released.connect(func(): %TurboLabel.hide())
+	
 	var level = LevelScene.instantiate()
 	level.ready.connect(_on_level_loaded)
 	add_child(level)

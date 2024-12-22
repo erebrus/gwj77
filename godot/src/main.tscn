@@ -1,21 +1,51 @@
-[gd_scene load_steps=12 format=3 uid="uid://ke438w5ne7cw"]
+[gd_scene load_steps=22 format=3 uid="uid://ke438w5ne7cw"]
 
 [ext_resource type="Script" path="res://src/main.gd" id="1_qalx3"]
 [ext_resource type="PackedScene" uid="uid://bndr53funklqt" path="res://src/levels/generated_level.tscn" id="2_0qw3c"]
 [ext_resource type="Theme" uid="uid://bwsudxwusgxog" path="res://src/gui/theme.tres" id="2_m0pdl"]
 [ext_resource type="PackedScene" uid="uid://jkur2jgafx8i" path="res://src/gui/avalanche/avalanche_warning.tscn" id="5_iqiog"]
+[ext_resource type="Texture2D" uid="uid://c1b0p6rxbxxa8" path="res://assets/gfx/ui/turbo1.png" id="6_5iy8t"]
 [ext_resource type="PackedScene" uid="uid://oc57k7h0vh15" path="res://src/gui/stamina/stamina_meter.tscn" id="6_31uhi"]
 [ext_resource type="AudioStream" uid="uid://c8ytb8xph3yje" path="res://assets/sfx/Amb_Loop.wav" id="6_he4wm"]
 [ext_resource type="PackedScene" uid="uid://brrtsof55b81h" path="res://src/gui/upgrade_screen/upgrade_screen.tscn" id="7_uqq0g"]
+[ext_resource type="Texture2D" uid="uid://d0pveikja4e03" path="res://assets/gfx/ui/turbo2.png" id="7_ycqjk"]
 [ext_resource type="PackedScene" uid="uid://b8qxqhe61gs5w" path="res://src/gui/stamina/stamina_out_label.tscn" id="8_7xsfp"]
 [ext_resource type="PackedScene" uid="uid://cu0hvds0hvb3b" path="res://src/gui/game_over/game_over.tscn" id="8_ikyai"]
 [ext_resource type="PackedScene" uid="uid://bfyfbu3wuqi17" path="res://src/gui/speed/speed_meter.tscn" id="8_svx3l"]
+[ext_resource type="Texture2D" uid="uid://d0lgt16yd0jff" path="res://assets/gfx/ui/turbo3.png" id="8_ykcd1"]
+[ext_resource type="Texture2D" uid="uid://bkraewfycpb5s" path="res://assets/gfx/ui/turbo4.png" id="9_t34cm"]
+[ext_resource type="Texture2D" uid="uid://bou4r08tttyes" path="res://assets/gfx/ui/turbo5.png" id="10_5qh0v"]
+[ext_resource type="Texture2D" uid="uid://b108741ohlnjt" path="res://assets/gfx/ui/turbo6.png" id="11_1t703"]
+[ext_resource type="Texture2D" uid="uid://dgi1qmyukgp86" path="res://assets/gfx/ui/turbo7.png" id="12_8syol"]
+[ext_resource type="Texture2D" uid="uid://dfrw0abfl1o2n" path="res://assets/gfx/ui/turbo8.png" id="13_05s35"]
+[ext_resource type="Texture2D" uid="uid://fq4bb2fcqvwf" path="res://assets/gfx/ui/turbo9.png" id="13_ir73s"]
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_6vxwb"]
 content_margin_left = 5.0
 content_margin_top = 5.0
 content_margin_right = 5.0
 content_margin_bottom = 5.0
+
+[sub_resource type="AnimatedTexture" id="AnimatedTexture_cglob"]
+frames = 9
+speed_scale = 10.0
+frame_0/texture = ExtResource("6_5iy8t")
+frame_1/texture = ExtResource("7_ycqjk")
+frame_1/duration = 1.0
+frame_2/texture = ExtResource("8_ykcd1")
+frame_2/duration = 1.0
+frame_3/texture = ExtResource("9_t34cm")
+frame_3/duration = 1.0
+frame_4/texture = ExtResource("10_5qh0v")
+frame_4/duration = 1.0
+frame_5/texture = ExtResource("11_1t703")
+frame_5/duration = 1.0
+frame_6/texture = ExtResource("12_8syol")
+frame_6/duration = 1.0
+frame_7/texture = ExtResource("13_05s35")
+frame_7/duration = 1.0
+frame_8/texture = ExtResource("13_ir73s")
+frame_8/duration = 10.0
 
 [node name="Main" type="Node"]
 script = ExtResource("1_qalx3")
@@ -60,6 +90,14 @@ text = "10.000m"
 unique_name_in_owner = true
 layout_mode = 2
 
+[node name="TurboLabel" type="TextureRect" parent="GUI/ViewportBorder/VBoxContainer"]
+unique_name_in_owner = true
+visible = false
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+texture = SubResource("AnimatedTexture_cglob")
+
 [node name="AvalancheWarning" parent="GUI/ViewportBorder/VBoxContainer" instance=ExtResource("5_iqiog")]
 unique_name_in_owner = true
 layout_mode = 2
@@ -87,6 +125,7 @@ visible = false
 
 [node name="BlackFade" type="ColorRect" parent="GUI"]
 unique_name_in_owner = true
+visible = false
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
