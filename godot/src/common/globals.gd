@@ -1,6 +1,7 @@
 extends Node
 
 const GAME_SCENE_PATH = "res://src/main.tscn"
+const START_SCENE_PATH = "res://src/start_screen/start_screen.tscn"
 
 var master_volume:float = 100
 var music_volume:float = 100
@@ -25,7 +26,10 @@ func _ready():
 
 	start_game(false)
 	
-
+func go_to_main_menu():
+	get_tree().change_scene_to_file(START_SCENE_PATH)
+	
+	
 func start_game(from_menu:=true):
 	in_game=true
 
@@ -36,6 +40,7 @@ func start_game(from_menu:=true):
 	upgrade_manager.init_list()
 	if from_menu:
 		get_tree().change_scene_to_file(GAME_SCENE_PATH)
+		get_tree().paused = false
 	music_manager.fade_in_game_music()
 	
 
@@ -57,6 +62,11 @@ func _init_logger():
 
 func do_lose():
 	Events.game_over.emit()
+	music_manager.fade_game_music(.5)
+	await get_tree().create_timer(.5).timeout
+	music_manager.fade_in_menu_music(.5)
+	
+	
 	
 
 func do_win():

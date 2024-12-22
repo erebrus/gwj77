@@ -18,9 +18,11 @@ stream_2/stream = ExtResource("5_njxxq")
 stream_2/volume = 0.0
 
 [node name="Globals" type="Node"]
+process_mode = 3
 script = ExtResource("1_noqpm")
 
 [node name="MusicManager" type="Node" parent="."]
+process_mode = 3
 script = ExtResource("3_h14hn")
 
 [node name="game_music" type="AudioStreamPlayer" parent="MusicManager"]
