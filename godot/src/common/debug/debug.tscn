@@ -11,6 +11,7 @@ default_font = ExtResource("2_75i52")
 process_mode = 3
 layer = 128
 script = ExtResource("1_k56ks")
+debug_build = false
 
 [node name="MarginContainer" type="MarginContainer" parent="."]
 anchors_preset = 15

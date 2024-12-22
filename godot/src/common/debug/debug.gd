@@ -7,7 +7,7 @@ extends CanvasLayer
 
 @export var invulnerable: bool = false:
 	get:
-		return not debug_build or invulnerable
+		return debug_build and invulnerable
 	
 
 func _ready() -> void:
