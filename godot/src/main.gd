@@ -28,6 +28,7 @@ func _ready() -> void:
 	var level = LevelScene.instantiate()
 	level.ready.connect(_on_level_loaded)
 	add_child(level)
+	_on_ui_configuration_updated()
 	
 
 func _on_ui_configuration_updated():
