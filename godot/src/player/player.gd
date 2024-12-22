@@ -18,8 +18,8 @@ signal speed_changed(new_speed:float)
 
 @export_category("stamina")
 @export var max_stamina := 100.0
-@export var stamina_drain := 10.0
-@export var stamina_recovery := 10.0
+@export var stamina_drain := 15.0
+@export var stamina_recovery := 5.0
 @export var stamina_depleted_timeout := 2.5
 @export var stamina_speed_neutral := Vector2(.75,.9)
 @export var stamina_jump_drain:= 20.0
