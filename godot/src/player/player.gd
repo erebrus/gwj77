@@ -75,22 +75,29 @@ func _physics_process(delta: float) -> void:
 	sled.follow_component.at_distance(sled_distance)
 	for i in dog_pair_number - 1:
 		dog_pairs[i].follow_component.at_distance(distance)
+	
+	var turbo_on := stamina > 0 and turbo_factor > 1 and Input.is_action_pressed("turbo")
+	if Input.is_action_just_released("turbo"):
+		Events.turbo_released.emit()
+		Logger.info("Turbo off")
 		
-	var turbo_on := false
 	if is_alive:
 		var previous_speed = current_speed
 		var input = Input.get_vector("move_left", "move_right","break", "accelerate")		
-		if input.y < 0:
+		if current_speed > speed and not turbo_on:
+			current_speed = max(min_speed, current_speed + delta * accel * input.y)
+			_update_pitch()
+		elif input.y < 0: 
 			current_speed = max(min_speed, current_speed + delta * breaking * input.y)
 			if Input.is_action_just_pressed("break") and not $sfx_break.playing:
-				$sfx_break.play()
-			
-			_update_pitch()
-			
+				$sfx_break.play()			
+			_update_pitch()			
 		elif input.y > 0  and stamina > 0:
-			turbo_on = turbo_factor > 1 and Input.is_action_pressed("turbo")
+
+			
 			if turbo_on and Input.is_action_just_pressed("turbo") and not $sfx_turbo.playing:
 				$sfx_turbo.play()
+				Events.turbo_trigerred.emit()
 				Logger.info("TURBO!")
 			if not turbo_on and Input.is_action_just_pressed("accelerate") and not $sfx_accel.playing:
 				$sfx_accel.play()
@@ -127,6 +134,9 @@ func _drain_stamina(drain_value: float):
 		current_speed=min_speed
 		Events.dogs_tired.emit()
 		stamina_timer.start()
+		if Input.is_action_pressed("turbo"):
+			Events.turbo_released.emit()
+			Logger.info("NO TURBO. NO STAMINA.")
 	
 func _recover_stamina(delta: float):
 	if not stamina_timer.is_stopped() or not stamina_enabled:

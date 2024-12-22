@@ -7,6 +7,6 @@
 script = ExtResource("2_ig3nc")
 value = true
 name = "Stamina Meter"
-description = "Show your current stamina usage."
+description = "Show your current stamina usage. Unlocks jump upgrade."
 requirements = Array[ExtResource("1_e00of")]([])
 property_name = "ui_stamina_meter"

@@ -18,9 +18,14 @@ signal stamina_exhaustion_finished
 signal dogs_tired()
 
 @warning_ignore("unused_signal")
+signal turbo_trigerred
+
+@warning_ignore("unused_signal")
 signal ui_configuration_updated
 
 @warning_ignore("unused_signal")
 signal level_up
 @warning_ignore("unused_signal")
 signal game_over
+@warning_ignore("unused_signal")
+signal turbo_released
