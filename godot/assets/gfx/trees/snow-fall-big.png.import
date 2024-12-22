@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://dqmoq87i73obo"
-path="res://.godot/imported/snow-fall-small.png-8b1a3254c8c352d288e286dc9f9fb2d8.ctex"
+uid="uid://ivf888glovd6"
+path="res://.godot/imported/snow-fall-big.png-625310f4d369d3532df9a46732452c00.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/gfx/snow-fall-small.png"
-dest_files=["res://.godot/imported/snow-fall-small.png-8b1a3254c8c352d288e286dc9f9fb2d8.ctex"]
+source_file="res://assets/gfx/trees/snow-fall-big.png"
+dest_files=["res://.godot/imported/snow-fall-big.png-625310f4d369d3532df9a46732452c00.ctex"]
 
 [params]
 

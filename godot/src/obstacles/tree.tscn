@@ -1,4 +1,4 @@
-[gd_scene load_steps=18 format=3 uid="uid://cojv1dhgejmm"]
+[gd_scene load_steps=36 format=3 uid="uid://cojv1dhgejmm"]
 
 [ext_resource type="Script" path="res://src/obstacles/tree.gd" id="1_dqako"]
 [ext_resource type="PackedScene" uid="uid://bcb1qayut8h4" path="res://src/obstacles/obstacle_component/obstacle_component.tscn" id="2_0taqo"]
@@ -9,9 +9,17 @@
 [ext_resource type="Texture2D" uid="uid://c3ecukydje71g" path="res://assets/gfx/trees/tr31.png" id="5_ud8ls"]
 [ext_resource type="Texture2D" uid="uid://b8hldny5xv5hf" path="res://assets/gfx/trees/tr41.png" id="6_ssygy"]
 [ext_resource type="Texture2D" uid="uid://dcxm34f8yvn05" path="res://assets/gfx/trees/tr51.png" id="7_sok6f"]
+[ext_resource type="Texture2D" uid="uid://qvhh0uhh0itb" path="res://assets/gfx/trees/tr11.png" id="8_kc1n5"]
+[ext_resource type="Texture2D" uid="uid://dsauv5lxwbsuh" path="res://assets/gfx/trees/tr12.png" id="9_6cx1p"]
+[ext_resource type="Texture2D" uid="uid://ivf888glovd6" path="res://assets/gfx/trees/snow-fall-big.png" id="9_kfj7n"]
+[ext_resource type="Texture2D" uid="uid://drbvxmwafcip3" path="res://assets/gfx/trees/tr32.png" id="10_d27fp"]
+[ext_resource type="Texture2D" uid="uid://dqmoq87i73obo" path="res://assets/gfx/trees/snow-fall-small.png" id="10_jym1q"]
 [ext_resource type="PackedScene" uid="uid://doqt8kerf31t2" path="res://src/obstacles/remove_on_passed_component/remove_on_passed_component.tscn" id="10_xg1mv"]
 [ext_resource type="AudioStream" uid="uid://wtc1n704p5b0" path="res://assets/sfx/Tree_collision_1.wav" id="11_60h2o"]
+[ext_resource type="Texture2D" uid="uid://2f7xoibrqurf" path="res://assets/gfx/trees/tr42.png" id="11_ae444"]
 [ext_resource type="AudioStream" uid="uid://digbenvwtxwlg" path="res://assets/sfx/Tree_collision_2.wav" id="12_04drc"]
+[ext_resource type="Texture2D" uid="uid://dge6hctebvopa" path="res://assets/gfx/trees/tr22.png" id="12_ykopi"]
+[ext_resource type="Texture2D" uid="uid://cwkmmxk0bjnw7" path="res://assets/gfx/trees/tr52.png" id="13_ypxcu"]
 [ext_resource type="AudioStream" uid="uid://p0wppapijync" path="res://assets/sfx/Tree_collision_3.wav" id="13_yuydg"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_noj16"]
@@ -19,6 +27,82 @@ shader = ExtResource("2_2lgyd")
 shader_parameter/speed = 5.0
 shader_parameter/strength = 0.0
 shader_parameter/extra = 0.0
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_e4yyl"]
+atlas = ExtResource("9_kfj7n")
+region = Rect2(0, 0, 67, 113)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_5qw5q"]
+atlas = ExtResource("9_kfj7n")
+region = Rect2(67, 0, 67, 113)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_hjcc7"]
+atlas = ExtResource("9_kfj7n")
+region = Rect2(134, 0, 67, 113)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_8k7ec"]
+atlas = ExtResource("9_kfj7n")
+region = Rect2(201, 0, 67, 113)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_6bejh"]
+atlas = ExtResource("9_kfj7n")
+region = Rect2(268, 0, 67, 113)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_5l3b4"]
+atlas = ExtResource("10_jym1q")
+region = Rect2(0, 0, 67, 113)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_rqw3e"]
+atlas = ExtResource("10_jym1q")
+region = Rect2(67, 0, 67, 113)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_y8bnm"]
+atlas = ExtResource("10_jym1q")
+region = Rect2(134, 0, 67, 113)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_jv4x1"]
+atlas = ExtResource("10_jym1q")
+region = Rect2(201, 0, 67, 113)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_pquxw"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_e4yyl")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_5qw5q")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_hjcc7")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_8k7ec")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_6bejh")
+}],
+"loop": false,
+"name": &"big",
+"speed": 10.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_5l3b4")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_rqw3e")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_y8bnm")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_jv4x1")
+}],
+"loop": false,
+"name": &"small",
+"speed": 10.0
+}]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_cdxnp"]
 radius = 5.0
@@ -35,14 +119,25 @@ stream_2/stream = ExtResource("13_yuydg")
 
 [node name="Tree" type="Node2D"]
 script = ExtResource("1_dqako")
-textures = Array[Texture]([ExtResource("2_ywkj6"), ExtResource("3_05j1j"), ExtResource("4_b0kmi"), ExtResource("5_ud8ls"), ExtResource("6_ssygy"), ExtResource("7_sok6f")])
+big_snowy_textures = Array[Texture]([ExtResource("2_ywkj6"), ExtResource("3_05j1j"), ExtResource("5_ud8ls"), ExtResource("6_ssygy")])
+small_snowy_textures = Array[Texture]([ExtResource("4_b0kmi"), ExtResource("7_sok6f")])
+big_textures = Array[Texture]([ExtResource("8_kc1n5"), ExtResource("9_6cx1p"), ExtResource("10_d27fp"), ExtResource("11_ae444")])
+small_textures = Array[Texture]([ExtResource("12_ykopi"), ExtResource("13_ypxcu")])
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 material = SubResource("ShaderMaterial_noj16")
 position = Vector2(-1, -33)
 texture = ExtResource("2_ywkj6")
 
+[node name="SnowSprite" type="AnimatedSprite2D" parent="."]
+visible = false
+material = SubResource("ShaderMaterial_noj16")
+position = Vector2(-1, -33)
+sprite_frames = SubResource("SpriteFrames_pquxw")
+animation = &"big"
+
 [node name="ObstacleComponent" parent="." node_paths=PackedStringArray("parent") instance=ExtResource("2_0taqo")]
+visible = false
 position = Vector2(0.5, -1.5)
 parent = NodePath("..")
 
@@ -52,6 +147,7 @@ rotation = 1.5708
 shape = SubResource("CapsuleShape2D_cdxnp")
 
 [node name="ShakeArea" type="Area2D" parent="."]
+visible = false
 position = Vector2(0.5, -6.5)
 collision_layer = 0
 collision_mask = 5
@@ -68,4 +164,5 @@ one_shot = true
 [node name="sfx" type="AudioStreamPlayer2D" parent="."]
 stream = SubResource("AudioStreamRandomizer_67tms")
 
+[connection signal="area_entered" from="ShakeArea" to="." method="_on_shake_area_area_entered"]
 [connection signal="area_exited" from="ShakeArea" to="." method="_on_shake_area_area_exited"]
