@@ -17,7 +17,8 @@ func _ready() -> void:
 func _on_level_up():
 	speed+=10
 	Logger.info ("avalanche speed: %d" % speed)
-	
+	if get_distance_to_player()>far_distance:
+		global_position.x = Globals.player.global_position.x-far_distance
 func _physics_process(delta: float) -> void:
 	hitbox.global_position.y = Globals.player.global_position.y
 	
