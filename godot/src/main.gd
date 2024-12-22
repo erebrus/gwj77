@@ -8,9 +8,9 @@ extends Node
 @onready var timer = %TimerUi
 @onready var distance_label = %DistanceLabel
 @onready var stamina_label: Label = %StaminaLabel
-@onready var stamina_meter: TextureProgressBar = $GUI/ViewportBorder/StaminaMeter
-@onready var avalanche_warning: TextureRect = $GUI/ViewportBorder/VBoxContainer/AvalancheWarning
-@onready var stamina_out_label := $GUI/ViewportBorder/StaminaOutLabel
+@onready var stamina_meter: TextureProgressBar = %StaminaMeter
+@onready var avalanche_warning: TextureRect = %AvalancheWarning
+@onready var stamina_out_label := %StaminaOutLabel
 @onready var game_over: Control = %GameOver
 
 var distance:float=0.0

@@ -23,11 +23,11 @@ xp_levels = Array[int]([200, 500, 900, 1300, 1800, 2400, 3100, 3900, 4800, 5800,
 LevelScene = ExtResource("2_0qw3c")
 
 [node name="GUI" type="CanvasLayer" parent="."]
+process_mode = 3
 layer = 10
 
 [node name="ViewportBorder" type="PanelContainer" parent="GUI"]
 unique_name_in_owner = true
-process_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
@@ -42,13 +42,25 @@ layout_mode = 2
 [node name="TimerUi" parent="GUI/ViewportBorder/VBoxContainer" instance=ExtResource("3_4j3po")]
 unique_name_in_owner = true
 process_mode = 1
+visible = false
 layout_mode = 2
 size_flags_horizontal = 0
 size_flags_vertical = 0
 
-[node name="DistanceLabel" type="Label" parent="GUI/ViewportBorder/VBoxContainer"]
+[node name="DistanceUi" type="HBoxContainer" parent="GUI/ViewportBorder/VBoxContainer"]
 unique_name_in_owner = true
 layout_mode = 2
+
+[node name="Label" type="Label" parent="GUI/ViewportBorder/VBoxContainer/DistanceUi"]
+layout_mode = 2
+theme_type_variation = &"HeaderMedium"
+text = "Distance reached:"
+
+[node name="DistanceLabel" type="Label" parent="GUI/ViewportBorder/VBoxContainer/DistanceUi"]
+unique_name_in_owner = true
+layout_mode = 2
+theme_type_variation = &"HeaderMedium"
+theme_override_colors/font_color = Color(0.235294, 0.184314, 0.196078, 1)
 text = "10.000m"
 
 [node name="StaminaLabel" type="Label" parent="GUI/ViewportBorder/VBoxContainer"]
@@ -57,21 +69,26 @@ layout_mode = 2
 text = "10.000m"
 
 [node name="AvalancheWarning" parent="GUI/ViewportBorder/VBoxContainer" instance=ExtResource("5_iqiog")]
+unique_name_in_owner = true
 layout_mode = 2
 
 [node name="StaminaMeter" parent="GUI/ViewportBorder" instance=ExtResource("6_31uhi")]
+unique_name_in_owner = true
 layout_mode = 2
 size_flags_horizontal = 8
 size_flags_vertical = 0
 
 [node name="StaminaOutLabel" parent="GUI/ViewportBorder" instance=ExtResource("8_7xsfp")]
+unique_name_in_owner = true
 visible = false
 layout_mode = 2
 
 [node name="UpgradeScreen" parent="GUI" instance=ExtResource("7_uqq0g")]
+visible = false
 
 [node name="GameOver" parent="GUI" instance=ExtResource("8_ikyai")]
 unique_name_in_owner = true
+visible = false
 
 [node name="ambient" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("6_he4wm")
