@@ -1,107 +1,15 @@
-[gd_scene load_steps=26 format=3 uid="uid://dgmyppls2ppbo"]
+[gd_scene load_steps=16 format=3 uid="uid://dgmyppls2ppbo"]
 
 [ext_resource type="Script" path="res://src/player/dog/dog.gd" id="2_131mw"]
 [ext_resource type="PackedScene" uid="uid://gdqr022umlpa" path="res://src/components/shadow/shadow.tscn" id="3_2wnjp"]
-[ext_resource type="Texture2D" uid="uid://bys6i6qv74u2w" path="res://assets/gfx/dogs/dog - run.png" id="3_555tg"]
+[ext_resource type="SpriteFrames" uid="uid://dywy50rkoqp2w" path="res://src/player/dog/dog2.tres" id="3_iyt3r"]
+[ext_resource type="SpriteFrames" uid="uid://7mk030rsileo" path="res://src/player/dog/dog1.tres" id="3_tmvop"]
 [ext_resource type="Texture2D" uid="uid://dtkxo4l30qdsf" path="res://assets/gfx/snow/small_particles.png" id="5_0jvt6"]
 [ext_resource type="AudioStream" uid="uid://dm45n8wbstrep" path="res://assets/sfx/Dog_bark_1.wav" id="5_umf0g"]
 [ext_resource type="AudioStream" uid="uid://dfw6l6vhmy2xs" path="res://assets/sfx/Dog_Bark_2.wav" id="6_u1oca"]
 [ext_resource type="AudioStream" uid="uid://ck5mbgyho01cp" path="res://assets/sfx/Dog Bark_3.wav" id="7_5hu0d"]
 [ext_resource type="AudioStream" uid="uid://wgjicxyyn5l2" path="res://assets/sfx/Dog_Bark_4.wav" id="8_lr37a"]
 [ext_resource type="Script" path="res://addons/random_timers/RandomRangeTimer.gd" id="9_6y7vh"]
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_o5ro8"]
-atlas = ExtResource("3_555tg")
-region = Rect2(62, 0, 31, 17)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_a0lps"]
-atlas = ExtResource("3_555tg")
-region = Rect2(0, 0, 31, 17)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_e5uyi"]
-atlas = ExtResource("3_555tg")
-region = Rect2(31, 0, 31, 17)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_oscvw"]
-atlas = ExtResource("3_555tg")
-region = Rect2(93, 0, 31, 17)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_t53qm"]
-atlas = ExtResource("3_555tg")
-region = Rect2(124, 0, 31, 17)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_y38na"]
-atlas = ExtResource("3_555tg")
-region = Rect2(0, 0, 31, 17)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_j6dnq"]
-atlas = ExtResource("3_555tg")
-region = Rect2(31, 0, 31, 17)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_moihj"]
-atlas = ExtResource("3_555tg")
-region = Rect2(62, 0, 31, 17)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_utdx0"]
-atlas = ExtResource("3_555tg")
-region = Rect2(93, 0, 31, 17)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_u3xc1"]
-atlas = ExtResource("3_555tg")
-region = Rect2(124, 0, 31, 17)
-
-[sub_resource type="SpriteFrames" id="SpriteFrames_36ath"]
-animations = [{
-"frames": [{
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_o5ro8")
-}],
-"loop": true,
-"name": &"default",
-"speed": 10.0
-}, {
-"frames": [{
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_a0lps")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_e5uyi")
-}],
-"loop": false,
-"name": &"jump",
-"speed": 10.0
-}, {
-"frames": [{
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_oscvw")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_t53qm")
-}],
-"loop": false,
-"name": &"land",
-"speed": 10.0
-}, {
-"frames": [{
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_y38na")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_j6dnq")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_moihj")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_utdx0")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_u3xc1")
-}],
-"loop": true,
-"name": &"run",
-"speed": 10.0
-}]
 
 [sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_k60r8"]
 particles_animation = true
@@ -150,6 +58,7 @@ stream_3/stream = ExtResource("8_lr37a")
 
 [node name="Dog" type="Node2D"]
 script = ExtResource("2_131mw")
+sprites = Array[SpriteFrames]([ExtResource("3_tmvop"), ExtResource("3_iyt3r")])
 
 [node name="Shadow" parent="." instance=ExtResource("3_2wnjp")]
 position = Vector2(1, 6)
@@ -158,7 +67,7 @@ radius = 7
 depth = 0.2
 
 [node name="AnimatedSprite" type="AnimatedSprite2D" parent="."]
-sprite_frames = SubResource("SpriteFrames_36ath")
+sprite_frames = ExtResource("3_tmvop")
 animation = &"run"
 autoplay = "default"
 frame_progress = 0.881482

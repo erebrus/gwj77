@@ -1,0 +1,76 @@
+[gd_resource type="SpriteFrames" load_steps=7 format=3 uid="uid://dywy50rkoqp2w"]
+
+[ext_resource type="Texture2D" uid="uid://dqq1rsuc86k0k" path="res://assets/gfx/dogs/dog - run2.png" id="1_n8lal"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_rx44x"]
+atlas = ExtResource("1_n8lal")
+region = Rect2(62, 0, 31, 17)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_lqi18"]
+atlas = ExtResource("1_n8lal")
+region = Rect2(0, 0, 31, 17)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_lhf5c"]
+atlas = ExtResource("1_n8lal")
+region = Rect2(31, 0, 31, 17)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_nxqpx"]
+atlas = ExtResource("1_n8lal")
+region = Rect2(93, 0, 31, 17)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_j2g23"]
+atlas = ExtResource("1_n8lal")
+region = Rect2(124, 0, 31, 17)
+
+[resource]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_rx44x")
+}],
+"loop": true,
+"name": &"default",
+"speed": 10.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_lqi18")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_lhf5c")
+}],
+"loop": false,
+"name": &"jump",
+"speed": 10.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_nxqpx")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_j2g23")
+}],
+"loop": false,
+"name": &"land",
+"speed": 10.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_lqi18")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_lhf5c")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_rx44x")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_nxqpx")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_j2g23")
+}],
+"loop": true,
+"name": &"run",
+"speed": 10.0
+}]

@@ -1,5 +1,8 @@
 class_name Dog extends Node2D
 
+@export var sprites: Array[SpriteFrames]
+
+
 @onready var lead_marker: Marker2D = %LeadMarker
 @onready var sprite: AnimatedSprite2D = $AnimatedSprite
 @onready var front_snow_particles: GPUParticles2D = $FrontSnowParticles
@@ -12,6 +15,10 @@ var height: float:
 		if value != height:
 			height = value
 			sprite.position.y = height
+
+func _ready() -> void:
+	$AnimatedSprite.sprite_frames = sprites.pick_random()
+	
 
 func set_particles(value:bool)->void:
 	front_snow_particles.emitting = value
