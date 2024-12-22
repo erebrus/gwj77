@@ -1,8 +1,27 @@
-[gd_scene load_steps=4 format=3 uid="uid://tew5nggvlbv0"]
+[gd_scene load_steps=11 format=3 uid="uid://tew5nggvlbv0"]
 
 [ext_resource type="Theme" uid="uid://bwsudxwusgxog" path="res://src/gui/theme.tres" id="1_aduk4"]
 [ext_resource type="Script" path="res://src/start_screen/start_screen.gd" id="1_yk0mb"]
 [ext_resource type="Script" path="res://addons/sj/components/ui/settings/volume_slider.gd" id="2_itegt"]
+[ext_resource type="Texture2D" uid="uid://c35ov5c2tddf4" path="res://assets/gfx/Title screen 1.png" id="3_44mrc"]
+[ext_resource type="Texture2D" uid="uid://bqckjelciluk3" path="res://assets/gfx/Title screen 2.png" id="4_378nv"]
+[ext_resource type="Texture2D" uid="uid://bax4uq16otf2d" path="res://assets/gfx/Title screen 3.png" id="5_8naw7"]
+[ext_resource type="Texture2D" uid="uid://b7m1awxv6rsgf" path="res://assets/gfx/Title screen 4.png" id="6_6me1b"]
+[ext_resource type="Texture2D" uid="uid://c5hqko2fmbiw1" path="res://assets/gfx/Title screen 5.png" id="7_t522i"]
+[ext_resource type="FontFile" uid="uid://b0v3nrsre2i5n" path="res://assets/fonts/kenney/Kenney Pixel.ttf" id="8_8fpm6"]
+
+[sub_resource type="AnimatedTexture" id="AnimatedTexture_f64vd"]
+frames = 5
+speed_scale = 10.0
+frame_0/texture = ExtResource("3_44mrc")
+frame_1/texture = ExtResource("4_378nv")
+frame_1/duration = 1.0
+frame_2/texture = ExtResource("5_8naw7")
+frame_2/duration = 1.0
+frame_3/texture = ExtResource("6_6me1b")
+frame_3/duration = 1.0
+frame_4/texture = ExtResource("7_t522i")
+frame_4/duration = 1.0
 
 [node name="StartScreen" type="Control"]
 layout_mode = 3
@@ -11,22 +30,26 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+mouse_default_cursor_shape = 2
 theme = ExtResource("1_aduk4")
 script = ExtResource("1_yk0mb")
 
+[node name="BG" type="TextureRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = SubResource("AnimatedTexture_f64vd")
+
 [node name="StartButton" type="TextureButton" parent="."]
 custom_minimum_size = Vector2(440, 235)
-layout_mode = 1
-anchors_preset = 6
-anchor_left = 1.0
-anchor_top = 0.5
-anchor_right = 1.0
-anchor_bottom = 0.5
-offset_left = -440.0
-offset_top = -117.5
-offset_bottom = 117.5
-grow_horizontal = 0
-grow_vertical = 2
+layout_mode = 0
+offset_left = -40.0
+offset_top = -30.0
+offset_right = 400.0
+offset_bottom = 205.0
 
 [node name="Label" type="Label" parent="StartButton"]
 layout_mode = 1
@@ -46,28 +69,40 @@ metadata/_edit_lock_ = true
 [node name="sfx_button" type="AudioStreamPlayer" parent="."]
 
 [node name="HBoxContainer" type="VBoxContainer" parent="."]
-layout_mode = 1
-anchors_preset = 3
-anchor_left = 1.0
-anchor_top = 1.0
-anchor_right = 1.0
-anchor_bottom = 1.0
-offset_left = -182.0
-offset_top = -80.0
-offset_bottom = 12.0
-grow_horizontal = 0
-grow_vertical = 0
+layout_mode = 0
+offset_left = 110.0
+offset_top = 160.0
+offset_right = 292.0
+offset_bottom = 252.0
 theme_override_constants/separation = 20
 
-[node name="SfxSlider" type="HSlider" parent="HBoxContainer"]
+[node name="GridContainer" type="GridContainer" parent="HBoxContainer"]
 layout_mode = 2
+columns = 2
+
+[node name="Sfx" type="Label" parent="HBoxContainer/GridContainer"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("8_8fpm6")
+theme_override_font_sizes/font_size = 12
+text = "Sound"
+
+[node name="SfxSlider" type="HSlider" parent="HBoxContainer/GridContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
 max_value = 1.0
 step = 0.1
 script = ExtResource("2_itegt")
 bus_name = "Sfx"
 
-[node name="MusicSlider" type="HSlider" parent="HBoxContainer"]
+[node name="Music" type="Label" parent="HBoxContainer/GridContainer"]
 layout_mode = 2
+theme_override_fonts/font = ExtResource("8_8fpm6")
+theme_override_font_sizes/font_size = 12
+text = "Music"
+
+[node name="MusicSlider" type="HSlider" parent="HBoxContainer/GridContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
 max_value = 1.0
 step = 0.1
 script = ExtResource("2_itegt")
