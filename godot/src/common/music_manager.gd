@@ -31,14 +31,14 @@ func reset_synchronized_stream():
 			game_music_stream.set_sync_stream_volume(i,-60)
 
 func fade_in_stream(node:AudioStreamPlayer, duration := 1.0):
-	var tween = get_tree().create_tween().set_trans(Tween.TRANS_CUBIC).set_ease(Tween.EASE_OUT)
+	var tween = create_tween().set_trans(Tween.TRANS_CUBIC).set_ease(Tween.EASE_OUT)
 	node.volume_db=-20
 	node.play()
 	tween.tween_property(node,"volume_db",0 , duration)
 	
 
 func fade_stream(node:AudioStreamPlayer, duration := 1.0):
-	var tween = get_tree().create_tween().set_trans(Tween.TRANS_CUBIC).set_ease(Tween.EASE_OUT)
+	var tween = create_tween().set_trans(Tween.TRANS_CUBIC).set_ease(Tween.EASE_OUT)
 	tween.tween_property(node,"volume_db",-20 , duration)
 	await tween.finished
 	node.stop()
@@ -49,7 +49,7 @@ func _helper_set_volume(volume_db:float, id:int):
 func change_game_music_to(new_id:Types.GameMusic, time:=1.0):
 	if new_id == current_game_music_id:
 		return
-	var tween = get_tree().create_tween().set_trans(Tween.TRANS_CUBIC).set_ease(Tween.EASE_IN)
+	var tween = create_tween().set_trans(Tween.TRANS_CUBIC).set_ease(Tween.EASE_IN)
 	tween.tween_method(_helper_set_volume.bind(current_game_music_id),0,-60, time)
 	tween.parallel().tween_method(_helper_set_volume.bind(new_id),-60,0, time).set_ease(Tween.EASE_OUT)
 	await tween.finished
