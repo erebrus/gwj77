@@ -36,6 +36,7 @@ func _ready() -> void:
 
 func _on_ui_configuration_updated():
 	stamina_meter.visible = Globals.player.ui_stamina_meter
+	#speed_meter.visible = Globals.player.ui_speed_meter
 
 func _on_level_loaded() -> void:
 	timer.start()
