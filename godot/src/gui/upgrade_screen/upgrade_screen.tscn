@@ -1,10 +1,11 @@
 [gd_scene load_steps=4 format=3 uid="uid://brrtsof55b81h"]
 
-[ext_resource type="StyleBox" uid="uid://ci41601q8u8jj" path="res://src/gui/popup_overlay.tres" id="1_288u5"]
+[ext_resource type="StyleBox" path="res://src/gui/popup_overlay.tres" id="1_288u5"]
 [ext_resource type="Script" path="res://src/gui/upgrade_screen/upgrade_screen.gd" id="1_e7jdx"]
 [ext_resource type="PackedScene" uid="uid://d0c73gdmfjddk" path="res://src/gui/upgrade_screen/upgrade_option.tscn" id="2_dilgj"]
 
 [node name="UpgradeScreen" type="PanelContainer"]
+process_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
