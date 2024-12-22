@@ -18,11 +18,11 @@ signal speed_changed(new_speed:float)
 
 @export_category("stamina")
 @export var max_stamina := 100.0
-@export var stamina_drain := 10.0
-@export var stamina_recovery := 10.0
+@export var stamina_drain := 15.0
+@export var stamina_recovery := 5.0
 @export var stamina_depleted_timeout := 2.5
 @export var stamina_speed_neutral := Vector2(.75,.9)
-
+@export var stamina_jump_drain:= 20.0
 var dog_pairs: Array[DogPair]
 var is_alive:= false
 var invulnerable := false
@@ -76,6 +76,7 @@ func _physics_process(delta: float) -> void:
 	for i in dog_pair_number - 1:
 		dog_pairs[i].follow_component.at_distance(distance)
 		
+	var turbo_on := false
 	if is_alive:
 		var previous_speed = current_speed
 		var input = Input.get_vector("move_left", "move_right","break", "accelerate")		
@@ -87,9 +88,10 @@ func _physics_process(delta: float) -> void:
 			_update_pitch()
 			
 		elif input.y > 0  and stamina > 0:
-			var turbo_on:=turbo_factor > 1 and Input.is_action_pressed("turbo")
+			turbo_on = turbo_factor > 1 and Input.is_action_pressed("turbo")
 			if turbo_on and Input.is_action_just_pressed("turbo") and not $sfx_turbo.playing:
 				$sfx_turbo.play()
+				Logger.info("TURBO!")
 			if not turbo_on and Input.is_action_just_pressed("accelerate") and not $sfx_accel.playing:
 				$sfx_accel.play()
 				
@@ -97,35 +99,29 @@ func _physics_process(delta: float) -> void:
 			var actual_accel = accel if not turbo_on else accel * turbo_factor
 			current_speed = min(actual_max_speed, current_speed + delta * actual_accel * input.y)
 			_update_pitch()
+			if turbo_on:
+				_drain_stamina(delta*stamina_drain)
 		var velocity = Vector2(current_speed, input.x * turn_speed)
 		dog_pairs.back().position += delta * velocity
 		if current_speed != previous_speed:
 			speed_changed.emit(current_speed)
 		if jump_enabled and Input.is_action_just_pressed("jump"):
 			dog_pairs.back().jump_component.jump()
+			_drain_stamina(stamina_jump_drain)
 	
 	_recalibrate_positions()
-	_handle_stamina(delta)
+	if not turbo_on:
+		_recover_stamina(delta)
 	
 
 func _update_pitch():
 	$sfx_layer2.pitch_scale=.85+.3*min((current_speed-75)/(225-75),1)
 
-func _handle_stamina(delta: float)-> void:
+
+func _drain_stamina(drain_value: float):
 	if not stamina_timer.is_stopped() or not stamina_enabled:
 		return
-	
-	#should drain
-	if current_speed > speed * stamina_speed_neutral.y:
-		_drain_stamina(delta)
-	#should recover
-	elif current_speed < speed * stamina_speed_neutral.x:
-		_recover_stamina(delta)
-	#otherwise neutral
-
-func _drain_stamina(delta: float):
-	var drain_value:float = (current_speed- speed * stamina_speed_neutral.y)/(speed - speed * stamina_speed_neutral.y)*stamina_drain
-	stamina-=drain_value*delta
+	stamina-=drain_value
 	if stamina <= 0:
 		stamina = 0
 		current_speed=min_speed
@@ -133,6 +129,8 @@ func _drain_stamina(delta: float):
 		stamina_timer.start()
 	
 func _recover_stamina(delta: float):
+	if not stamina_timer.is_stopped() or not stamina_enabled:
+		return
 	stamina += stamina_recovery*delta
 	stamina = min(stamina, max_stamina)
 	
