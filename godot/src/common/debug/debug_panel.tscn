@@ -49,6 +49,12 @@ focus_mode = 0
 text = "Enable Turbo
 "
 
+[node name="Stamina" type="Button" parent="VBoxContainer/HFlowContainer2"]
+layout_mode = 2
+focus_mode = 0
+text = "Stamina
+"
+
 [node name="GameOverLabel" type="Label" parent="VBoxContainer"]
 layout_mode = 2
 text = "Game Over"
@@ -71,5 +77,6 @@ text = "Game Over
 [connection signal="toggled" from="VBoxContainer/HFlowContainer2/Invulnerable" to="." method="_on_invulnerable_toggled"]
 [connection signal="pressed" from="VBoxContainer/HFlowContainer2/Enable Jump" to="." method="_on_enable_jump_pressed"]
 [connection signal="pressed" from="VBoxContainer/HFlowContainer2/Enable Turbo" to="." method="_on_enable_turbo_pressed"]
+[connection signal="pressed" from="VBoxContainer/HFlowContainer2/Stamina" to="." method="_on_disable_stamina_pressed"]
 [connection signal="pressed" from="VBoxContainer/HFlowContainer/NextLevel" to="." method="_on_next_level_pressed"]
 [connection signal="pressed" from="VBoxContainer/HFlowContainer/GameOver" to="." method="_on_game_over_pressed"]

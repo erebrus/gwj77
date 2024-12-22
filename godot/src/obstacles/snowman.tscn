@@ -70,16 +70,15 @@ stream_1/stream = ExtResource("7_ii5ly")
 stream_2/stream = ExtResource("8_sigbi")
 
 [node name="Snowman" type="Node2D"]
+y_sort_enabled = true
 script = ExtResource("1_3spd1")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
-y_sort_enabled = true
-position = Vector2(8, -28)
+position = Vector2(8, -30)
 sprite_frames = SubResource("SpriteFrames_rir6i")
 
 [node name="ObstacleComponent" parent="." node_paths=PackedStringArray("parent") instance=ExtResource("4_5y1od")]
-y_sort_enabled = true
-position = Vector2(0, -2)
+position = Vector2(0, -4)
 parent = NodePath("..")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="ObstacleComponent"]

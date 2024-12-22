@@ -7,6 +7,8 @@ func _ready() -> void:
 	
 
 func _on_difficulty_changed(difficulty: Types.GameMusic) -> void:
+	visible = Globals.player.ui_avalanche_meter
+		
 	match difficulty:
 		Types.GameMusic.EASY:
 			$AnimationPlayer.play("easy")

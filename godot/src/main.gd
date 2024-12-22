@@ -8,7 +8,9 @@ extends Node
 @onready var timer = %TimerUi
 @onready var distance_label = %DistanceLabel
 @onready var stamina_label: Label = %StaminaLabel
-
+@onready var stamina_meter: TextureProgressBar = $GUI/ViewportBorder/StaminaMeter
+@onready var avalanche_warning: TextureRect = $GUI/ViewportBorder/VBoxContainer/AvalancheWarning
+@onready var stamina_out_label := $GUI/ViewportBorder/StaminaOutLabel
 @onready var game_over: Control = %GameOver
 
 var distance:float=0.0
@@ -21,12 +23,19 @@ func _ready() -> void:
 	Events.music_change_requested.connect(_on_music_change_requested)
 	Events.present_captured.connect(_on_present_captured)
 	Events.stamina_changed.connect(_on_stamina_changed)
+	Events.ui_configuration_updated.connect(_on_ui_configuration_updated)
+	Events.dogs_tired.connect(func():stamina_out_label.activate())
+	Events.stamina_exhaustion_finished.connect(func():stamina_out_label.deactivate())
 	Events.game_over.connect(_on_game_over)
-	
+
 	var level = LevelScene.instantiate()
 	level.ready.connect(_on_level_loaded)
 	add_child(level)
+	_on_ui_configuration_updated()
 	
+
+func _on_ui_configuration_updated():
+	stamina_meter.visible = Globals.player.ui_stamina_meter
 
 func _on_level_loaded() -> void:
 	timer.start()

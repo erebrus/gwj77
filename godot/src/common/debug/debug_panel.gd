@@ -39,3 +39,7 @@ func _on_enable_turbo_pressed() -> void:
 
 func _on_game_over_pressed():
 	Globals.do_lose()
+
+
+func _on_disable_stamina_pressed() -> void:
+	Globals.player.stamina_enabled = not Globals.player.stamina_enabled
