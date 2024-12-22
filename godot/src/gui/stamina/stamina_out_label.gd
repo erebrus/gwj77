@@ -1,6 +1,10 @@
 extends Label
 
 
+func _ready():
+	hide()
+	
+
 func activate():
 	visible=true
 	$AnimationPlayer.play("default")
