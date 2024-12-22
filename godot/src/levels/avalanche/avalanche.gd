@@ -1,7 +1,7 @@
 extends Node2D
 
 
-@export var speed: float = 100
+@export var speed: float = 110
 @export var far_distance := 900.0
 @export var critical_distance := 300.0
 
@@ -15,7 +15,7 @@ func _ready() -> void:
 	Events.level_up.connect(_on_level_up)
 
 func _on_level_up():
-	speed+=10
+	speed+=11
 	Logger.info ("avalanche speed: %d" % speed)
 	if get_distance_to_player()>far_distance:
 		global_position.x = Globals.player.global_position.x-far_distance
