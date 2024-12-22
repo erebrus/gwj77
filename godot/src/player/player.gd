@@ -36,6 +36,7 @@ var invulnerable := false
 @onready var sled: Area2D = $Sled
 @onready var stamina_timer: Timer = $StaminaTimer
 
+var stamina_enabled := true
 var jump_enabled:=false
 var ui_avalanche_meter:=false:
 	set(v):
@@ -109,8 +110,9 @@ func _physics_process(delta: float) -> void:
 
 func _update_pitch():
 	$sfx_layer2.pitch_scale=.85+.3*min((current_speed-75)/(225-75),1)
+
 func _handle_stamina(delta: float)-> void:
-	if not stamina_timer.is_stopped():
+	if not stamina_timer.is_stopped() or not stamina_enabled:
 		return
 	
 	#should drain

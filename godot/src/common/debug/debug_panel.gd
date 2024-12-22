@@ -40,3 +40,7 @@ func _on_enable_jump_pressed() -> void:
 
 func _on_enable_turbo_pressed() -> void:
 	Globals.player.turbo_factor=1.25
+
+
+func _on_disable_stamina_pressed() -> void:
+	Globals.player.stamina_enabled = not Globals.player.stamina_enabled
