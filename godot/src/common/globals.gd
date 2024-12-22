@@ -21,10 +21,6 @@ var player: Player
 
 func _ready():
 	_init_logger()
-	Logger.info("Starting menu music")
-	#music_manager.fade_in_menu_music()
-
-	start_game(false)
 	
 func go_to_main_menu():
 	get_tree().change_scene_to_file(START_SCENE_PATH)
