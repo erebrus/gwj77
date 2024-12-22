@@ -35,8 +35,9 @@ func start_game(from_menu:=true):
 	music_manager.reset_synchronized_stream()
 	upgrade_manager.init_list()
 	if from_menu:
-		get_tree().change_scene_to_file(GAME_SCENE_PATH)
 		get_tree().paused = false
+		get_tree().change_scene_to_file(GAME_SCENE_PATH)
+		
 	music_manager.fade_in_game_music()
 	
 

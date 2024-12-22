@@ -1,4 +1,4 @@
-[gd_scene load_steps=11 format=3 uid="uid://tew5nggvlbv0"]
+[gd_scene load_steps=12 format=3 uid="uid://tew5nggvlbv0"]
 
 [ext_resource type="Theme" uid="uid://bwsudxwusgxog" path="res://src/gui/theme.tres" id="1_aduk4"]
 [ext_resource type="Script" path="res://src/start_screen/start_screen.gd" id="1_yk0mb"]
@@ -9,6 +9,7 @@
 [ext_resource type="Texture2D" uid="uid://b7m1awxv6rsgf" path="res://assets/gfx/Title screen 4.png" id="6_6me1b"]
 [ext_resource type="Texture2D" uid="uid://c5hqko2fmbiw1" path="res://assets/gfx/Title screen 5.png" id="7_t522i"]
 [ext_resource type="FontFile" uid="uid://b0v3nrsre2i5n" path="res://assets/fonts/kenney/Kenney Pixel.ttf" id="8_8fpm6"]
+[ext_resource type="AudioStream" uid="uid://2m13ch7ntob5" path="res://assets/sfx/UI_1.wav" id="8_djg3w"]
 
 [sub_resource type="AnimatedTexture" id="AnimatedTexture_f64vd"]
 frames = 5
@@ -67,6 +68,7 @@ horizontal_alignment = 1
 metadata/_edit_lock_ = true
 
 [node name="sfx_button" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("8_djg3w")
 
 [node name="HBoxContainer" type="VBoxContainer" parent="."]
 layout_mode = 0
@@ -107,5 +109,16 @@ max_value = 1.0
 step = 0.1
 script = ExtResource("2_itegt")
 bus_name = "Music"
+
+[node name="BlackFade" type="ColorRect" parent="."]
+modulate = Color(1, 1, 1, 0)
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+color = Color(0, 0, 0, 1)
 
 [connection signal="pressed" from="StartButton" to="." method="_on_start_button_pressed"]
