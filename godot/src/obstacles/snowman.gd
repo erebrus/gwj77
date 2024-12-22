@@ -6,7 +6,7 @@ func _ready() -> void:
 	pass # Replace with function body.
 
 
-func enter(sled: Sled) -> void:
+func enter(_sled: Sled) -> void:
 	$sfx.play()
 	$AnimatedSprite2D.play("death")
 	

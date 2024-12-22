@@ -63,7 +63,7 @@ func _physics_process(_delta: float) -> void:
 	
 func _check_level():
 	xp=presents*Types.XP_PER_PRESENT + distance*Types.XP_PER_METER
-	if xp > xp_levels[current_level]:
+	if current_level< xp_levels.size()-1 and xp > xp_levels[current_level]:
 		level_up()
 		
 func level_up():

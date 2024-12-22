@@ -12,8 +12,12 @@ var current:=Types.GameMusic.NORMAL
 
 func _ready() -> void:
 	hitbox.area_entered.connect(_on_hitbox_entered)
-	
+	Events.level_up.connect(_on_level_up)
 
+func _on_level_up():
+	speed+=10
+	Logger.info ("avalanche speed: %d" % speed)
+	
 func _physics_process(delta: float) -> void:
 	hitbox.global_position.y = Globals.player.global_position.y
 	
