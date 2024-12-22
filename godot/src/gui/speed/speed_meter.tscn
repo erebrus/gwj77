@@ -1,0 +1,27 @@
+[gd_scene load_steps=5 format=3 uid="uid://bfyfbu3wuqi17"]
+
+[ext_resource type="Theme" uid="uid://bwsudxwusgxog" path="res://src/gui/theme.tres" id="1_7qmf2"]
+[ext_resource type="Texture2D" uid="uid://byxd2c6b8k71j" path="res://assets/gfx/ui/speed_meter_under.png" id="1_8wqer"]
+[ext_resource type="Script" path="res://src/gui/speed/speed_meter.gd" id="2_3atl2"]
+[ext_resource type="Texture2D" uid="uid://dvobcswvnx1k3" path="res://assets/gfx/ui/stamina_meter_progress.png" id="2_j2xgr"]
+
+[node name="SpeedMeter" type="VBoxContainer"]
+offset_right = 64.0
+offset_bottom = 40.0
+size_flags_horizontal = 8
+theme = ExtResource("1_7qmf2")
+theme_override_constants/separation = 2
+script = ExtResource("2_3atl2")
+
+[node name="Label" type="Label" parent="."]
+layout_mode = 2
+size_flags_horizontal = 0
+text = "Speed"
+
+[node name="Progress" type="TextureProgressBar" parent="."]
+layout_mode = 2
+size_flags_horizontal = 8
+size_flags_vertical = 4
+texture_under = ExtResource("1_8wqer")
+texture_progress = ExtResource("2_j2xgr")
+texture_progress_offset = Vector2(1, 2)

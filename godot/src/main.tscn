@@ -3,13 +3,13 @@
 [ext_resource type="Script" path="res://src/main.gd" id="1_qalx3"]
 [ext_resource type="PackedScene" uid="uid://bndr53funklqt" path="res://src/levels/generated_level.tscn" id="2_0qw3c"]
 [ext_resource type="Theme" uid="uid://bwsudxwusgxog" path="res://src/gui/theme.tres" id="2_m0pdl"]
-[ext_resource type="PackedScene" uid="uid://dfwjdasqow7ux" path="res://src/gui/timer/timer_ui.tscn" id="3_4j3po"]
 [ext_resource type="PackedScene" uid="uid://jkur2jgafx8i" path="res://src/gui/avalanche/avalanche_warning.tscn" id="5_iqiog"]
 [ext_resource type="PackedScene" uid="uid://oc57k7h0vh15" path="res://src/gui/stamina/stamina_meter.tscn" id="6_31uhi"]
 [ext_resource type="AudioStream" uid="uid://c8ytb8xph3yje" path="res://assets/sfx/Amb_Loop.wav" id="6_he4wm"]
 [ext_resource type="PackedScene" uid="uid://brrtsof55b81h" path="res://src/gui/upgrade_screen/upgrade_screen.tscn" id="7_uqq0g"]
 [ext_resource type="PackedScene" uid="uid://b8qxqhe61gs5w" path="res://src/gui/stamina/stamina_out_label.tscn" id="8_7xsfp"]
 [ext_resource type="PackedScene" uid="uid://cu0hvds0hvb3b" path="res://src/gui/game_over/game_over.tscn" id="8_ikyai"]
+[ext_resource type="PackedScene" uid="uid://bfyfbu3wuqi17" path="res://src/gui/speed/speed_meter.tscn" id="8_svx3l"]
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_6vxwb"]
 content_margin_left = 5.0
@@ -39,14 +39,6 @@ theme_override_styles/panel = SubResource("StyleBoxEmpty_6vxwb")
 [node name="VBoxContainer" type="VBoxContainer" parent="GUI/ViewportBorder"]
 layout_mode = 2
 
-[node name="TimerUi" parent="GUI/ViewportBorder/VBoxContainer" instance=ExtResource("3_4j3po")]
-unique_name_in_owner = true
-process_mode = 1
-visible = false
-layout_mode = 2
-size_flags_horizontal = 0
-size_flags_vertical = 0
-
 [node name="DistanceUi" type="HBoxContainer" parent="GUI/ViewportBorder/VBoxContainer"]
 unique_name_in_owner = true
 layout_mode = 2
@@ -63,24 +55,26 @@ theme_type_variation = &"HeaderMedium"
 theme_override_colors/font_color = Color(0.235294, 0.184314, 0.196078, 1)
 text = "10.000m"
 
-[node name="StaminaLabel" type="Label" parent="GUI/ViewportBorder/VBoxContainer"]
-unique_name_in_owner = true
-layout_mode = 2
-text = "10.000m"
-
 [node name="AvalancheWarning" parent="GUI/ViewportBorder/VBoxContainer" instance=ExtResource("5_iqiog")]
 unique_name_in_owner = true
 layout_mode = 2
+size_flags_horizontal = 4
 
-[node name="StaminaMeter" parent="GUI/ViewportBorder" instance=ExtResource("6_31uhi")]
+[node name="StaminaOutLabel" parent="GUI/ViewportBorder" instance=ExtResource("8_7xsfp")]
+unique_name_in_owner = true
+layout_mode = 2
+
+[node name="VBoxContainer2" type="VBoxContainer" parent="GUI/ViewportBorder"]
+layout_mode = 2
+
+[node name="StaminaMeter" parent="GUI/ViewportBorder/VBoxContainer2" instance=ExtResource("6_31uhi")]
 unique_name_in_owner = true
 layout_mode = 2
 size_flags_horizontal = 8
 size_flags_vertical = 0
 
-[node name="StaminaOutLabel" parent="GUI/ViewportBorder" instance=ExtResource("8_7xsfp")]
+[node name="SpeedMeter" parent="GUI/ViewportBorder/VBoxContainer2" instance=ExtResource("8_svx3l")]
 unique_name_in_owner = true
-visible = false
 layout_mode = 2
 
 [node name="UpgradeScreen" parent="GUI" instance=ExtResource("7_uqq0g")]

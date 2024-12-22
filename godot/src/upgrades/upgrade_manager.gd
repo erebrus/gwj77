@@ -72,6 +72,18 @@ func get_random_available(count:int=3)->Array[Upgrade]:
 		ret.append(u)
 		possible.erase(u)
 	return ret
+	
+
+func maximum_speed() -> float:
+	var max_turbo: float
+	var max_speed: float
+	for upgrade in available:
+		if upgrade.property_name == "turbo_factor" and upgrade.value > max_turbo:
+			max_turbo = upgrade.value
+		if upgrade.property_name == "speed" and upgrade.value > max_speed:
+			max_speed = upgrade.value
+	return max_turbo * max_speed
+	
 
 func apply(upgrade:Upgrade)-> void:
 	Globals.player.set(upgrade.property_name, upgrade.value)
