@@ -9,7 +9,7 @@ func _ready() -> void:
 
 func _on_start_button_pressed() -> void:
 	$sfx_button.play()
-	$StartButton.disabled=true
+	%StartButton.disabled=true
 	if $sfx_button.stream:
 		await $sfx_button.finished
 	Globals.start_game()
