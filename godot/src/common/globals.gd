@@ -35,7 +35,7 @@ func start_game(from_menu:=true):
 
 	if from_menu:
 		music_manager.fade_menu_music()
-		await get_tree().create_timer(1).timeout
+		#await get_tree().create_timer(1).timeout
 	music_manager.reset_synchronized_stream()
 	upgrade_manager.init_list()
 	if from_menu:
