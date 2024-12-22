@@ -173,3 +173,4 @@ func _add_dog_pair(at_position: Vector2) -> void:
 
 func _on_stamina_timer_timeout() -> void:
 	Events.stamina_exhaustion_finished.emit()
+	$sfx_tired.play()

@@ -1,4 +1,4 @@
-[gd_scene load_steps=15 format=3 uid="uid://cbcfxexxa6mg4"]
+[gd_scene load_steps=19 format=3 uid="uid://cbcfxexxa6mg4"]
 
 [ext_resource type="Script" path="res://src/player/player.gd" id="1_1frfq"]
 [ext_resource type="PackedScene" uid="uid://wg63g48yqauy" path="res://src/player/sled/sled.tscn" id="3_ex6je"]
@@ -11,6 +11,9 @@
 [ext_resource type="AudioStream" uid="uid://bh2vxcxxlucac" path="res://assets/sfx/Break_3.wav" id="9_oqnym"]
 [ext_resource type="AudioStream" uid="uid://vlteljxjdoxe" path="res://assets/sfx/Turbo_1.wav" id="10_8xinf"]
 [ext_resource type="AudioStream" uid="uid://u1ydlvsgalww" path="res://assets/sfx/Turbo_2.wav" id="11_24ql2"]
+[ext_resource type="AudioStream" uid="uid://cd468udacicnh" path="res://assets/sfx/Dog_tired_1.wav" id="12_jo0vr"]
+[ext_resource type="AudioStream" uid="uid://c5vlhqjrf1jkl" path="res://assets/sfx/Dog_tired_2.wav" id="13_rnwr8"]
+[ext_resource type="AudioStream" uid="uid://dxe0k5x0e4nh1" path="res://assets/sfx/Dog_tired_3.wav" id="14_173jv"]
 
 [sub_resource type="AudioStreamRandomizer" id="AudioStreamRandomizer_nflv7"]
 streams_count = 2
@@ -27,6 +30,12 @@ stream_2/stream = ExtResource("9_oqnym")
 streams_count = 2
 stream_0/stream = ExtResource("10_8xinf")
 stream_1/stream = ExtResource("11_24ql2")
+
+[sub_resource type="AudioStreamRandomizer" id="AudioStreamRandomizer_8vmmn"]
+streams_count = 3
+stream_0/stream = ExtResource("12_jo0vr")
+stream_1/stream = ExtResource("13_rnwr8")
+stream_2/stream = ExtResource("14_173jv")
 
 [node name="Player" type="Node2D"]
 y_sort_enabled = true
@@ -69,6 +78,10 @@ stream = SubResource("AudioStreamRandomizer_ssxtc")
 [node name="sfx_turbo" type="AudioStreamPlayer2D" parent="."]
 position = Vector2(0, 1)
 stream = SubResource("AudioStreamRandomizer_iewlc")
+
+[node name="sfx_tired" type="AudioStreamPlayer2D" parent="."]
+position = Vector2(0, 1)
+stream = SubResource("AudioStreamRandomizer_8vmmn")
 
 [connection signal="timeout" from="BufferTimer" to="." method="_on_buffer_timer_timeout"]
 [connection signal="timeout" from="StaminaTimer" to="." method="_on_stamina_timer_timeout"]

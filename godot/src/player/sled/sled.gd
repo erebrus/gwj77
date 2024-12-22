@@ -26,6 +26,8 @@ func _on_crash():
 	_on_jump_component_jumped()
 
 func _on_jump_component_jumped() -> void:
+	$sfx_jump.play(.1)
+	await get_tree().create_timer(.1).timeout
 	var fading_snow := FADING_SNOW_SCENE.instantiate() as FadingSnow
 	fading_snow.global_position=snow_sprite.global_position
 	get_parent().get_parent().add_child(fading_snow)
@@ -34,8 +36,11 @@ func _on_jump_component_jumped() -> void:
 	
 
 func _on_jump_component_landed() -> void:
+	$sfx_land.play(.25)	
 	snow_sprite.play("start")
-	snow_sprite.visible=true
+	snow_sprite.visible=true	
 	await snow_sprite.animation_finished
 	snow_sprite.play("run")
 	snow_particles.emitting=true
+	
+	

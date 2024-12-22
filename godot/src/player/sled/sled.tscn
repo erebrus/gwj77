@@ -1,4 +1,4 @@
-[gd_scene load_steps=30 format=3 uid="uid://wg63g48yqauy"]
+[gd_scene load_steps=38 format=3 uid="uid://wg63g48yqauy"]
 
 [ext_resource type="Script" path="res://src/player/sled/sled.gd" id="1_0ihuf"]
 [ext_resource type="PackedScene" uid="uid://gdqr022umlpa" path="res://src/components/shadow/shadow.tscn" id="1_4d11q"]
@@ -8,6 +8,12 @@
 [ext_resource type="Script" path="res://src/player/jump/jump_component.gd" id="4_xlo5g"]
 [ext_resource type="Texture2D" uid="uid://d0rxns14ip217" path="res://assets/gfx/sled/snow - start+loop.png" id="6_fljwt"]
 [ext_resource type="Texture2D" uid="uid://dtkxo4l30qdsf" path="res://assets/gfx/snow/small_particles.png" id="8_tmodl"]
+[ext_resource type="AudioStream" uid="uid://bg4dn23bcknr8" path="res://assets/sfx/Jump_sled_1.wav" id="9_drlwh"]
+[ext_resource type="AudioStream" uid="uid://bs61v1qyyoms1" path="res://assets/sfx/Jump_sled_2.wav" id="10_ois0h"]
+[ext_resource type="AudioStream" uid="uid://cbgu4cyqkrvrp" path="res://assets/sfx/Jump_sled_3.wav" id="11_ycmsj"]
+[ext_resource type="AudioStream" uid="uid://b53f5wy1qybm5" path="res://assets/sfx/Jump_sled_Land_1.wav" id="12_53rc4"]
+[ext_resource type="AudioStream" uid="uid://d4jkhxy3kwmqg" path="res://assets/sfx/Jump_sled_Land_2.wav" id="13_st8hk"]
+[ext_resource type="AudioStream" uid="uid://dllv2bpk7sk1m" path="res://assets/sfx/Jump_sled_land_3.wav" id="14_5xqn5"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_p8kj0"]
 size = Vector2(16, 6)
@@ -167,6 +173,18 @@ damping_max = 1.0
 anim_speed_min = 0.8
 anim_speed_max = 1.2
 
+[sub_resource type="AudioStreamRandomizer" id="AudioStreamRandomizer_3c7aa"]
+streams_count = 3
+stream_0/stream = ExtResource("9_drlwh")
+stream_1/stream = ExtResource("10_ois0h")
+stream_2/stream = ExtResource("11_ycmsj")
+
+[sub_resource type="AudioStreamRandomizer" id="AudioStreamRandomizer_0sjfv"]
+streams_count = 3
+stream_0/stream = ExtResource("12_53rc4")
+stream_1/stream = ExtResource("13_st8hk")
+stream_2/stream = ExtResource("14_5xqn5")
+
 [node name="Sled" type="Area2D" node_paths=PackedStringArray("follow_component", "jump_component")]
 collision_mask = 0
 script = ExtResource("1_0ihuf")
@@ -213,6 +231,14 @@ position = Vector2(-56, 4)
 process_material = SubResource("ParticleProcessMaterial_fg5r2")
 texture = ExtResource("8_tmodl")
 lifetime = 0.8
+
+[node name="sfx_jump" type="AudioStreamPlayer2D" parent="."]
+stream = SubResource("AudioStreamRandomizer_3c7aa")
+bus = &"Sfx"
+
+[node name="sfx_land" type="AudioStreamPlayer2D" parent="."]
+stream = SubResource("AudioStreamRandomizer_0sjfv")
+bus = &"Sfx"
 
 [connection signal="jumped" from="JumpComponent" to="." method="_on_jump_component_jumped"]
 [connection signal="landed" from="JumpComponent" to="." method="_on_jump_component_landed"]

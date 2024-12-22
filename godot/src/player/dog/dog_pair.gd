@@ -36,10 +36,11 @@ func _ready() -> void:
 func _on_jumped():
 	left_dog.on_jumped()
 	right_dog.on_jumped()
-
+	$sfx_jump.play()
 func _on_landed():
 	left_dog.on_landed()
 	right_dog.on_landed()
+	$sfx_land.play()
 	
 func _physics_process(_delta: float) -> void:
 	lead.points[0] = left_dog.lead_marker.global_position - global_position

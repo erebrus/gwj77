@@ -1,13 +1,31 @@
-[gd_scene load_steps=6 format=3 uid="uid://berp0bpd3fukm"]
+[gd_scene load_steps=14 format=3 uid="uid://berp0bpd3fukm"]
 
 [ext_resource type="Script" path="res://src/player/dog/dog_pair.gd" id="1_35xlw"]
 [ext_resource type="PackedScene" uid="uid://dgmyppls2ppbo" path="res://src/player/dog/dog.tscn" id="2_b720v"]
 [ext_resource type="Script" path="res://src/player/jump/jump_component.gd" id="3_sa4ur"]
 [ext_resource type="Script" path="res://src/player/follow/follow_component.gd" id="4_vwptv"]
+[ext_resource type="AudioStream" uid="uid://cs6epd8ombcwa" path="res://assets/sfx/Jump_Dog_1.wav" id="5_mk2ss"]
+[ext_resource type="AudioStream" uid="uid://cusbi8mwwl72w" path="res://assets/sfx/Jump_Dog_2.wav" id="6_gfl7f"]
+[ext_resource type="AudioStream" uid="uid://bngd8rwb8651j" path="res://assets/sfx/Jump_Dog_3.wav" id="7_y2hap"]
+[ext_resource type="AudioStream" uid="uid://bbfsijxre2n86" path="res://assets/sfx/Jump_Dog_Land_1.wav" id="8_187ab"]
+[ext_resource type="AudioStream" uid="uid://ceujafch6rbqr" path="res://assets/sfx/Jump_Dog_Land_2.wav" id="9_urday"]
+[ext_resource type="AudioStream" uid="uid://bv7tmtv0fbh5s" path="res://assets/sfx/Jump_Dog_Land_3.wav" id="10_l0gwu"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_xprgs"]
 radius = 2.0
 height = 12.0
+
+[sub_resource type="AudioStreamRandomizer" id="AudioStreamRandomizer_mepqp"]
+streams_count = 3
+stream_0/stream = ExtResource("5_mk2ss")
+stream_1/stream = ExtResource("6_gfl7f")
+stream_2/stream = ExtResource("7_y2hap")
+
+[sub_resource type="AudioStreamRandomizer" id="AudioStreamRandomizer_dukoi"]
+streams_count = 3
+stream_0/stream = ExtResource("8_187ab")
+stream_1/stream = ExtResource("9_urday")
+stream_2/stream = ExtResource("10_l0gwu")
 
 [node name="DogPair" type="Area2D"]
 y_sort_enabled = true
@@ -51,3 +69,11 @@ position = Vector2(2, -4)
 script = ExtResource("4_vwptv")
 parent = NodePath("..")
 jump_component = NodePath("../JumpComponent")
+
+[node name="sfx_jump" type="AudioStreamPlayer2D" parent="."]
+stream = SubResource("AudioStreamRandomizer_mepqp")
+bus = &"Sfx"
+
+[node name="sfx_land" type="AudioStreamPlayer2D" parent="."]
+stream = SubResource("AudioStreamRandomizer_dukoi")
+bus = &"Sfx"
