@@ -11,7 +11,9 @@ extends BaseLevel
 @export var grid_size:= 32
 @export var cells_between_log_and_snow:= 4
 @export var screens_in_advance:= 1.5
-@export var templates: Array[Texture2D]
+@export var easy_templates: Array[Texture2D]
+@export var normal_templates: Array[Texture2D]
+@export var hard_templates: Array[Texture2D]
 @export var start_template:Texture2D
 
 @onready var cells_per_screen = 640.0 / grid_size
@@ -34,10 +36,34 @@ func _physics_process(_delta: float) -> void:
 		_place_section()
 	
 
+func _easy_prob(level: int) -> float:
+	if level > 10:
+		return 0
+	return 1 - level * 0.1
+	
+
+func _medium_prob(level: int) -> float:
+	if level < 8:
+		return 1
+	return (level - 8) * 0.06
+	
+
+func _get_random_template() -> Texture2D:
+	var level = get_parent().current_level
+	
+	if randf() < _easy_prob(level):
+		return easy_templates.pick_random()
+	
+	if randf() < _medium_prob(level):
+		return normal_templates.pick_random()
+	
+	return hard_templates.pick_random()
+	
+
 func _place_section(tex:Texture2D=null) -> void:
 	var start_cell = Vector2(checkpoint + cells_in_advance, $Sled.position.y / grid_size)
 	
-	var template: Texture2D = tex if tex != null else templates.pick_random()
+	var template: Texture2D = tex if tex != null else _get_random_template()
 	var image: Image = template.get_image()
 	var template_size = template.get_size()
 	var obstacles: Dictionary
