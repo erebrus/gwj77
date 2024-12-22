@@ -1,4 +1,4 @@
-[gd_scene load_steps=31 format=3 uid="uid://bndr53funklqt"]
+[gd_scene load_steps=35 format=3 uid="uid://bndr53funklqt"]
 
 [ext_resource type="PackedScene" uid="uid://cxt63d3uyyala" path="res://src/levels/base_level.tscn" id="1_ptced"]
 [ext_resource type="Script" path="res://src/levels/generated_level.gd" id="2_3dexe"]
@@ -20,7 +20,9 @@
 [ext_resource type="Texture2D" uid="uid://ht4v0junq1xm" path="res://assets/level_generation/corridor_easy_03.png" id="17_fikk6"]
 [ext_resource type="Texture2D" uid="uid://ccp00skoc04i7" path="res://assets/level_generation/corridor_mid_01.png" id="18_x2iu0"]
 [ext_resource type="Texture2D" uid="uid://dmqj46uduwp8u" path="res://assets/level_generation/corridor_mid_02.png" id="19_pw0na"]
+[ext_resource type="Texture2D" uid="uid://cyatex4tibam2" path="res://assets/level_generation/mini_curve2.png" id="20_o11u6"]
 [ext_resource type="Texture2D" uid="uid://ciss3ybe8v51w" path="res://assets/level_generation/corridor_mid_03.png" id="20_s5r55"]
+[ext_resource type="Texture2D" uid="uid://dq331jgsnqr41" path="res://assets/level_generation/mini_curve.png" id="21_1nwr3"]
 [ext_resource type="Texture2D" uid="uid://dfuv6sp1xjtjc" path="res://assets/level_generation/funnel_narrow.png" id="21_7x0kk"]
 [ext_resource type="Texture2D" uid="uid://bqslv3jqxnlk2" path="res://assets/level_generation/3islands.png" id="21_yrdgo"]
 [ext_resource type="Texture2D" uid="uid://bte3a4iva15ba" path="res://assets/level_generation/bump_down.png" id="22_trwe7"]
@@ -30,6 +32,8 @@
 [ext_resource type="Texture2D" uid="uid://byxp3vcgxle1j" path="res://assets/level_generation/island.png" id="25_wjm6h"]
 [ext_resource type="Texture2D" uid="uid://brh4qf1o81h6m" path="res://assets/level_generation/start.png" id="27_48kwm"]
 [ext_resource type="Texture2D" uid="uid://drx5oi81dqpnt" path="res://assets/level_generation/curve_2.png" id="27_d46dj"]
+[ext_resource type="Texture2D" uid="uid://bo8ock0h1kqym" path="res://assets/level_generation/corridor_hard.png" id="32_fk3an"]
+[ext_resource type="Texture2D" uid="uid://clcv7c8cynxg7" path="res://assets/level_generation/corridor_hard_02.png" id="33_a3r8x"]
 
 [node name="GeneratedLevel" instance=ExtResource("1_ptced")]
 script = ExtResource("2_3dexe")
@@ -41,7 +45,7 @@ SnowmanScene = ExtResource("13_1qvyb")
 grid_size = 40
 cells_between_log_and_snow = 4
 screens_in_advance = 1.5
-easy_templates = Array[Texture2D]([ExtResource("15_xjv0y"), ExtResource("16_07irg"), ExtResource("17_fikk6"), ExtResource("20_s5r55"), ExtResource("18_x2iu0"), ExtResource("19_pw0na")])
+easy_templates = Array[Texture2D]([ExtResource("15_xjv0y"), ExtResource("16_07irg"), ExtResource("17_fikk6"), ExtResource("20_s5r55"), ExtResource("18_x2iu0"), ExtResource("19_pw0na"), ExtResource("20_o11u6"), ExtResource("21_1nwr3")])
 normal_templates = Array[Texture2D]([ExtResource("14_ct8ro"), ExtResource("21_yrdgo"), ExtResource("22_trwe7"), ExtResource("23_xpaeq"), ExtResource("24_y8s2s"), ExtResource("25_wjm6h")])
-hard_templates = Array[Texture2D]([ExtResource("15_u8ug6"), ExtResource("27_d46dj"), ExtResource("21_7x0kk"), ExtResource("23_v5orh")])
+hard_templates = Array[Texture2D]([ExtResource("15_u8ug6"), ExtResource("27_d46dj"), ExtResource("21_7x0kk"), ExtResource("23_v5orh"), ExtResource("32_fk3an"), ExtResource("33_a3r8x")])
 start_template = ExtResource("27_48kwm")
